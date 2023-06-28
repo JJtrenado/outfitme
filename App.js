@@ -10,17 +10,12 @@ WebBrowser.maybeCompleteAuthSession();
 export default function App() {
   const [token, setToken] = useState("");
   const [userInfo, setUserInfo] = useState(null);
-  const androidClientId = ANDROID_GOOGLE_CLIENT_ID;
-  const iosClientId = IOS_GOOGLE_CLIENT_ID;
-  const webClientId = WEB_GOOGLE_CLIENT_ID;
-  const expoClientId = WEB_GOOGLE_CLIENT_ID;
-  console.log("androidClientId", androidClientId);
 
   const [request, response, promptAsync] = Google.useAuthRequest({
-    androidClientId: androidClientId,
-    iosClientId: iosClientId,
-    webClientId: webClientId,
-    expoClientId: expoClientId,
+    androidClientId: ANDROID_GOOGLE_CLIENT_ID,
+    iosClientId: IOS_GOOGLE_CLIENT_ID,
+    webClientId: WEB_GOOGLE_CLIENT_ID,
+    expoClientId: WEB_GOOGLE_CLIENT_ID,
   });
 
   useEffect(() => {
