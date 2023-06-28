@@ -113,7 +113,7 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace 'com.juanjotrenado.outfitme'
+    namespace "com.outfitme"
     defaultConfig {
         applicationId 'com.juanjotrenado.outfitme'
         minSdkVersion rootProject.ext.minSdkVersion
