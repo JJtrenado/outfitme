@@ -1,9 +1,10 @@
 import { WEB_GOOGLE_CLIENT_ID, ANDROID_GOOGLE_CLIENT_ID, IOS_GOOGLE_CLIENT_ID}from '@env'
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Button, Image } from "react-native";
 import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as Updates from 'expo-updates';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -17,6 +18,10 @@ export default function Login() {
     webClientId: WEB_GOOGLE_CLIENT_ID,
     expoClientId: WEB_GOOGLE_CLIENT_ID,
   });
+
+  const reloadApp = async () => {
+    await Updates.reloadAsync();
+  };
 
   useEffect(() => {
     handleEffect();
@@ -90,9 +95,11 @@ export default function Login() {
       )}
       <Button
         title="remove local store"
-        onPress={async () => await AsyncStorage.removeItem("@user")}
+        onPress={async () => {await AsyncStorage.removeItem("@user");}}
       />
+      <Button title="Reload" onPress={reloadApp} />
     </View>
+
   );
 }
 
