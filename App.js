@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import Login from './src/components/Login/Login';
+import Login from './src/components/Login';
 
 export default function App() { 
   return (
