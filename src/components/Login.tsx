@@ -94,10 +94,12 @@ export default function Login() {
         </View>
       )}
       <Button
-        title="remove local store"
-        onPress={async () => {await AsyncStorage.removeItem("@user");}}
+        title="Logout"
+        onPress={async () => {
+          await AsyncStorage.removeItem("@user");
+          {reloadApp}
+        }}
       />
-      <Button title="Reload" onPress={reloadApp} />
     </View>
 
   );
