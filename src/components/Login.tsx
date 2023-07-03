@@ -95,9 +95,9 @@ export default function Login() {
       )}
       <Button
         title="Logout"
-        onPress={async () => {
-          await AsyncStorage.removeItem("@user");
-          {reloadApp}
+        onPress={() => {
+          async () => {await AsyncStorage.removeItem("@user")};
+          reloadApp();
         }}
       />
     </View>
