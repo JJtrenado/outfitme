@@ -1,4 +1,4 @@
-import { WEB_GOOGLE_CLIENT_ID, ANDROID_GOOGLE_CLIENT_ID, IOS_GOOGLE_CLIENT_ID}from '@env'
+import { WEB_GOOGLE_CLIENT_ID, ANDROID_GOOGLE_CLIENT_ID, IOS_GOOGLE_CLIENT_ID }from '@env';
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Button, Image } from "react-native";
 import * as WebBrowser from "expo-web-browser";
@@ -95,9 +95,8 @@ export default function Login() {
       )}
       <Button
         title="Logout"
-        onPress={() => {
-          async () => {await AsyncStorage.removeItem("@user")};
-          reloadApp();
+        onPress={async () => {await AsyncStorage.removeItem("@user")
+        await Updates.reloadAsync()
         }}
       />
     </View>
