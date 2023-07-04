@@ -10,3 +10,7 @@ export async function getLocalUser(): Promise<User | null> { //devuelve un user 
 	if (!data) return null;
 	return JSON.parse(data);
 }
+
+export async function removeLocalUser() { 	
+	await AsyncStorage.removeItem("@user");
+}

@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Button, Image } from "react-native";
 import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Updates from 'expo-updates';
-import { save } from '../../modules/Login/Infraestructure/LocalStorageUser';
+import { getLocalUser, removeLocalUser, saveLocalUser } from '../../modules/Login/Infraestructure/LocalStorageUser';
+import { getUserInfoFromGoogle } from '../../modules/Login/Infraestructure/GoogleLogin';
+import { EndpointUser, User } from '../../modules/Login/Domain/User';
 import { UserAdapter } from '../../modules/Login/Application/UserAdapter';
 
 WebBrowser.maybeCompleteAuthSession();
@@ -34,43 +35,16 @@ export default function Login() {
     const user = await getLocalUser();
     if (!user) {
       if (response?.type === "success") {
-        //setToken(response.authentication.accessToken);
-        getUserInfo(response.authentication.accessToken);
+        const endpointUser: EndpointUser = await getUserInfoFromGoogle(response.authentication.accessToken);
+        const user: User = UserAdapter(endpointUser);
+        saveLocalUser(user);
+        setUserInfo(user);
       }
     } else {
       setUserInfo(user);
       console.log("loaded locally");
     }
   }
-  
-  const getLocalUser = async () => {
-    const data = await AsyncStorage.getItem("@user");
-    if (!data) return null;
-    return JSON.parse(data);
-  };
-
-  //obtiene la informacion de usuario de google y la guarda en local
-  const getUserInfo = async (token) => {
-    if (!token) return;
-    try {
-      const response = await fetch(
-        "https://www.googleapis.com/userinfo/v2/me",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-        );
-        
-      const user = await response.json();
-      //console.log("user", user);
-      user.token = token; //añado el token a la info de usuario
-      const formattedUser = UserAdapter(user);
-      save(formattedUser);
-      setUserInfo(formattedUser);
-    } catch (error) {
-      // Add your own error handler here
-    }
-  };
-  console.log("user: ", AsyncStorage.getItem("@user"));
   
   return (
     <View style={styles.container}>
@@ -93,7 +67,8 @@ export default function Login() {
       )}
       <Button
         title="Logout"
-        onPress={async () => {await AsyncStorage.removeItem("@user")
+        onPress={async () => {
+        removeLocalUser();
         await Updates.reloadAsync()
         }}
       />
@@ -117,6 +92,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 15,
     padding: 15,
+    margin: 15,
   },
   image: {
     width: 100,
