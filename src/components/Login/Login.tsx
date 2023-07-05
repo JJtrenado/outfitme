@@ -3,16 +3,14 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Button, Image } from "react-native";
 import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
-import * as Updates from 'expo-updates';
-import { getLocalUser, removeLocalUser, saveLocalUser } from '../../modules/Login/Infraestructure/LocalStorageUser';
-import { getUserInfoFromGoogle } from '../../modules/Login/Infraestructure/GoogleLogin';
-import { EndpointUser, User } from '../../modules/Login/Domain/User';
-import { UserAdapter } from '../../modules/Login/Application/UserAdapter';
+import { removeLocalUser } from '../../modules/Login/Infraestructure/LocalStorageUser';
+import { User } from '../../modules/Login/Domain/User';
+import { getLocalUserOrFetchFromGoogle } from '../../modules/Login/Application/getLocalUserOrFetchFromGoogle';
+import { reloadApp } from '../../modules/App/Application/ReloadApp';
 
 WebBrowser.maybeCompleteAuthSession();
 
 export default function Login() {
-  const [token, setToken] = useState("");
   const [userInfo, setUserInfo] = useState(null);
 
   const [request, response, promptAsync] = Google.useAuthRequest({
@@ -22,30 +20,14 @@ export default function Login() {
     expoClientId: WEB_GOOGLE_CLIENT_ID,
   });
 
-  const reloadApp = async () => {
-    await Updates.reloadAsync();
-  };
-
   useEffect(() => {
-    handleEffect();
-  }, [response, token]);
-
-  //mira si tenemos el usuario en local y en caso de que no llama a get user info que le pide a google la info del user
-  async function handleEffect() {
-    const user = await getLocalUser();
-    if (!user) {
-      if (response?.type === "success") {
-        const endpointUser: EndpointUser = await getUserInfoFromGoogle(response.authentication.accessToken);
-        const user: User = UserAdapter(endpointUser);
-        saveLocalUser(user);
-        setUserInfo(user);
-      }
-    } else {
+    const fetchData = async () => {
+      const user: User = await getLocalUserOrFetchFromGoogle(response);
       setUserInfo(user);
-      console.log("loaded locally");
-    }
-  }
-  
+    };
+    fetchData();
+  }, [response]);
+
   return (
     <View style={styles.container}>
       {!userInfo ? (
@@ -69,7 +51,7 @@ export default function Login() {
         title="Logout"
         onPress={async () => {
         removeLocalUser();
-        await Updates.reloadAsync()
+        await reloadApp();
         }}
       />
     </View>
