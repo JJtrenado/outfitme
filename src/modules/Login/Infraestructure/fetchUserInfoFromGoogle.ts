@@ -1,7 +1,12 @@
 import { EndpointUser } from "../Domain/User";
 
-  //obtiene la informacion de usuario de google y la guarda en local
-  export const fetchUserInfoFromGoogle = async (token): Promise<EndpointUser> => {
+  /**
+  * This code fetches user information from the Google API using an access token.
+  *
+  * @param {string} token The access token required for authentication.
+  * @return {Promise<EndpointUser>} The user information obtained from Google.
+  */
+  export const fetchUserInfoFromGoogle = async (token: string): Promise<EndpointUser> => {
     if (!token) return;
     try {
       const response = await fetch(
@@ -12,9 +17,9 @@ import { EndpointUser } from "../Domain/User";
         );
         
       const endpointUser:EndpointUser = await response.json();
-      endpointUser.token = token; //añado el token a la info de usuario
+      endpointUser.token = token; //adding token to the user object for future JWT use
       return endpointUser;
     } catch (error) {
-      // Add error handler
+      console.error("Error fetching user info from Google:", error);
     }
   };
