@@ -6,7 +6,7 @@ npm-debug.*
 *.p8
 *.p12
 *.key
-# si no comentas * no lee las variables de entorno en el apk [INCREIBLE]
+# Comment the *.env file to create the APK, or it won't work.
 *.env
 *.mobileprovision
 *.apk
