@@ -14,5 +14,5 @@ export interface EndpointUser {
   family_name: string;
   picture: string;
   locale: string;
-  token: string; //tengo que meterselo en la funcion que recibe la peticion
+  token: string;
 }
