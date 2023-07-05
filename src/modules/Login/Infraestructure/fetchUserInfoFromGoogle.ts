@@ -1,7 +1,7 @@
 import { EndpointUser } from "../Domain/User";
 
   //obtiene la informacion de usuario de google y la guarda en local
-  export const getUserInfoFromGoogle = async (token): Promise<EndpointUser> => {
+  export const fetchUserInfoFromGoogle = async (token): Promise<EndpointUser> => {
     if (!token) return;
     try {
       const response = await fetch(
