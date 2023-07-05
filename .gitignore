@@ -7,8 +7,9 @@ npm-debug.*
 *.p12
 *.key
 # si no comentas * no lee las variables de entorno en el apk [INCREIBLE]
-*
+*.env
 *.mobileprovision
+*.apk
 *.orig.*
 web-build/
 
