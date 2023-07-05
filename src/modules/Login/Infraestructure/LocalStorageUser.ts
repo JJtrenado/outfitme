@@ -5,7 +5,7 @@ export async function saveLocalUser(user: User) {
 	await AsyncStorage.setItem("@user", JSON.stringify(user));
 }
 
-export async function getLocalUser(): Promise<User | null> { //devuelve un user o null
+export async function getLocalUser(): Promise<User | null> {
 	const data = await AsyncStorage.getItem("@user");
 	if (!data) return null;
 	return JSON.parse(data);
