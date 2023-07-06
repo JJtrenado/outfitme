@@ -1,0 +1,29 @@
+
+> prueba@1.0.0 android
+> expo start --android
+
+Starting project at /home/juanjo/GitHub/outfitme/apps/client
+Starting Metro Bundler
+› Opening emulator Pixel_3a_API_34_extension_level_7_x86_64
+› Opening exp://192.168.1.19:19000 on Pixel_3a_API_34_extension_level_7_x86_64
+Error: adb: device offline
+Error: /home/juanjo/Android/Sdk/platform-tools/adb exited with non-zero code: 1
+    at ChildProcess.completionListener (/home/juanjo/GitHub/outfitme/node_modules/@expo/spawn-async/build/spawnAsync.js:52:23)
+    at Object.onceWrapper (node:events:628:26)
+    at ChildProcess.emit (node:events:513:28)
+    at maybeClose (node:internal/child_process:1091:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:302:5)
+    ...
+    at Object.spawnAsync [as default] (/home/juanjo/GitHub/outfitme/node_modules/@expo/spawn-async/build/spawnAsync.js:17:21)
+    at ADBServer.runAsync (/home/juanjo/GitHub/outfitme/node_modules/@expo/cli/build/src/start/platforms/android/ADBServer.js:80:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async openAsync (/home/juanjo/GitHub/outfitme/node_modules/@expo/cli/build/src/start/platforms/android/adb.js:110:21)
+    at async AndroidDeviceManager.openUrlAsync (/home/juanjo/GitHub/outfitme/node_modules/@expo/cli/build/src/start/platforms/android/AndroidDeviceManager.js:166:9)
+    at async AndroidPlatformManager.openProjectInExpoGoAsync (/home/juanjo/GitHub/outfitme/node_modules/@expo/cli/build/src/start/platforms/PlatformManager.js:64:9)
+    at async Promise.allSettled (index 0)
+    at async openPlatformsAsync (/home/juanjo/GitHub/outfitme/node_modules/@expo/cli/build/src/start/server/openPlatforms.js:8:21)
+    at async startAsync (/home/juanjo/GitHub/outfitme/node_modules/@expo/cli/build/src/start/startAsync.js:117:5)
+npm ERR! Lifecycle script `android` failed with error: 
+npm ERR! Error: command failed 
+npm ERR!   in workspace: prueba@1.0.0 
+npm ERR!   at location: /home/juanjo/GitHub/outfitme/apps/client 

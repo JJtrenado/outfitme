@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "web": "turbo web"
+    "web": "turbo web",
+    "android": "turbo web",
+    "buildapk": "turbo web",
+    "start": "turbo web"
   },
   "keywords": [],
   "author": "",

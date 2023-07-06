@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Ruta del archivo .gitignore
-GITIGNORE_FILE=".gitignore"
+GITIGNORE_FILE="../../.gitignore"
 
 # Comentar la línea que contiene "*.env" en el archivo .gitignore
 sed -i '/\*\.env/s/^/#/' "$GITIGNORE_FILE"
