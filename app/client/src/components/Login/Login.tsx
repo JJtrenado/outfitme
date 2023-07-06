@@ -1,3 +1,4 @@
+// @ts-ignore
 import { WEB_GOOGLE_CLIENT_ID, ANDROID_GOOGLE_CLIENT_ID, IOS_GOOGLE_CLIENT_ID }from '@env';
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
