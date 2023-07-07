@@ -1,3 +1,5 @@
+// This is infrastructure layer because we treat the local storage as a database.
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { User } from '../Domain/User';
 
