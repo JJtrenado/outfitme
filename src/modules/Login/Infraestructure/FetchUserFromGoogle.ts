@@ -6,7 +6,7 @@ import { EndpointUser } from "../Domain/User";
   * @param {string} token The access token required for authentication.
   * @return {Promise<EndpointUser>} The user information obtained from Google.
   */
-  export const fetchUserInfoFromGoogle = async (token: string): Promise<EndpointUser> => {
+  export const fetchUserFromGoogle = async (token: string): Promise<EndpointUser> => {
     if (!token) return;
     try {
       const response = await fetch(
