@@ -2,3 +2,57 @@
 > backend@0.0.1 web
 > nest start --watch --preserveWatchOutput
 
+[[90m13:10:48[0m] Starting compilation in watch mode...
+
+[[90m13:10:50[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 40547  - [39m07/07/2023, 13:10:50 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 40547  - [39m07/07/2023, 13:10:50 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +17ms[39m
+[32m[Nest] 40547  - [39m07/07/2023, 13:10:50 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +10ms[39m
+[32m[Nest] 40547  - [39m07/07/2023, 13:10:50 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/validate, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 40547  - [39m07/07/2023, 13:10:50 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +2ms[39m
+Error al validar el token de Google: { error: 'invalid_token', error_description: 'Invalid Value' }
+[[90m13:12:49[0m] File change detected. Starting incremental compilation...
+
+[[90m13:12:50[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 41206  - [39m07/07/2023, 13:12:50 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 41206  - [39m07/07/2023, 13:12:50 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +14ms[39m
+[32m[Nest] 41206  - [39m07/07/2023, 13:12:50 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +9ms[39m
+[32m[Nest] 41206  - [39m07/07/2023, 13:12:50 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/validate, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 41206  - [39m07/07/2023, 13:12:50 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +2ms[39m
+Datos de usuario de Google: {
+  issued_to: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  audience: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  user_id: '108183304094105090419',
+  scope: 'openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
+  expires_in: 3501,
+  email: 'trenadoj66@gmail.com',
+  verified_email: true,
+  access_type: 'online'
+}
+[[90m13:19:23[0m] File change detected. Starting incremental compilation...
+
+[91merror[0m[90m TS6053: [0mFile '/home/juanjo/GitHub/outfitme/apps/backend/src/app.service.ts' not found.
+  The file is in the program because:
+    Matched by default include pattern '**/*'
+
+[[90m13:19:23[0m] Found 1 error. Watching for file changes.
+
+[[90m13:19:24[0m] File change detected. Starting incremental compilation...
+
+[[90m13:19:24[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 42874  - [39m07/07/2023, 13:19:24 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 42874  - [39m07/07/2023, 13:19:24 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +15ms[39m
+[32m[Nest] 42874  - [39m07/07/2023, 13:19:24 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +10ms[39m
+[32m[Nest] 42874  - [39m07/07/2023, 13:19:24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/validate, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 42874  - [39m07/07/2023, 13:19:24 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +2ms[39m
+Datos de usuario de Google: {
+  issued_to: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  audience: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  user_id: '108183304094105090419',
+  scope: 'openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
+  expires_in: 3106,
+  email: 'trenadoj66@gmail.com',
+  verifi
