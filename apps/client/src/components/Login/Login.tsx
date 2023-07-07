@@ -6,7 +6,7 @@ import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
 import { removeLocalUser } from '../../modules/Login/Infraestructure/LocalStorageUser';
 import { User } from '../../modules/Login/Domain/User';
-import { getLocalUserOrFetchFromGoogle } from '../../modules/Login/Application/GetLocalUserOrFetchFromGoogle';
+import { getUser } from '../../modules/Login/Infraestructure/getUser';
 import { reloadApp } from '../../modules/App/Application/ReloadApp';
 
 WebBrowser.maybeCompleteAuthSession();
@@ -23,7 +23,7 @@ export default function Login() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const user: User = await getLocalUserOrFetchFromGoogle(response);
+      const user: User = await getUser(response);
       setUserInfo(user);
     };
     fetchData();
