@@ -1,5 +1,4 @@
 import { Controller, Get, Query } from '@nestjs/common';
-
 import { GoogleAuthService } from './google-auth-service.service';
 
 @Controller('auth')
