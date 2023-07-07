@@ -1,3 +1,4 @@
+// @ts-ignore
 import { WEB_GOOGLE_CLIENT_ID, ANDROID_GOOGLE_CLIENT_ID, IOS_GOOGLE_CLIENT_ID }from '@env';
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
@@ -5,7 +6,7 @@ import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
 import { removeLocalUser } from '../../modules/Login/Infraestructure/LocalStorageUser';
 import { User } from '../../modules/Login/Domain/User';
-import { getLocalUserOrFetchFromGoogle } from '../../modules/Login/Application/GetLocalUserOrFetchFromGoogle';
+import { getUser } from '../../modules/Login/Infraestructure/getUser';
 import { reloadApp } from '../../modules/App/Application/ReloadApp';
 
 WebBrowser.maybeCompleteAuthSession();
@@ -22,7 +23,7 @@ export default function Login() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const user: User = await getLocalUserOrFetchFromGoogle(response);
+      const user: User = await getUser(response);
       setUserInfo(user);
     };
     fetchData();
