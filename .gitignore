@@ -6,8 +6,6 @@ npm-debug.*
 *.p8
 *.p12
 *.key
-# Comment the *.env file to create the APK, or it won't work.
-*.env
 *.mobileprovision
 *.apk
 *.orig.*
