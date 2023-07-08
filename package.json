@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "web": "turbo web",
-    "android": "turbo web",
-    "buildapk": "turbo web",
-    "start": "turbo web"
+    "android": "turbo antroid",
+    "buildapk": "turbo buildapk",
+    "start": "turbo start"
   },
   "keywords": [],
   "author": "",
