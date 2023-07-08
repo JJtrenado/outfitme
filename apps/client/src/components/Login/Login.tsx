@@ -31,6 +31,8 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
+      <Image source={require("../../../assets/tshirt.png")} style={styles.tshirt} resizeMode="contain"/>
+      <Image source={require("../../../assets/text.png")} style={styles.textLogo} resizeMode="contain"/>
       {!userInfo ? (
         <TouchableOpacity style={styles.button}
         onPress={() => {
@@ -74,8 +76,8 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    marginTop: 50,
     alignItems: "center",
-    justifyContent: "center",
   },
   text: {
     fontSize: 20,
@@ -89,6 +91,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     margin: 10,
+    marginTop: 100,
     alignItems: "center",
     justifyContent: "space-between",
   },
@@ -97,5 +100,13 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 50,
     margin: 5,
+  },
+  textLogo: {
+    width: 150,
+    height: 50,
+  },
+  tshirt: {
+    width: 100,
+    height: 100,
   },
 });
