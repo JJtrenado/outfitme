@@ -2,7 +2,7 @@ export interface User {
 	email: string;
 	name: string;
   picture: string;
-	token: string;
+	jwt: string;
 }
 
 export interface EndpointUser {
@@ -14,5 +14,4 @@ export interface EndpointUser {
   family_name: string;
   picture: string;
   locale: string;
-  token: string;
 }

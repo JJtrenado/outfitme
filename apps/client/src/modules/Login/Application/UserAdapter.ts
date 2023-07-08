@@ -5,7 +5,6 @@ export const UserAdapter = (endpointUser: EndpointUser): User =>{
       email: endpointUser.email,
       name: endpointUser.name,
       picture: endpointUser.picture,
-      token: endpointUser.token,
     };
     return user;
   };
