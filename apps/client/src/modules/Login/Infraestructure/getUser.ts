@@ -21,6 +21,7 @@ export async function getUser(response: AuthSessionResult) :Promise<User> {
     const jwt: string = await validateToken(response.authentication.accessToken);
     user.jwt = jwt;
     saveLocalUser(user);
+    console.log("token:", response.authentication.accessToken);
   }
   
   if(!user && response?.type != "success") throw new Error("User not logged in");
