@@ -15,13 +15,11 @@ export async function getUser(response: AuthSessionResult) :Promise<User> {
   let user: User = await getLocalUser();
 
   if(!user && response?.type === "success") {
-    console.log(response);
     const endpointUser: EndpointUser = await fetchUserFromGoogle(response.authentication.accessToken);
     user = UserAdapter(endpointUser);
     const jwt: string = await validateToken(response.authentication.accessToken);
     user.jwt = jwt;
     saveLocalUser(user);
-    console.log("token:", response.authentication.accessToken);
   }
   
   if(!user && response?.type != "success") throw new Error("User not logged in");

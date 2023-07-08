@@ -1,0 +1,149 @@
+
+> backend@0.0.1 web
+> nest start --watch --preserveWatchOutput
+
+[[90m20:23:56[0m] Starting compilation in watch mode...
+
+[[90m20:23:58[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +12ms[39m
+[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +9ms[39m
+[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/validate, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +3ms[39m
+Datos de usuario de Google: {
+  issued_to: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  audience: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  user_id: '108183304094105090419',
+  scope: 'openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
+  expires_in: 3598,
+  email: 'trenadoj66@gmail.com',
+  verified_email: true,
+  access_type: 'online'
+}
+[31m[Nest] 92342  - [39m08/07/2023, 20:24:18 [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39m[31mCannot read properties of undefined (reading 'data')[39m
+TypeError: Cannot read properties of undefined (reading 'data')
+    at GoogleAuthService.validateUser (/home/juanjo/GitHub/outfitme/apps/backend/src/google-auth.service.ts:28:24)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at AuthController.validateToken (/home/juanjo/GitHub/outfitme/apps/backend/src/auth.controller.ts:16:21)
+    at /home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/router/router-execution-context.js:46:28
+    at /home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/router/router-proxy.js:9:17
+Datos de usuario de Google: {
+  issued_to: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  audience: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  user_id: '108183304094105090419',
+  scope: 'openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
+  expires_in: 3599,
+  email: 'trenadoj66@gmail.com',
+  verified_email: true,
+  access_type: 'online'
+}
+[31m[Nest] 92342  - [39m08/07/2023, 20:24:34 [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39m[31mCannot read properties of undefined (reading 'data')[39m
+TypeError: Cannot read properties of undefined (reading 'data')
+    at GoogleAuthService.validateUser (/home/juanjo/GitHub/outfitme/apps/backend/src/google-auth.service.ts:28:24)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at AuthController.validateToken (/home/juanjo/GitHub/outfitme/apps/backend/src/auth.controller.ts:16:21)
+    at /home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/router/router-execution-context.js:46:28
+    at /home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/router/router-proxy.js:9:17
+[[90m20:28:10[0m] File change detected. Starting incremental compilation...
+
+[[90m20:28:10[0m] Found 0 errors. Watching for file changes.
+
+process.env.JWT_SECRET undefined
+[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +13ms[39m
+[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +9ms[39m
+[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/validate, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +2ms[39m
+Datos de usuario de Google: {
+  issued_to: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  audience: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  user_id: '108183304094105090419',
+  scope: 'openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
+  expires_in: 3598,
+  email: 'trenadoj66@gmail.com',
+  verified_email: true,
+  access_type: 'online'
+}
+Datos de usuario de Google: {
+  issued_to: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  audience: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  user_id: '108183304094105090419',
+  scope: 'openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
+  expires_in: 3598,
+  email: 'trenadoj66@gmail.com',
+  verified_email: true,
+  access_type: 'online'
+}
+[[90m20:28:52[0m] File change detected. Starting incremental compilation...
+
+[[90m20:28:52[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +13ms[39m
+[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +11ms[39m
+[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/validate, GET} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +2ms[39m
+Datos de usuario de Google: {
+  issued_to: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  audience: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  user_id: '108183304094105090419',
+  scope: 'openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
+  expires_in: 3598,
+  email: 'trenadoj66@gmail.com',
+  verified_email: true,
+  access_type: 'online'
+}
+Datos de usuario de Google: {
+  issued_to: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  audience: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
+  user_id: '108183304094105090419',
+  scope: 'openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
+  expires_in: 3598,
+  email: 'trenadoj66@gmail.com',
+  verified_email: true,
+  access_type: 'online'
+}
+[[90m20:30:30[0m] File change detected. Starting incremental compilation...
+
+[[90m20:30:31[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +11ms[39m
+[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +9ms[39m
+[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/validate, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +2ms[39m
+[[90m20:30:39[0m] File change detected. Starting incremental compilation...
+
+[[90m20:30:40[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +12ms[39m
+[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +10ms[39m
+[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/validate, GET} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +3ms[39m
+[[90m20:31:25[0m] File change detected. Starting incremental compilation...
+
+[[90m20:31:25[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 94628  - [39m08/07/2023, 20:31:26 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 94628  - [39m08/07/2023, 20:31:26 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +12ms[39m
+[32m[Nest] 94628  - [39m08/07/2023, 20:31:26 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 94628  - [39m08/07/2023, 20:31:26 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 94628  - [39m08/07/2023, 20:31:26 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 94628  - [39m08/07/2023, 20:31:26 [32m    LOG[39m [38;5;3m[

@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { GoogleAuthService } from './google-auth.service';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
-import { jwtConstants } from './constants';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     JwtModule.register({
-      secret: jwtConstants.secret, // Reemplaza por tu propia clave secreta
+      secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '1h' },
     }),
   ],

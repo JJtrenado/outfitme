@@ -11,15 +11,13 @@ export class GoogleAuthService {
         `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${token}`,
       );
       const userData = response.data;
-      console.log('Datos de usuario de Google:', userData);
 
-      // Generar el JWT
       const payload = {
         user_id: userData.user_id,
         email: userData.email,
         token,
       };
-      const access_token = this.jwtService.sign(payload);
+      const access_token = this.jwtService.sign(payload); // this generates the JWT
 
       return { access_token };
     } catch (error) {
