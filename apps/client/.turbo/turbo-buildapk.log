@@ -1,0 +1,1378 @@
+
+> client@1.0.0 buildapk
+> eas build -p android --profile preview --local
+
+Loaded "env" configuration for the "preview" profile: no environment variables specified. Learn more: https://docs.expo.dev/build-reference/variables/
+✔ Using remote Android credentials (Expo server)
+✔ Using Keystore from configuration: Build Credentials 96fu05j-o3 (default)
+ANDROID_NDK_HOME environment variable was not specified, continuing build without NDK
+[SETUP_WORKINGDIR] Preparing workingdir /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1
+[START_BUILD] Starting build
+  "job": {
+    "type": "managed",
+    "platform": "android",
+    "projectRootDirectory": "apps/client",
+    "projectArchive": {
+      "type": "PATH",
+      "path": "/tmp/juanjo/eas-cli-nodejs/45f6a48c-fe32-48c3-8923-c70bcccfcd1d.tar.gz"
+    },
+    "builderEnvironment": {},
+    "cache": {
+      "disabled": false,
+      "paths": [],
+      "clear": false
+    },
+    "updates": {},
+    "buildType": "apk",
+    "username": "juanjotrenado",
+    "experimental": {},
+    "mode": "build",
+    "triggeredBy": "EAS_CLI"
+  }
+[READ_PACKAGE_JSON] Using package.json:
+[READ_PACKAGE_JSON] {
+  "name": "client",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "buildapk": "eas build -p android --profile preview --local"
+  },
+  "dependencies": {
+    "@expo/webpack-config": "^18.0.1",
+    "@react-native-async-storage/async-storage": "1.17.11",
+    "@types/react": "~18.0.27",
+    "axios": "^1.4.0",
+    "expo": "~48.0.18",
+    "expo-auth-session": "~4.0.3",
+    "expo-status-bar": "~1.4.4",
+    "expo-updates": "~0.16.4",
+    "expo-web-browser": "~12.1.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.71.8",
+    "react-native-dotenv": "^3.4.9",
+    "react-native-web": "~0.18.10",
+    "typescript": "^4.9.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
+}
+[INSTALL_DEPENDENCIES] We detected that 'apps/client' is a npm workspace
+[INSTALL_DEPENDENCIES] Running "npm install" in /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build directory
+[INSTALL_DEPENDENCIES] npm
+[INSTALL_DEPENDENCIES] WARN deprecated @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+[INSTALL_DEPENDENCIES] npm WARN
+[INSTALL_DEPENDENCIES] deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+[INSTALL_DEPENDENCIES] npm
+[INSTALL_DEPENDENCIES] WARN deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+[INSTALL_DEPENDENCIES] npm
+[INSTALL_DEPENDENCIES] WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+[INSTALL_DEPENDENCIES] npm WARN
+[INSTALL_DEPENDENCIES] deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+[INSTALL_DEPENDENCIES] npm WARN deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+[INSTALL_DEPENDENCIES] npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+[INSTALL_DEPENDENCIES] npm WARN deprecated uglify-es@3.3.9: support for ECMAScript is superseded by `uglify-js` as of v3.13.0
+[INSTALL_DEPENDENCIES] added 2083 packages, and audited 2088 packages in 37s
+[INSTALL_DEPENDENCIES] 144 packages are looking for funding
+[INSTALL_DEPENDENCIES]   run `npm fund` for details
+[INSTALL_DEPENDENCIES] 65 vulnerabilities (60 moderate, 5 high)
+[INSTALL_DEPENDENCIES] 
+[INSTALL_DEPENDENCIES] To address issues that do not require attention, run:
+[INSTALL_DEPENDENCIES]   npm audit fix
+[INSTALL_DEPENDENCIES] 
+[INSTALL_DEPENDENCIES] To address all issues (including breaking changes), run:
+[INSTALL_DEPENDENCIES]   npm audit fix --force
+[INSTALL_DEPENDENCIES] 
+[INSTALL_DEPENDENCIES] Run `npm audit` for details.
+[READ_APP_CONFIG] Using app configuration:
+[READ_APP_CONFIG] {
+  "name": "outfitme",
+  "slug": "outfitme",
+  "version": "1.0.0",
+  "orientation": "portrait",
+  "icon": "./assets/icon.png",
+  "userInterfaceStyle": "light",
+  "splash": {
+    "image": "./assets/splash.png",
+    "resizeMode": "contain",
+    "backgroundColor": "#ffffff"
+  },
+  "assetBundlePatterns": [
+    "**/*"
+  ],
+  "ios": {
+    "supportsTablet": true,
+    "bundleIdentifier": "com.juanjotrenado.outfitme"
+  },
+  "android": {
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/adaptive-icon.png",
+      "backgroundImage": "./assets/background-image.png"
+    },
+    "package": "com.juanjotrenado.outfitme"
+  },
+  "web": {
+    "favicon": "./assets/favicon.png"
+  },
+  "extra": {
+    "eas": {
+      "projectId": "bb6ebe8b-a13f-4270-bb10-323424efe3b1"
+    }
+  },
+  "sdkVersion": "48.0.0",
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
+  "currentFullName": "@juanjotrenado/outfitme",
+  "originalFullName": "@juanjotrenado/outfitme"
+}
+[RUN_EXPO_DOCTOR] Running "expo doctor"
+[RUN_EXPO_DOCTOR] Running 7 checks on your project...
+[RUN_EXPO_DOCTOR] ✔ Check package.json for common issues
+[RUN_EXPO_DOCTOR] ✔ Validate global prerequisites versions
+[RUN_EXPO_DOCTOR] ✔ Validate Expo Config
+[RUN_EXPO_DOCTOR] ✔ Check compatible dependency versions for the installed Expo SDK
+[RUN_EXPO_DOCTOR] ✔ Check for incompatible packages
+[RUN_EXPO_DOCTOR] ✔ Check for conflicting global packages in project
+[RUN_EXPO_DOCTOR] ✔ Verify prebuild support package versions are compatible
+[RUN_EXPO_DOCTOR] Didn't find any issues with the project!
+[PREBUILD] - Creating native project directories (./ios and ./android) and updating .gitignore
+[PREBUILD] ✔ Created native project | gitignore skipped
+[PREBUILD] - Adding Metro bundler config
+[PREBUILD] › Metro skipped: Project metro.config.js does not match prebuild template.
+[PREBUILD] › Ensure the project uses expo/metro-config.
+[PREBUILD]   Learn more: https://docs.expo.dev/guides/customizing-metro
+[PREBUILD] - Updating your package.json scripts, dependencies, and main file
+[PREBUILD] ✔ Updated package.json and added index.js entry point for iOS and Android
+[PREBUILD] - Config syncing
+[PREBUILD] Using node to generate images. This is much slower than using native packages.
+[PREBUILD] › Optionally you can stop the process and try again after successfully running `npm install -g sharp-cli`.
+[PREBUILD] - Config syncing
+[PREBUILD] » android: userInterfaceStyle: Install expo-system-ui in your project to enable this feature.
+[PREBUILD] - Config syncing
+[PREBUILD] ✔ Config synced
+[PREBUILD] We detected that 'apps/client' is a npm workspace
+[PREBUILD] Running "npm install" in /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build directory
+[PREBUILD] added 11 packages, and audited 2099 packages in 7s
+[PREBUILD] 144 packages are looking for funding
+[PREBUILD]   run `npm fund` for details
+[PREBUILD] 66 vulnerabilities (61 moderate, 5 high)
+[PREBUILD] 
+[PREBUILD] To address issues that do not require attention, run:
+[PREBUILD]   npm audit fix
+[PREBUILD] 
+[PREBUILD] To address all issues (including breaking changes), run:
+[PREBUILD]   npm audit fix --force
+[PREBUILD] 
+[PREBUILD] Run `npm audit` for details.
+[PREPARE_CREDENTIALS] Writing secrets to the project's directory
+[PREPARE_CREDENTIALS] Injecting signing config into build.gradle
+[CONFIGURE_EXPO_UPDATES] Using default release channel for 'expo-updates' (default)
+[RUN_GRADLEW] Running 'gradlew :app:assembleRelease' in /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android
+[RUN_GRADLEW] Starting a Gradle Daemon, 17 busy and 1 incompatible Daemons could not be reused, use --status for details
+[RUN_GRADLEW] > Task :react-native-gradle-plugin:compileKotlin
+[RUN_GRADLEW] > Task :react-native-gradle-plugin:compileJava NO-SOURCE
+[RUN_GRADLEW] > Task :react-native-gradle-plugin:pluginDescriptors
+[RUN_GRADLEW] > Task :react-native-gradle-plugin:processResources
+[RUN_GRADLEW] > Task :react-native-gradle-plugin:classes
+[RUN_GRADLEW] > Task :react-native-gradle-plugin:inspectClassesForKotlinIC
+[RUN_GRADLEW] > Task :react-native-gradle-plugin:jar
+[RUN_GRADLEW] > Configure project :expo-application
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] > Configure project :expo-constants
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] > Configure project :expo-crypto
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] > Configure project :expo-eas-client
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] > Configure project :expo-file-system
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] > Configure project :expo-font
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] > Configure project :expo-json-utils
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] > Configure project :expo-keep-awake
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] > Configure project :expo-manifests
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] > Configure project :expo-modules-core
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] > Configure project :expo-splash-screen
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] > Configure project :expo-structured-headers
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] > Configure project :expo-updates
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] > Configure project :expo-updates-interface
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] > Configure project :expo-web-browser
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] > Configure project :expo
+[RUN_GRADLEW] Using expo modules
+[RUN_GRADLEW]   - [32mexpo-application[0m (5.1.1)
+[RUN_GRADLEW] - [32mexpo-constants[0m (14.2.1)
+[RUN_GRADLEW]   - [32mexpo-crypto[0m (12.2.2)
+[RUN_GRADLEW]   - [32mexpo-eas-client[0m (0.5.1)
+[RUN_GRADLEW]   - [32mexpo-file-system[0m (15.2.2)
+[RUN_GRADLEW]   - [32mexpo-font[0m (11.1.1)
+[RUN_GRADLEW]   - [32mexpo-json-utils[0m (0.5.1)
+[RUN_GRADLEW] - [32mexpo-keep-awake[0m (12.0.1)
+[RUN_GRADLEW]   - [32mexpo-manifests[0m (0.5.2)
+[RUN_GRADLEW]   - [32mexpo-modules-core[0m (1.2.7)
+[RUN_GRADLEW]   - [32mexpo-splash-screen[0m (0.18.2)
+[RUN_GRADLEW]   - [32mexpo-structured-headers[0m (3.1.2)
+[RUN_GRADLEW]   - [32mexpo-updates[0m (0.16.4)
+[RUN_GRADLEW]   - [32mexpo-web-browser[0m (12.1.1)
+[RUN_GRADLEW] WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+[RUN_GRADLEW] The Kotlin Gradle plugin was loaded multiple times in different subprojects, which is not supported and may break the build.
+[RUN_GRADLEW] This might happen in subprojects that apply the Kotlin plugins with the Gradle 'plugins { ... }' DSL if they specify explicit versions, even if the versions are equal.
+[RUN_GRADLEW] Please add the Kotlin plugin to the common parent project or the root project, then remove the versions in the subprojects.
+[RUN_GRADLEW] If the parent project does not need the plugin, add 'apply false' to the plugin line.
+[RUN_GRADLEW] See: https://docs.gradle.org/current/userguide/plugins.html#sec:subprojects_plugins_dsl
+[RUN_GRADLEW] The Kotlin plugin was loaded in the following projects: ':expo', ':expo-modules-core'
+[RUN_GRADLEW] > Task :app:buildCodegenCLI SKIPPED
+[RUN_GRADLEW] > Task :app:generateCodegenSchemaFromJavaScript SKIPPED
+[RUN_GRADLEW] > Task :app:generateCodegenArtifactsFromSchema
+[RUN_GRADLEW] SKIPPED
+[RUN_GRADLEW] > Task :app:generatePackageList
+[RUN_GRADLEW] > Task :app:preBuild
+[RUN_GRADLEW] > Task :app:preReleaseBuild
+[RUN_GRADLEW] > Task :expo:generateExpoModulesPackageList
+[RUN_GRADLEW] > Task :expo:preBuild
+[RUN_GRADLEW] > Task :expo:preReleaseBuild
+[RUN_GRADLEW] > Task :expo-application:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-application:preReleaseBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-modules-core:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-modules-core:preReleaseBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-modules-core:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo-application:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo-constants:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-constants:preReleaseBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-constants:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo-crypto:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-crypto:preReleaseBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-crypto:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo-eas-client:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-eas-client:preReleaseBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-eas-client:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo-file-system:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-file-system:preReleaseBuild
+[RUN_GRADLEW] UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-file-system:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo-font:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-font:preReleaseBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-font:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo-json-utils:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-json-utils:preReleaseBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-json-utils:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo-keep-awake:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-keep-awake:preReleaseBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-keep-awake:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo-manifests:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-manifests:preReleaseBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-manifests:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo-splash-screen:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-splash-screen:preReleaseBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-splash-screen:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo-structured-headers:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-structured-headers:preReleaseBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-structured-headers:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-updates:preReleaseBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-updates-interface:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-updates-interface:preReleaseBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-updates-interface:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo-web-browser:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-web-browser:preReleaseBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-web-browser:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :expo-application:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-constants:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-crypto:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-eas-client:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-file-system:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-font:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-json-utils:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-keep-awake:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-manifests:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-modules-core:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-splash-screen:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-structured-headers:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-web-browser:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo:generateReleaseResources
+[RUN_GRADLEW] > Task :expo:packageReleaseResources
+[RUN_GRADLEW] > Task :expo-application:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-application:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo-application:generateReleaseResources
+[RUN_GRADLEW] > Task :expo-application:packageReleaseResources
+[RUN_GRADLEW] > Task :expo-modules-core:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-modules-core:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo-modules-core:generateReleaseResources
+[RUN_GRADLEW] > Task :expo-modules-core:packageReleaseResources
+[RUN_GRADLEW] > Task :expo:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-application:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-constants:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-modules-core:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-constants:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo-constants:generateReleaseResources
+[RUN_GRADLEW] > Task :expo-constants:packageReleaseResources
+[RUN_GRADLEW] > Task :expo-constants:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-crypto:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-crypto:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo-crypto:generateReleaseResources
+[RUN_GRADLEW] > Task :expo-crypto:packageReleaseResources
+[RUN_GRADLEW] > Task :expo-application:processReleaseManifest
+[RUN_GRADLEW] package="expo.modules.application" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-application/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :expo-modules-core:processReleaseManifest
+[RUN_GRADLEW] package="expo.modules" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :expo-constants:processReleaseManifest
+[RUN_GRADLEW] package="expo.modules.constants" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-constants/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :expo:processReleaseManifest
+[RUN_GRADLEW] package="expo.core" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :expo-crypto:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-eas-client:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-eas-client:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo-eas-client:generateReleaseResources
+[RUN_GRADLEW] > Task :expo-crypto:processReleaseManifest
+[RUN_GRADLEW] package="expo.modules.crypto" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-crypto/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :expo-eas-client:packageReleaseResources
+[RUN_GRADLEW] > Task :expo-eas-client:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-file-system:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-file-system:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo-file-system:generateReleaseResources
+[RUN_GRADLEW] > Task :expo-eas-client:processReleaseManifest
+[RUN_GRADLEW] package="expo.modules.easclient" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-eas-client/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :expo-file-system:packageReleaseResources
+[RUN_GRADLEW] > Task :expo-modules-core:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-font:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-file-system:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-file-system:processReleaseManifest
+[RUN_GRADLEW] package="expo.modules.filesystem" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/AndroidManifest.xml:8:9-10:20 Warning:
+[RUN_GRADLEW] 	provider#expo.modules.filesystem.FileSystemFileProvider@android:authorities was tagged at AndroidManifest.xml:8 to replace other declarations but no other declaration present
+[RUN_GRADLEW] > Task :expo-application:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-constants:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-crypto:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-eas-client:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-font:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo-font:generateReleaseResources
+[RUN_GRADLEW] > Task :expo-font:packageReleaseResources
+[RUN_GRADLEW] > Task :expo-json-utils:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-file-system:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-font:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-json-utils:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo-json-utils:generateReleaseResources
+[RUN_GRADLEW] > Task :expo-font:processReleaseManifest
+[RUN_GRADLEW] package="expo.modules.font" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-font/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :expo-json-utils:packageReleaseResources
+[RUN_GRADLEW] > Task :expo-keep-awake:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-json-utils:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-keep-awake:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo-keep-awake:generateReleaseResources
+[RUN_GRADLEW] > Task :expo-json-utils:processReleaseManifest
+[RUN_GRADLEW] package="expo.modules.jsonutils" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-json-utils/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :expo-keep-awake:packageReleaseResources
+[RUN_GRADLEW] > Task :expo-font:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-json-utils:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-keep-awake:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-manifests:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-manifests:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo-manifests:generateReleaseResources
+[RUN_GRADLEW] > Task :expo-keep-awake:processReleaseManifest
+[RUN_GRADLEW] package="expo.modules.keepawake" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-keep-awake/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :expo-manifests:packageReleaseResources
+[RUN_GRADLEW] > Task :expo-manifests:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-splash-screen:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-splash-screen:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo-splash-screen:generateReleaseResources
+[RUN_GRADLEW] > Task :expo-manifests:processReleaseManifest
+[RUN_GRADLEW] package="expo.modules.manifests" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-manifests/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :expo-keep-awake:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-splash-screen:packageReleaseResources
+[RUN_GRADLEW] > Task :expo-structured-headers:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-manifests:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-structured-headers:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo-structured-headers:generateReleaseResources
+[RUN_GRADLEW] > Task :expo-splash-screen:processReleaseManifest
+[RUN_GRADLEW] package="expo.modules.splashscreen" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-splash-screen/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :expo-splash-screen:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-structured-headers:packageReleaseResources
+[RUN_GRADLEW] > Task :expo-updates-interface:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-structured-headers:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-updates:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo-structured-headers:processReleaseManifest
+[RUN_GRADLEW] package="expo.modules.structuredheaders" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-structured-headers/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :expo-splash-screen:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-updates:generateReleaseResources
+[RUN_GRADLEW] > Task :expo-updates:packageReleaseResources
+[RUN_GRADLEW] > Task :expo-updates:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-updates-interface:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates-interface:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo-updates-interface:generateReleaseResources
+[RUN_GRADLEW] > Task :expo-updates:processReleaseManifest
+[RUN_GRADLEW] package="expo.modules.updates" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :expo-updates-interface:packageReleaseResources
+[RUN_GRADLEW] > Task :expo-structured-headers:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-updates-interface:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-web-browser:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-web-browser:generateReleaseResValues
+[RUN_GRADLEW] > Task :expo-web-browser:generateReleaseResources
+[RUN_GRADLEW] > Task :expo-updates-interface:processReleaseManifest
+[RUN_GRADLEW] package="expo.modules.updatesinterface" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates-interface/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :expo-web-browser:packageReleaseResources
+[RUN_GRADLEW] > Task :expo-updates-interface:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-web-browser:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :expo-web-browser:processReleaseManifest
+[RUN_GRADLEW] package="expo.modules.webbrowser" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-web-browser/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :expo-updates:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-application:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo-modules-core:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo-web-browser:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-modules-core:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo-application:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo-constants:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo-constants:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo-crypto:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo-crypto:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo-eas-client:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo-eas-client:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo-file-system:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo-file-system:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo-font:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo-font:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo-json-utils:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo:generateReleaseRFile
+[RUN_GRADLEW] > Task :expo-json-utils:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo-keep-awake:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo-keep-awake:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo-manifests:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo-manifests:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo-splash-screen:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo-splash-screen:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo-structured-headers:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo-structured-headers:compileReleaseKotlin NO-SOURCE
+[RUN_GRADLEW] > Task :expo-structured-headers:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo-updates:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo-structured-headers:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo-updates-interface:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo-updates-interface:compileReleaseKotlin NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates-interface:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo-structured-headers:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo-updates:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo-updates-interface:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo-updates-interface:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo-web-browser:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :expo:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :expo-web-browser:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo:javaPreCompileRelease
+[RUN_GRADLEW] > Task :expo-application:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :expo-constants:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo-constants:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :expo-constants:createReleaseExpoConfig
+[RUN_GRADLEW] > Task :expo-constants:copyReleaseExpoConfig
+[RUN_GRADLEW] > Task :expo-constants:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-constants:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo-constants:cleanupReleaseExpoConfig
+[RUN_GRADLEW] > Task :expo-constants:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :expo-crypto:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :expo-eas-client:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :expo-file-system:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :expo-font:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :expo-json-utils:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :expo-keep-awake:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:preBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:preReleaseBuild UP-TO-DATE
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:mergeReleaseNativeLibs NO-SOURCE
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:stripReleaseDebugSymbols NO-SOURCE
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:generateReleaseResValues
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:generateReleaseResources
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:packageReleaseResources
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:parseReleaseLocalResources
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:javaPreCompileRelease
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:processReleaseManifest
+[RUN_GRADLEW] package="com.reactnativecommunity.asyncstorage" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/@react-native-async-storage/async-storage/android/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:mergeReleaseShaders
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:packageReleaseAssets
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:generateReleaseRFile
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:syncReleaseLibJars
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo:mergeReleaseJniLibFolders
+[RUN_GRADLEW] Note: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/@react-native-async-storage/async-storage/android/src/main/java/com/reactnativecommunity/asyncstorage/AsyncStorageModule.java uses or overrides a deprecated API.
+[RUN_GRADLEW] Note: Recompile with -Xlint:deprecation for details.
+[RUN_GRADLEW] Note: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/@react-native-async-storage/async-storage/android/src/main/java/com/reactnativecommunity/asyncstorage/AsyncStoragePackage.java uses unchecked or unsafe operations.
+[RUN_GRADLEW] Note: Recompile with -Xlint:unchecked for details.
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :expo:mergeReleaseNativeLibs NO-SOURCE
+[RUN_GRADLEW] > Task :expo:stripReleaseDebugSymbols NO-SOURCE
+[RUN_GRADLEW] > Task :expo:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :expo:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo:packageReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-application:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo-application:mergeReleaseNativeLibs NO-SOURCE
+[RUN_GRADLEW] > Task :expo-application:stripReleaseDebugSymbols NO-SOURCE
+[RUN_GRADLEW] > Task :expo-application:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo-application:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo-application:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo-application:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :expo-application:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-application:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo-application:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo-application:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo-application:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-constants:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo-constants:mergeReleaseNativeLibs NO-SOURCE
+[RUN_GRADLEW] > Task :expo-constants:stripReleaseDebugSymbols NO-SOURCE
+[RUN_GRADLEW] > Task :expo-constants:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo-constants:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo-constants:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo-constants:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo-constants:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-crypto:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo-crypto:mergeReleaseNativeLibs NO-SOURCE
+[RUN_GRADLEW] > Task :expo-crypto:stripReleaseDebugSymbols NO-SOURCE
+[RUN_GRADLEW] > Task :expo-crypto:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo-crypto:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo-crypto:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo-crypto:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :expo-crypto:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-crypto:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo-crypto:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo-crypto:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo-crypto:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-updates:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo-updates:mergeReleaseNativeLibs NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates:stripReleaseDebugSymbols NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo-updates:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo-updates:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo-updates:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-updates:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo-updates:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo-updates:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo-updates:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-eas-client:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo-eas-client:mergeReleaseNativeLibs NO-SOURCE
+[RUN_GRADLEW] > Task :expo-eas-client:stripReleaseDebugSymbols NO-SOURCE
+[RUN_GRADLEW] > Task :expo-eas-client:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo-eas-client:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo-eas-client:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo-eas-client:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :expo-eas-client:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-eas-client:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo-eas-client:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo-eas-client:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo-eas-client:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-file-system:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo-file-system:mergeReleaseNativeLibs NO-SOURCE
+[RUN_GRADLEW] > Task :expo-file-system:stripReleaseDebugSymbols NO-SOURCE
+[RUN_GRADLEW] > Task :expo-file-system:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo-file-system:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo-file-system:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo-file-system:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :expo-file-system:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-file-system:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo-file-system:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo-file-system:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo-file-system:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-font:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo-font:mergeReleaseNativeLibs NO-SOURCE
+[RUN_GRADLEW] > Task :expo-font:stripReleaseDebugSymbols NO-SOURCE
+[RUN_GRADLEW] > Task :expo-font:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo-font:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo-font:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo-font:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :expo-font:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-font:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo-font:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo-font:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo-font:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-keep-awake:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo-keep-awake:mergeReleaseNativeLibs NO-SOURCE
+[RUN_GRADLEW] > Task :expo-keep-awake:stripReleaseDebugSymbols NO-SOURCE
+[RUN_GRADLEW] > Task :expo-keep-awake:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo-keep-awake:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo-keep-awake:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo-keep-awake:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :expo-keep-awake:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-keep-awake:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo-keep-awake:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo-keep-awake:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo-keep-awake:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-splash-screen:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo-splash-screen:mergeReleaseNativeLibs NO-SOURCE
+[RUN_GRADLEW] > Task :expo-splash-screen:stripReleaseDebugSymbols NO-SOURCE
+[RUN_GRADLEW] > Task :expo-splash-screen:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo-splash-screen:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo-splash-screen:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo-splash-screen:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :expo-splash-screen:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-splash-screen:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo-splash-screen:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo-splash-screen:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo-splash-screen:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :expo-splash-screen:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-web-browser:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo-web-browser:mergeReleaseNativeLibs NO-SOURCE
+[RUN_GRADLEW] > Task :expo-web-browser:stripReleaseDebugSymbols NO-SOURCE
+[RUN_GRADLEW] > Task :expo-web-browser:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo-web-browser:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo-web-browser:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo-web-browser:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :expo-web-browser:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-web-browser:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo-web-browser:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo-web-browser:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo-web-browser:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :expo-web-browser:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-modules-core:configureCMakeRelWithDebInfo[arm64-v8a]
+[RUN_GRADLEW] > Task :expo-json-utils:compileReleaseKotlin
+[RUN_GRADLEW] > Task :expo-modules-core:buildCMakeRelWithDebInfo[arm64-v8a]
+[RUN_GRADLEW] > Task :expo-json-utils:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo-json-utils:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo-json-utils:bundleLibResRelease
+[RUN_GRADLEW] > Task :expo-json-utils:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo-modules-core:configureCMakeRelWithDebInfo[armeabi-v7a]
+[RUN_GRADLEW] > Task :expo-json-utils:createFullJarRelease
+[RUN_GRADLEW] > Task :expo-manifests:compileReleaseKotlin
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-manifests/android/src/main/java/expo/modules/manifests/core/BaseLegacyManifest.kt:10:16 This declaration overrides deprecated member but not marked as deprecated itself. This deprecation won't be inherited in future releases. Please add @Deprecated annotation or suppress. See https://youtrack.jetbrains.com/issue/KT-47902 for details
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-manifests/android/src/main/java/expo/modules/manifests/core/BaseLegacyManifest.kt:10:86 'getLegacyID(): String' is deprecated. Prefer scopeKey or projectId depending on use case
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-manifests/android/src/main/java/expo/modules/manifests/core/BaseLegacyManifest.kt:12:72 'getStableLegacyID(): String?' is deprecated. Overrides deprecated member in 'expo.modules.manifests.core.Manifest'. Prefer scopeKey or projectId depending on use case
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-manifests/android/src/main/java/expo/modules/manifests/core/Manifest.kt:28:12 'getRawJson(): JSONObject' is deprecated. Prefer to use specific field getters
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-manifests/android/src/main/java/expo/modules/manifests/core/NewManifest.kt:18:16 This declaration overrides deprecated member but not marked as deprecated itself. This deprecation won't be inherited in future releases. Please add @Deprecated annotation or suppress. See https://youtrack.jetbrains.com/issue/KT-47902 for details
+[RUN_GRADLEW] > Task :expo-modules-core:buildCMakeRelWithDebInfo[armeabi-v7a]
+[RUN_GRADLEW] > Task :expo-manifests:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo-manifests:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo-modules-core:configureCMakeRelWithDebInfo[x86]
+[RUN_GRADLEW] > Task :expo-modules-core:buildCMakeRelWithDebInfo[x86]
+[RUN_GRADLEW] > Task :expo-modules-core:compileReleaseKotlin
+[RUN_GRADLEW] > Task :expo-modules-core:configureCMakeRelWithDebInfo[x86_64]
+[RUN_GRADLEW] > Task :expo-modules-core:buildCMakeRelWithDebInfo[x86_64]
+[RUN_GRADLEW] > Task :expo-modules-core:externalNativeBuildRelease
+[RUN_GRADLEW] > Task :expo-modules-core:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo-modules-core:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo-modules-core:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo-modules-core:compileReleaseShaders
+[RUN_GRADLEW] NO-SOURCE
+[RUN_GRADLEW] > Task :expo-modules-core:generateReleaseAssets
+[RUN_GRADLEW] UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-modules-core:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo-modules-core:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo-modules-core:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo-modules-core:processReleaseJavaRes
+[RUN_GRADLEW] NO-SOURCE
+[RUN_GRADLEW] > Task :expo-modules-core:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-structured-headers:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo-structured-headers:mergeReleaseNativeLibs
+[RUN_GRADLEW] NO-SOURCE
+[RUN_GRADLEW] > Task :expo-structured-headers:stripReleaseDebugSymbols
+[RUN_GRADLEW] NO-SOURCE
+[RUN_GRADLEW] > Task :expo-structured-headers:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo-structured-headers:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo-structured-headers:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :expo-structured-headers:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo-structured-headers:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :expo-structured-headers:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo-structured-headers:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :expo-structured-headers:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-structured-headers:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo-structured-headers:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo-structured-headers:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo-structured-headers:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :expo-structured-headers:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-structured-headers:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :expo-manifests:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo-structured-headers:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo-modules-core:mergeReleaseNativeLibs
+[RUN_GRADLEW] > Task :expo-structured-headers:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :expo-manifests:mergeReleaseNativeLibs
+[RUN_GRADLEW] NO-SOURCE
+[RUN_GRADLEW] > Task :expo-manifests:stripReleaseDebugSymbols NO-SOURCE
+[RUN_GRADLEW] > Task :expo-manifests:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo-manifests:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo-manifests:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :expo-manifests:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo-manifests:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :expo-manifests:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo-manifests:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :expo-manifests:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-manifests:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo-manifests:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo-manifests:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo-manifests:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :expo-manifests:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-json-utils:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo-json-utils:mergeReleaseNativeLibs NO-SOURCE
+[RUN_GRADLEW] > Task :expo-json-utils:stripReleaseDebugSymbols NO-SOURCE
+[RUN_GRADLEW] > Task :expo-modules-core:stripReleaseDebugSymbols
+[RUN_GRADLEW] > Task :expo-json-utils:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo-json-utils:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo-json-utils:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :expo-modules-core:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo-json-utils:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo-json-utils:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :expo-manifests:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :expo-json-utils:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo-manifests:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo-manifests:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :expo-json-utils:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :expo-json-utils:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-json-utils:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo-json-utils:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo-json-utils:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo-json-utils:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :expo-json-utils:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-updates-interface:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo-json-utils:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo-json-utils:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :expo-updates-interface:mergeReleaseNativeLibs NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates-interface:stripReleaseDebugSymbols NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates-interface:copyReleaseJniLibsProjectAndLocalJars
+[RUN_GRADLEW] > Task :expo-updates-interface:extractDeepLinksForAarRelease
+[RUN_GRADLEW] > Task :expo-updates-interface:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :expo-updates-interface:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo-updates-interface:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :expo-updates-interface:mergeReleaseShaders
+[RUN_GRADLEW] > Task :expo-updates-interface:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates-interface:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-updates-interface:packageReleaseAssets
+[RUN_GRADLEW] > Task :expo-updates-interface:prepareLintJarForPublish
+[RUN_GRADLEW] > Task :expo-updates-interface:prepareReleaseArtProfile
+[RUN_GRADLEW] > Task :expo-updates-interface:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates-interface:writeReleaseAarMetadata
+[RUN_GRADLEW] > Task :expo-updates-interface:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :app:compileReleaseAidl NO-SOURCE
+[RUN_GRADLEW] > Task :app:compileReleaseRenderscript NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates-interface:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo-updates-interface:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :app:generateReleaseBuildConfig
+[RUN_GRADLEW] > Task :app:javaPreCompileRelease
+[RUN_GRADLEW] > Task :app:generateReleaseResValues
+[RUN_GRADLEW] > Task :app:checkReleaseAarMetadata
+[RUN_GRADLEW] > Task :app:mapReleaseSourceSetPaths
+[RUN_GRADLEW] > Task :app:createBundleReleaseJsAndAssets
+[RUN_GRADLEW] warning: the transform cache was reset.
+[RUN_GRADLEW]                 Welcome to Metro v0.73.10
+[RUN_GRADLEW]               Fast - Scalable - Integrated
+[RUN_GRADLEW] > Task :expo-modules-core:compileReleaseKotlin
+[RUN_GRADLEW] w: Argument -Xopt-in is deprecated. Please use -opt-in instead
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/adapters/react/permissions/PermissionsService.kt:157:30 'getPackageInfo(String, Int): PackageInfo!' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/core/utilities/EmulatorUtilities.kt:30:13 'SERIAL: String!' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/Promise.kt:68:18 This declaration overrides deprecated member but not marked as deprecated itself. This deprecation won't be inherited in future releases. Please add @Deprecated annotation or suppress. See https://youtrack.jetbrains.com/issue/KT-47902 for details
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/activityresult/ActivityResultsManager.kt:52:24 Parameter 'activity' is never used
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/activityresult/AppContextActivityResultRegistry.kt:119:51 'getParcelableExtra(String!): T?' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/activityresult/AppContextActivityResultRegistry.kt:180:26 'getParcelable(String?): T?' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/activityresult/AppContextActivityResultRegistry.kt:271:83 'getParcelable(String?): T?' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/activityresult/DataPersistor.kt:67:20 'getSerializable(String?): Serializable?' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/activityresult/DataPersistor.kt:85:26 'getSerializable(String?): Serializable?' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/events/KModuleEventEmitterWrapper.kt:90:7 'constructor Event<T : Event<(raw) Event<*>>!>(Int)' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/jni/JavaScriptObject.kt:59:33 Parameter 'null' is never used
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/jni/JavaScriptObject.kt:100:5 Parameter 'null' is never used
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/modules/Module.kt:43:7 'coroutineScope: CoroutineScope' is deprecated. Use a scope from the AppContext
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/types/Either.kt:24:11 Parameter 'type' is never used
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/types/Either.kt:27:11 Parameter 'type' is never used
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/types/Either.kt:44:11 Parameter 'type' is never used
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/types/Either.kt:59:11 Parameter 'type' is never used
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/types/JSTypeConverterHelper.kt:44:17 'get(String!): Any?' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/views/ViewManagerDefinitionBuilder.kt:125:30 'ViewGroupDefinitionLegacyBuilder' is deprecated. Use `ViewGroupDefinitionBuilder` instead.
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/views/ViewManagerDefinitionBuilder.kt:128:38 'ViewGroupDefinitionLegacyBuilder' is deprecated. Use `ViewGroupDefinitionBuilder` instead.
+[RUN_GRADLEW] > Task :app:createBundleReleaseJsAndAssets
+[RUN_GRADLEW] info Writing bundle output to:, /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle
+[RUN_GRADLEW] info Writing sourcemap output to:, /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/intermediates/sourcemaps/react/release/index.android.bundle.packager.map
+[RUN_GRADLEW] info Done writing bundle output
+[RUN_GRADLEW] info Done writing sourcemap output
+[RUN_GRADLEW] info Copying 2 asset files
+[RUN_GRADLEW] info Done copying assets
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:2087:23: warning: the variable "DebuggerInternal" was not declared in function "__shouldPauseOnThrow"
+[RUN_GRADLEW]         return typeof DebuggerInternal !== 'undefined' && DebuggerInternal.shouldPauseOnThrow === true;
+[RUN_GRADLEW]                       ^~~~~~~~~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:9114:7: warning: the variable "setTimeout" was not declared in function "logCapturedError"
+[RUN_GRADLEW] setTimeout(function () {
+[RUN_GRADLEW]       ^~~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:7079:108: warning: the variable "nativeFabricUIManager" was not declared in function "onChange"
+[RUN_GRADLEW]       (fromOrTo = fromOrTo && fromOrTo.stateNode) && fromOrTo.canonical._internalInstanceHandle ? (from && nativeFabricUIManager.setIsJSResponder(from.stateNode.node, false, blockNativeResponder || false), to && nativeFabricUIManager.setIsJSResponder(to.stateNode.node, true, blockNativeResponder || false)) : null !== to ? ReactNativePrivateInterface.UIManager.setJSResponder(to.stateNode.canonical._nativeTag, blockNativeResponder) : ReactNativePrivateInterface.UIManager.clearJSResponder();
+[RUN_GRADLEW]                                                                                                            ^~~~~~~~~~~~~~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:7695:21: warning: the variable "clearTimeout" was not declared in anonymous function " 257#"
+[RUN_GRADLEW]     cancelTimeout = clearTimeout;
+[RUN_GRADLEW]                     ^~~~~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:11445:30: warning: the variable "__REACT_DEVTOOLS_GLOBAL_HOOK__" was not declared in anonymous function " 257#"
+[RUN_GRADLEW]   if ("undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__) {
+[RUN_GRADLEW]                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:11794:5: warning: the variable "setImmediate" was not declared in function "handleResolved"
+[RUN_GRADLEW]     setImmediate(function () {
+[RUN_GRADLEW]     ^~~~~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:14669:12: warning: the variable "fetch" was not declared in anonymous function " 450#"
+[RUN_GRADLEW]     fetch: fetch,
+[RUN_GRADLEW]            ^~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:14670:14: warning: the variable "Headers" was not declared in anonymous function " 450#"
+[RUN_GRADLEW]     Headers: Headers,
+[RUN_GRADLEW]              ^~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:14671:14: warning: the variable "Request" was not declared in anonymous function " 450#"
+[RUN_GRADLEW]     Request: Request,
+[RUN_GRADLEW]              ^~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:14672:15: warning: the variable "Response" was not declared in anonymous function " 450#"
+[RUN_GRADLEW]     Response: Response
+[RUN_GRADLEW]               ^~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:14820:24: warning: the variable "FileReader" was not declared in function "readBlobAsArrayBuffer"
+[RUN_GRADLEW]       var reader = new FileReader();
+[RUN_GRADLEW]                        ^~~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:14857:36: warning: the variable "Blob" was not declared in anonymous function " 461#"
+[RUN_GRADLEW]         } else if (support.blob && Blob.prototype.isPrototypeOf(body)) {
+[RUN_GRADLEW]                                    ^~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:14859:40: warning: the variable "FormData" was not declared in anonymous function " 461#"
+[RUN_GRADLEW]         } else if (support.formData && FormData.prototype.isPrototypeOf(body)) {
+[RUN_GRADLEW] ^~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:14861:44: warning: the variable "URLSearchParams" was not declared in anonymous function " 461#"
+[RUN_GRADLEW]         } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
+[RUN_GRADLEW]                                            ^~~~~~~~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:15088:23: warning: the variable "XMLHttpRequest" was not declared in anonymous function " 470#"
+[RUN_GRADLEW]         var xhr = new XMLHttpRequest();
+[RUN_GRADLEW]                       ^~~~~~~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:14681:76: warning: the variable "self" was not declared in anonymous function " 453#"
+[RUN_GRADLEW]     var global = typeof globalThis !== 'undefined' && globalThis || typeof self !== 'undefined' && self || typeof global !== 'undefined' && global;
+[RUN_GRADLEW]                                                                            ^~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:17416:27: warning: the variable "performance" was not declared in anonymous function " 618#"
+[RUN_GRADLEW]   if ("object" === typeof performance && "function" === typeof performance.now) {
+[RUN_GRADLEW]                           ^~~~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:17439:26: warning: the variable "navigator" was not declared in anonymous function " 618#"
+[RUN_GRADLEW]   "undefined" !== typeof navigator && undefined !== navigator.scheduling && undefined !== navigator.scheduling.isInputPending && navigator.scheduling.isInputPending.bind(navigator.scheduling);
+[RUN_GRADLEW]                          ^~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:17506:37: warning: the variable "MessageChannel" was not declared in anonymous function " 618#"
+[RUN_GRADLEW]   };else if ("undefined" !== typeof MessageChannel) {
+[RUN_GRADLEW]                                     ^~~~~~~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:27501:34: warning: the variable "requestAnimationFrame" was not declared in function "start 9#"
+[RUN_GRADLEW]           this._animationFrame = requestAnimationFrame(this.onUpdate.bind(this));
+[RUN_GRADLEW]                                  ^~~~~~~~~~~~~~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:44969:32: warning: the variable "AggregateError" was not declared in anonymous function " 1760#"
+[RUN_GRADLEW]     '%AggregateError%': typeof AggregateError === 'undefined' ? undefined : AggregateError,
+[RUN_GRADLEW]                                ^~~~~~~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:44978:25: warning: the variable "Atomics" was not declared in anonymous function " 1760#"
+[RUN_GRADLEW]     '%Atomics%': typeof Atomics === 'undefined' ? undefined : Atomics,
+[RUN_GRADLEW]                         ^~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:44994:38: warning: the variable "FinalizationRegistry" was not declared in anonymous function " 1760#"
+[RUN_GRADLEW] '%FinalizationRegistry%': typeof FinalizationRegistry === 'undefined' ? undefined : FinalizationRegistry,
+[RUN_GRADLEW]                                      ^~~~~~~~~~~~~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:45019:35: warning: the variable "SharedArrayBuffer" was not declared in anonymous function " 1760#"
+[RUN_GRADLEW]     '%SharedArrayBuffer%': typeof SharedArrayBuffer === 'undefined' ? undefined : SharedArrayBuffer,
+[RUN_GRADLEW]                                   ^~~~~~~~~~~~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:45033:25: warning: the variable "WeakRef" was not declared in anonymous function " 1760#"
+[RUN_GRADLEW]     '%WeakRef%': typeof WeakRef === 'undefined' ? undefined : WeakRef,
+[RUN_GRADLEW]                         ^~~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:49142:76: warning: the variable "Buffer" was not declared in function "convertValue"
+[RUN_GRADLEW]         return useBlob && typeof Blob === 'function' ? new Blob([value]) : Buffer.from(value);
+[RUN_GRADLEW]                                                                            ^~~~~~
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/generated/assets/createBundleReleaseJsAndAssets/index.android.bundle:50158:56: warning: the variable "btoa" was not declared in function "dispatchXhrRequest"
+[RUN_GRADLEW]         requestHeaders.set('Authorization', 'Basic ' + btoa(username + ':' + password));
+[RUN_GRADLEW]                                                        ^~~~
+[RUN_GRADLEW] > Task :expo-modules-core:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo-modules-core:extractReleaseAnnotations
+[RUN_GRADLEW] Note: Some input files use or override a deprecated API.
+[RUN_GRADLEW] Note: Recompile with -Xlint:deprecation for details.
+[RUN_GRADLEW] Note: Some input files use unchecked or unsafe operations.
+[RUN_GRADLEW] Note: Recompile with -Xlint:unchecked for details.
+[RUN_GRADLEW] > Task :expo-modules-core:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo-modules-core:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo-modules-core:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :app:generateReleaseResources
+[RUN_GRADLEW] > Task :app:mergeReleaseShaders
+[RUN_GRADLEW] > Task :app:compileReleaseShaders NO-SOURCE
+[RUN_GRADLEW] > Task :app:generateReleaseAssets UP-TO-DATE
+[RUN_GRADLEW] > Task :expo-modules-core:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :app:mergeReleaseAssets
+[RUN_GRADLEW] > Task :expo-modules-core:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo-modules-core:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :expo-eas-client:compileReleaseKotlin
+[RUN_GRADLEW] > Task :expo-font:compileReleaseKotlin
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-font/android/src/main/java/expo/modules/font/FontLoaderModule.kt:55:38 Type mismatch: inferred type is String? but String was expected
+[RUN_GRADLEW] > Task :expo-keep-awake:compileReleaseKotlin
+[RUN_GRADLEW] > Task :expo-application:compileReleaseKotlin
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-application/android/src/main/java/expo/modules/application/ApplicationModule.kt:52:34 'getPackageInfo(String, Int): PackageInfo!' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-application/android/src/main/java/expo/modules/application/ApplicationModule.kt:70:33 'getPackageInfo(String, Int): PackageInfo!' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-application/android/src/main/java/expo/modules/application/ApplicationModule.kt:83:33 'getPackageInfo(String, Int): PackageInfo!' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-application/android/src/main/java/expo/modules/application/ApplicationModule.kt:129:14 'versionCode: Int' is deprecated. Deprecated in Java
+[RUN_GRADLEW] > Task :expo-crypto:compileReleaseKotlin
+[RUN_GRADLEW] > Task :expo-constants:compileReleaseKotlin
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-constants/android/src/main/java/expo/modules/constants/ConstantsService.kt:59:42 'getPackageInfo(String, Int): PackageInfo!' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-constants/android/src/main/java/expo/modules/constants/ConstantsService.kt:130:17 'versionCode: Int' is deprecated. Deprecated in Java
+[RUN_GRADLEW] > Task :expo-web-browser:compileReleaseKotlin
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-web-browser/android/src/main/java/expo/modules/webbrowser/CustomTabsActivitiesHelper.kt:45:28 'queryIntentServices(Intent, Int): (Mutable)List<ResolveInfo!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-web-browser/android/src/main/java/expo/modules/webbrowser/CustomTabsActivitiesHelper.kt:65:33 'resolveActivity(Intent, Int): ResolveInfo?' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-web-browser/android/src/main/java/expo/modules/webbrowser/CustomTabsActivitiesHelper.kt:85:27 'queryIntentActivities(Intent, Int): (Mutable)List<ResolveInfo!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] > Task :expo-updates:createReleaseExpoManifest
+[RUN_GRADLEW] Execution optimizations have been disabled for task ':expo-updates:createReleaseExpoManifest' to ensure correctness due to the following reasons:
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android'. Reason: Task ':expo-updates:createReleaseExpoManifest' uses this output of task ':app:checkReleaseAarMetadata' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW] - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android'. Reason: Task ':expo-updates:createReleaseExpoManifest' uses this output of task ':app:compileReleaseAidl' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android'. Reason: Task ':expo-updates:createReleaseExpoManifest' uses this output of task ':app:compileReleaseRenderscript' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android'. Reason: Task ':expo-updates:createReleaseExpoManifest' uses this output of task ':app:compileReleaseShaders' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android'. Reason: Task ':expo-updates:createReleaseExpoManifest' uses this output of task ':app:createBundleReleaseJsAndAssets' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android'. Reason: Task ':expo-updates:createReleaseExpoManifest' uses this output of task ':app:generateReleaseBuildConfig' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android'. Reason: Task ':expo-updates:createReleaseExpoManifest' uses this output of task ':app:generateReleaseResValues' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android'. Reason: Task ':expo-updates:createReleaseExpoManifest' uses this output of task ':app:javaPreCompileRelease' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android'. Reason: Task ':expo-updates:createReleaseExpoManifest' uses this output of task ':app:mapReleaseSourceSetPaths' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android'. Reason: Task ':expo-updates:createReleaseExpoManifest' uses this output of task ':app:mergeReleaseAssets' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android'. Reason: Task ':expo-updates:createReleaseExpoManifest' uses this output of task ':app:mergeReleaseShaders' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW]                 Welcome to Metro v0.73.10
+[RUN_GRADLEW]               Fast - Scalable - Integrated
+[RUN_GRADLEW] > Task :expo-splash-screen:compileReleaseKotlin
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-splash-screen/android/src/main/java/expo/modules/splashscreen/SplashScreenReactActivityLifecycleListener.kt:17:50 Parameter 'activityContext' is never used
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-splash-screen/android/src/main/java/expo/modules/splashscreen/SplashScreenReactActivityLifecycleListener.kt:35:66 'toLowerCase(): String' is deprecated. Use lowercase() instead.
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-splash-screen/android/src/main/java/expo/modules/splashscreen/SplashScreenViewController.kt:20:25 'constructor Handler()' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-splash-screen/android/src/main/java/expo/modules/splashscreen/SplashScreenViewController.kt:41:5 Parameter 'failureCallback' is never used
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-splash-screen/android/src/main/java/expo/modules/splashscreen/singletons/SplashScreenStatusBar.kt:23:27 'replaceSystemWindowInsets(Int, Int, Int, Int): WindowInsets' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-splash-screen/android/src/main/java/expo/modules/splashscreen/singletons/SplashScreenStatusBar.kt:24:29 'getter for systemWindowInsetLeft: Int' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-splash-screen/android/src/main/java/expo/modules/splashscreen/singletons/SplashScreenStatusBar.kt:26:29 'getter for systemWindowInsetRight: Int' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-splash-screen/android/src/main/java/expo/modules/splashscreen/singletons/SplashScreenStatusBar.kt:27:29 'getter for systemWindowInsetBottom: Int' is deprecated. Deprecated in Java
+[RUN_GRADLEW] > Task :expo-file-system:compileReleaseKotlin
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:8:19 'AsyncTask<Params : Any!, Progress : Any!, Result : Any!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:428:27 Type mismatch: inferred type is String? but String was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:472:29 Type mismatch: inferred type is String? but String was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:561:43 Parameter 'options' is never used
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:649:46 Parameter 'options' is never used
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:773:43 Unchecked cast: Any? to Map<String, Any>?
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:790:40 'create(MediaType?, File): RequestBody' is deprecated. Moved to extension function. Put the 'file' argument first to fix Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:795:15 Unchecked cast: Any to Map<String, Any>
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:927:49 Unchecked cast: Any? to Map<String, Any>?
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:1028:43 Unchecked cast: Any? to Map<String, Any>?
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:1040:9 'execute(vararg FileSystemModule.DownloadResumableTaskParams?): AsyncTask<FileSystemModule.DownloadResumableTaskParams?, Void?, Void?>!' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:1101:47 'AsyncTask<Params : Any!, Progress : Any!, Result : Any!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:1101:47 'constructor AsyncTask<Params : Any!, Progress : Any!, Result : Any!>()' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:1114:21 Variable 'count' initializer is redundant
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:1248:39 'toLowerCase(Locale): String' is deprecated. Use lowercase() instead.
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:1285:35 Type mismatch: inferred type is String? but String was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-file-system/android/src/main/java/expo/modules/filesystem/FileSystemModule.kt:1319:11 'get(String!): Any?' is deprecated. Deprecated in Java
+[RUN_GRADLEW] > Task :expo-application:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo-application:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo-constants:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo-constants:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo-crypto:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo-crypto:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo-eas-client:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo-eas-client:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo-file-system:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo-file-system:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo-font:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo-font:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo-keep-awake:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo-keep-awake:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo-splash-screen:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo-splash-screen:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo-web-browser:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo-web-browser:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo-application:bundleLibResRelease
+[RUN_GRADLEW] > Task :expo-application:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo-constants:bundleLibResRelease
+[RUN_GRADLEW] > Task :expo-application:createFullJarRelease
+[RUN_GRADLEW] > Task :expo-constants:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo-crypto:bundleLibResRelease
+[RUN_GRADLEW] > Task :expo-crypto:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo-constants:createFullJarRelease
+[RUN_GRADLEW] > Task :expo-crypto:createFullJarRelease
+[RUN_GRADLEW] > Task :expo-eas-client:bundleLibResRelease
+[RUN_GRADLEW] > Task :expo-eas-client:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo-file-system:bundleLibResRelease
+[RUN_GRADLEW] > Task :expo-eas-client:createFullJarRelease
+[RUN_GRADLEW] > Task :expo-file-system:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo-font:bundleLibResRelease
+[RUN_GRADLEW] > Task :expo-font:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo-file-system:createFullJarRelease
+[RUN_GRADLEW] > Task :expo-font:createFullJarRelease
+[RUN_GRADLEW] > Task :expo-keep-awake:bundleLibResRelease
+[RUN_GRADLEW] > Task :expo-keep-awake:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo-application:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :expo-keep-awake:createFullJarRelease
+[RUN_GRADLEW] > Task :expo-application:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo-application:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :expo-constants:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :expo-application:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :expo-constants:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo-application:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo-application:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :expo-constants:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :expo-constants:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :expo-crypto:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :expo-constants:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo-constants:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :expo-crypto:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo-crypto:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :expo-crypto:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :expo-eas-client:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :expo-crypto:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo-crypto:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :expo-eas-client:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo-eas-client:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :expo-eas-client:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :expo-file-system:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :expo-eas-client:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo-eas-client:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :expo-file-system:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo-file-system:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :expo-font:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :expo-file-system:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :expo-font:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo-file-system:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo-file-system:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :expo-font:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :expo-font:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :expo-keep-awake:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :expo-font:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo-font:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :expo-keep-awake:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo-keep-awake:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :expo-keep-awake:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :expo-splash-screen:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :expo-keep-awake:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo-keep-awake:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :expo-splash-screen:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo-splash-screen:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :expo-splash-screen:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :expo-web-browser:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :expo-splash-screen:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo-splash-screen:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :expo-web-browser:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo-web-browser:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :expo-web-browser:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :expo-updates:copyReleaseExpoManifest
+[RUN_GRADLEW] > Task :expo-web-browser:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo-web-browser:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :expo-updates:kaptGenerateStubsReleaseKotlin
+[RUN_GRADLEW] 'compileReleaseJavaWithJavac' task (current target is 11) and 'kaptGenerateStubsReleaseKotlin' task (current target is 1.8) jvm target compatibility should be set to the same Java version.
+[RUN_GRADLEW] By default will become an error since Gradle 8.0+! Read more: https://kotl.in/gradle/jvm/target-validation
+[RUN_GRADLEW] Consider using JVM toolchain: https://kotl.in/gradle/jvm/toolchain
+[RUN_GRADLEW] > Task :app:createReleaseCompatibleScreenManifests
+[RUN_GRADLEW] > Task :app:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo-application:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo-constants:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo-crypto:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo-eas-client:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo-file-system:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo-font:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo-json-utils:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo-keep-awake:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo-manifests:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo-modules-core:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo-splash-screen:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo-structured-headers:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo-updates:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo-updates-interface:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :expo-web-browser:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:extractDeepLinksRelease
+[RUN_GRADLEW] > Task :app:processReleaseMainManifest
+[RUN_GRADLEW] Execution optimizations have been disabled for task ':app:processReleaseMainManifest' to ensure correctness due to the following reasons:
+[RUN_GRADLEW] - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/intermediates/navigation_json/release/navigation.json'. Reason: Task ':app:processReleaseMainManifest' uses this output of task ':expo-updates:copyReleaseExpoManifest' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW] package="com.juanjotrenado.outfitme" found in source AndroidManifest.xml: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/src/main/AndroidManifest.xml.
+[RUN_GRADLEW] Setting the namespace via a source AndroidManifest.xml's package attribute is deprecated.
+[RUN_GRADLEW] Please instead set the namespace (or testNamespace) in the module's build.gradle file, as described here: https://developer.android.com/studio/build/configure-app-module#set-namespace
+[RUN_GRADLEW] This migration can be done automatically using the AGP Upgrade Assistant, please refer to https://developer.android.com/studio/build/agp-upgrade-assistant for more information.
+[RUN_GRADLEW] /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/src/main/AndroidManifest.xml:21:9-30:20 Warning:
+[RUN_GRADLEW] 	provider#expo.modules.filesystem.FileSystemFileProvider@android:authorities was tagged at AndroidManifest.xml:21 to replace other declarations but no other declaration present
+[RUN_GRADLEW] > Task :app:processReleaseManifest
+[RUN_GRADLEW] Execution optimizations have been disabled for task ':app:processReleaseManifest' to ensure correctness due to the following reasons:
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/intermediates/compatible_screen_manifest/release'. Reason: Task ':app:processReleaseManifest' uses this output of task ':expo-updates:copyReleaseExpoManifest' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/intermediates/merged_manifest/release/AndroidManifest.xml'. Reason: Task ':app:processReleaseManifest' uses this output of task ':expo-updates:copyReleaseExpoManifest' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW] > Task :expo:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :expo-application:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :expo-crypto:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :expo-constants:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :expo-file-system:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :expo-eas-client:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :expo-font:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :expo-json-utils:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :expo-keep-awake:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :expo-manifests:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :expo-modules-core:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :expo-splash-screen:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :expo-structured-headers:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :expo-updates:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :expo-updates-interface:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :expo-web-browser:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:compileReleaseLibraryResources
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :app:extractProguardFiles
+[RUN_GRADLEW] > Task :expo:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :app:processReleaseManifestForPackage
+[RUN_GRADLEW] Execution optimizations have been disabled for task ':app:processReleaseManifestForPackage' to ensure correctness due to the following reasons:
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/intermediates/merged_manifests/release'. Reason: Task ':app:processReleaseManifestForPackage' uses this output of task ':expo-updates:copyReleaseExpoManifest' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW] > Task :expo-application:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :expo-constants:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :expo-crypto:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :expo-eas-client:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :expo-file-system:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :expo-font:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :expo-json-utils:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :expo-keep-awake:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :expo-manifests:bundleLibResRelease
+[RUN_GRADLEW] > Task :expo-manifests:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :expo-manifests:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo-modules-core:bundleLibResRelease
+[RUN_GRADLEW] > Task :expo-manifests:createFullJarRelease
+[RUN_GRADLEW] > Task :expo-modules-core:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :expo-splash-screen:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :expo-splash-screen:bundleLibResRelease
+[RUN_GRADLEW] > Task :expo-splash-screen:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo-structured-headers:bundleLibResRelease NO-SOURCE
+[RUN_GRADLEW] > Task :expo-modules-core:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo-structured-headers:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo-modules-core:createFullJarRelease
+[RUN_GRADLEW] > Task :expo-splash-screen:createFullJarRelease
+[RUN_GRADLEW] > Task :expo-structured-headers:createFullJarRelease
+[RUN_GRADLEW] > Task :expo-structured-headers:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :expo-updates:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :expo-updates-interface:bundleLibResRelease NO-SOURCE
+[RUN_GRADLEW] > Task :expo-updates-interface:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo-updates-interface:createFullJarRelease
+[RUN_GRADLEW] > Task :expo-updates-interface:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :expo-web-browser:bundleLibResRelease
+[RUN_GRADLEW] > Task :expo-web-browser:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo-web-browser:createFullJarRelease
+[RUN_GRADLEW] > Task :expo-web-browser:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:bundleLibResRelease NO-SOURCE
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:createFullJarRelease
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:writeReleaseLintModelMetadata
+[RUN_GRADLEW] > Task :app:mergeReleaseResources
+[RUN_GRADLEW] > Task :app:mergeReleaseJniLibFolders
+[RUN_GRADLEW] > Task :expo:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :expo-application:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :expo-constants:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :expo-crypto:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :expo-eas-client:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :expo-file-system:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :expo-font:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :expo-json-utils:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :expo-keep-awake:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :expo-manifests:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :expo-splash-screen:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :expo-structured-headers:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :expo-updates:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :expo-updates-interface:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :react-native-async-storage_async-storage:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :expo-web-browser:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :expo-modules-core:copyReleaseJniLibsProjectOnly
+[RUN_GRADLEW] > Task :app:checkReleaseDuplicateClasses
+[RUN_GRADLEW] > Task :app:desugarReleaseFileDependencies
+[RUN_GRADLEW] > Task :app:processReleaseResources
+[RUN_GRADLEW] > Task :app:processReleaseJavaRes NO-SOURCE
+[RUN_GRADLEW] > Task :app:compressReleaseAssets
+[RUN_GRADLEW] > Task :app:mergeReleaseNativeLibs
+[RUN_GRADLEW] Execution optimizations have been disabled for task ':app:mergeReleaseNativeLibs' to ensure correctness due to the following reasons:
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/intermediates/merged_jni_libs/release/out'. Reason: Task ':app:mergeReleaseNativeLibs' uses this output of task ':expo-updates:copyReleaseExpoManifest' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW] > Task :app:collectReleaseDependencies
+[RUN_GRADLEW] > Task :app:mergeExtDexRelease
+[RUN_GRADLEW] Execution optimizations have been disabled for task ':app:mergeExtDexRelease' to ensure correctness due to the following reasons:
+[RUN_GRADLEW] - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/intermediates/duplicate_classes_check/release'. Reason: Task ':app:mergeExtDexRelease' uses this output of task ':expo-updates:copyReleaseExpoManifest' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/intermediates/external_file_lib_dex_archives/release'. Reason: Task ':app:mergeExtDexRelease' uses this output of task ':expo-updates:copyReleaseExpoManifest' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW] > Task :app:sdkReleaseDependencyData
+[RUN_GRADLEW] Execution optimizations have been disabled for task ':app:sdkReleaseDependencyData' to ensure correctness due to the following reasons:
+[RUN_GRADLEW] - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/intermediates/metadata_library_dependencies_report/release/dependencies.pb'. Reason: Task ':app:sdkReleaseDependencyData' uses this output of task ':expo-updates:copyReleaseExpoManifest' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW] > Task :app:validateSigningRelease
+[RUN_GRADLEW] > Task :app:writeReleaseAppMetadata
+[RUN_GRADLEW] > Task :app:writeReleaseSigningConfigVersions
+[RUN_GRADLEW] > Task :app:mergeReleaseArtProfile
+[RUN_GRADLEW] > Task :app:optimizeReleaseResources
+[RUN_GRADLEW] > Task :app:stripReleaseDebugSymbols
+[RUN_GRADLEW] Execution optimizations have been disabled for task ':app:stripReleaseDebugSymbols' to ensure correctness due to the following reasons:
+[RUN_GRADLEW] - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/intermediates/merged_native_libs/release/out'. Reason: Task ':app:stripReleaseDebugSymbols' uses this output of task ':expo-updates:copyReleaseExpoManifest' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW] > Task :app:extractReleaseNativeSymbolTables
+[RUN_GRADLEW] Execution optimizations have been disabled for task ':app:extractReleaseNativeSymbolTables' to ensure correctness due to the following reasons:
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/intermediates/merged_native_libs/release/out'. Reason: Task ':app:extractReleaseNativeSymbolTables' uses this output of task ':expo-updates:copyReleaseExpoManifest' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/intermediates/stripped_native_libs/release/out'. Reason: Task ':app:extractReleaseNativeSymbolTables' uses this output of task ':expo-updates:copyReleaseExpoManifest' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW] > Task :app:mergeReleaseNativeDebugMetadata
+[RUN_GRADLEW] Execution optimizations have been disabled for task ':app:mergeReleaseNativeDebugMetadata' to ensure correctness due to the following reasons:
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/intermediates/native_symbol_tables/release/out'. Reason: Task ':app:mergeReleaseNativeDebugMetadata' uses this output of task ':expo-updates:copyReleaseExpoManifest' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW] > Task :expo-updates:kaptReleaseKotlin
+[RUN_GRADLEW] Values of variant API AnnotationProcessorOptions.arguments are queried and may return non final values, this is unsupported
+[RUN_GRADLEW] > Task :expo-updates:compileReleaseKotlin
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesConfiguration.kt:122:27 'getApplicationInfo(String, Int): ApplicationInfo' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesConfiguration.kt:130:13 'get(String!): Any?' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesController.kt:5:19 'AsyncTask<Params : Any!, Progress : Any!, Result : Any!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesController.kt:148:20 This class shouldn't be used in Kotlin. Use kotlin.Any instead.
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesController.kt:340:14 This class shouldn't be used in Kotlin. Use kotlin.Any instead.
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesController.kt:405:5 'AsyncTask<Params : Any!, Progress : Any!, Result : Any!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesController.kt:405:15 'execute(Runnable!): Unit' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesDevLauncherController.kt:95:66 'getRawJson(): JSONObject' is deprecated. Prefer to use specific field getters
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesModule.kt:4:19 'AsyncTask<Params : Any!, Progress : Any!, Result : Any!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesModule.kt:171:78 'toString(): String' is deprecated. Prefer to use specific field getters
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesModule.kt:182:78 'toString(): String' is deprecated. Prefer to use specific field getters
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesModule.kt:210:7 'AsyncTask<Params : Any!, Progress : Any!, Result : Any!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesModule.kt:210:17 'execute(Runnable!): Unit' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesModule.kt:268:5 'AsyncTask<Params : Any!, Progress : Any!, Result : Any!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesModule.kt:268:15 'execute(Runnable!): Unit' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesModule.kt:297:5 'AsyncTask<Params : Any!, Progress : Any!, Result : Any!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesModule.kt:297:15 'execute(Runnable!): Unit' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesPackage.kt:64:25 'getApplicationInfo(String, Int): ApplicationInfo' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesUtils.kt:6:19 'AsyncTask<Params : Any!, Progress : Any!, Result : Any!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesUtils.kt:161:7 'AsyncTask<Params : Any!, Progress : Any!, Result : Any!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesUtils.kt:161:17 'execute(Runnable!): Unit' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesUtils.kt:262:7 Type mismatch: inferred type is Date? but Date was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesUtils.kt:262:23 Type mismatch: inferred type is String? but String was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesUtils.kt:269:7 Type mismatch: inferred type is Date? but Date was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesUtils.kt:269:23 Type mismatch: inferred type is String? but String was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesUtils.kt:274:7 Type mismatch: inferred type is Date? but Date was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/UpdatesUtils.kt:274:23 Type mismatch: inferred type is String? but String was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/db/Converters.kt:56:30 Type mismatch: inferred type is ByteArray? but ByteArray was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/db/Converters.kt:98:21 Parameter 'value' is never used
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/db/Converters.kt:103:21 Parameter 'hashType' is never used
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/db/DatabaseHolder.kt:24:20 This class shouldn't be used in Kotlin. Use kotlin.Any instead.
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/db/DatabaseHolder.kt:36:14 This class shouldn't be used in Kotlin. Use kotlin.Any instead.
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/db/DatabaseIntegrityCheck.kt:38:39 Type mismatch: inferred type is String? but String was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/db/Reaper.kt:50:41 Type mismatch: inferred type is String? but String was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/db/Reaper.kt:68:41 Type mismatch: inferred type is String? but String was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/errorrecovery/ErrorRecoveryHandler.kt:113:7 'when' is exhaustive so 'else' is redundant here
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/launcher/DatabaseLauncher.kt:153:44 Type mismatch: inferred type is String? but String was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/launcher/DatabaseLauncher.kt:202:57 Type mismatch: inferred type is String? but String was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/launcher/NoDatabaseLauncher.kt:4:19 'AsyncTask<Params : Any!, Progress : Any!, Result : Any!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/launcher/NoDatabaseLauncher.kt:86:7 'AsyncTask<Params : Any!, Progress : Any!, Result : Any!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/launcher/NoDatabaseLauncher.kt:86:17 'execute(Runnable!): Unit' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/loader/FileDownloader.kt:143:27 'constructor MultipartStream(InputStream!, ByteArray!)' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/loader/Loader.kt:225:15 Type mismatch: inferred type is String? but String was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/loader/Loader.kt:262:7 'when' is exhaustive so 'else' is redundant here
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/loader/Loader.kt:283:65 Type mismatch: inferred type is String? but String was expected
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/loader/LoaderTask.kt:4:19 'AsyncTask<Params : Any!, Progress : Any!, Result : Any!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/loader/LoaderTask.kt:294:5 'AsyncTask<Params : Any!, Progress : Any!, Result : Any!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/loader/LoaderTask.kt:294:15 'execute(Runnable!): Unit' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/loader/LoaderTask.kt:376:5 'AsyncTask<Params : Any!, Progress : Any!, Result : Any!>' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/loader/LoaderTask.kt:376:15 'execute(Runnable!): Unit' is deprecated. Deprecated in Java
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/manifest/LegacyUpdateManifest.kt:43:53 'getRawJson(): JSONObject' is deprecated. Prefer to use specific field getters
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/manifest/NewUpdateManifest.kt:53:50 'getRawJson(): JSONObject' is deprecated. Prefer to use specific field getters
+[RUN_GRADLEW] w: file:///tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/node_modules/expo-updates/android/src/main/java/expo/modules/updates/selectionpolicy/SelectionPolicies.kt:31:32 'toLowerCase(): String' is deprecated. Use lowercase() instead.
+[RUN_GRADLEW] > Task :expo-updates:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo-updates:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :expo-updates:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo-updates:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo-updates:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :expo-updates:bundleLibResRelease
+[RUN_GRADLEW] > Task :expo-updates:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :expo-updates:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo-updates:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo-updates:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :expo-updates:createFullJarRelease
+[RUN_GRADLEW] > Task :expo:compileReleaseKotlin
+[RUN_GRADLEW] > Task :expo:bundleLibResRelease
+[RUN_GRADLEW] > Task :expo:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :expo:bundleLibRuntimeToJarRelease
+[RUN_GRADLEW] > Task :expo:extractReleaseAnnotations
+[RUN_GRADLEW] > Task :expo:createFullJarRelease
+[RUN_GRADLEW] > Task :expo:mergeReleaseGeneratedProguardFiles
+[RUN_GRADLEW] > Task :expo:mergeReleaseConsumerProguardFiles
+[RUN_GRADLEW] > Task :expo:mergeReleaseJavaResource
+[RUN_GRADLEW] > Task :expo:bundleLibCompileToJarRelease
+[RUN_GRADLEW] > Task :expo:syncReleaseLibJars
+[RUN_GRADLEW] > Task :expo:bundleReleaseLocalLintAar
+[RUN_GRADLEW] > Task :app:compileReleaseJavaWithJavac
+[RUN_GRADLEW] > Task :app:mergeReleaseJavaResource
+[RUN_GRADLEW] Execution optimizations have been disabled for task ':app:mergeReleaseJavaResource' to ensure correctness due to the following reasons:
+[RUN_GRADLEW]   - Gradle detected a problem with the following location: '/tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/intermediates/java_res/release/out'. Reason: Task ':app:mergeReleaseJavaResource' uses this output of task ':expo-updates:copyReleaseExpoManifest' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed. Please refer to https://docs.gradle.org/7.5.1/userguide/validation_problems.html#implicit_dependency for more details about this problem.
+[RUN_GRADLEW] > Task :app:dexBuilderRelease
+[RUN_GRADLEW] > Task :app:mergeDexRelease
+[RUN_GRADLEW] > Task :app:compileReleaseArtProfile
+[RUN_GRADLEW] > Task :app:packageRelease
+[RUN_GRADLEW] > Task :app:createReleaseApkListingFileRedirect
+[RUN_GRADLEW] > Task :app:lintVitalAnalyzeRelease
+[RUN_GRADLEW] > Task :app:lintVitalReportRelease
+[RUN_GRADLEW] > Task :app:lintVitalRelease
+[RUN_GRADLEW] > Task :app:assembleRelease
+[RUN_GRADLEW] w: Detected multiple Kotlin daemon sessions at build/kotlin/sessions
+[RUN_GRADLEW] Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[RUN_GRADLEW] You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+[RUN_GRADLEW] See https://docs.gradle.org/7.5.1/userguide/command_line_interface.html#sec:command_line_warnings
+[RUN_GRADLEW] Execution optimizations have been disabled for 11 invalid unit(s) of work during this build to ensure correctness.
+[RUN_GRADLEW] Please consult deprecation warnings for more details.
+[RUN_GRADLEW] BUILD SUCCESSFUL in 2m 20s
+[RUN_GRADLEW] 588 actionable tasks: 588 executed
+[UPLOAD_APPLICATION_ARCHIVE] Application archives: /tmp/juanjo/eas-build-local-nodejs/d56be251-ba7e-4ba8-b22f-ee38315fa5a1/build/apps/client/android/app/build/outputs/apk/release/app-release.apk
+[PREPARE_ARTIFACTS] Preparing artifacts
+[PREPARE_ARTIFACTS] Writing artifacts to /home/juanjo/GitHub/outfitme/apps/client/build-1688842496983.apk
+
+Build successful
+You can find the build artifacts in /home/juanjo/GitHub/outfitme/apps/client/build-1688842496983.apk

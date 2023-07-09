@@ -1,13 +1,13 @@
 import axios from "axios";
 
-export async function validateToken(token: string): Promise<string> {
+export async function getJwt(token: string): Promise<string> {
   try {
     const API = axios.create({
-      baseURL: "http://localhost:3000",
+      baseURL: "http://192.168.1.19:3000",
       withCredentials: true,
     });
 
-    const response = await API.get(`/auth/validate?token=${token}`);
+    const response = await API.get(`/auth/getJwtFromGoogleToken?token=${token}`);
     const responseData = response.data;
     return responseData;
   } catch (error) {

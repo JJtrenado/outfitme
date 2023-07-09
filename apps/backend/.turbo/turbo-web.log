@@ -2,148 +2,1160 @@
 > backend@0.0.1 web
 > nest start --watch --preserveWatchOutput
 
-[[90m20:23:56[0m] Starting compilation in watch mode...
+[[90m22:17:16[0m] Starting compilation in watch mode...
 
-[[90m20:23:58[0m] Found 0 errors. Watching for file changes.
+[[90m22:17:19[0m] Found 0 errors. Watching for file changes.
 
-[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
-[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +12ms[39m
-[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +9ms[39m
-[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/validate, GET} route[39m[38;5;3m +4ms[39m
-[32m[Nest] 92342  - [39m08/07/2023, 20:23:58 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +3ms[39m
-Datos de usuario de Google: {
-  issued_to: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
-  audience: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
-  user_id: '108183304094105090419',
-  scope: 'openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
-  expires_in: 3598,
-  email: 'trenadoj66@gmail.com',
-  verified_email: true,
-  access_type: 'online'
-}
-[31m[Nest] 92342  - [39m08/07/2023, 20:24:18 [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39m[31mCannot read properties of undefined (reading 'data')[39m
-TypeError: Cannot read properties of undefined (reading 'data')
-    at GoogleAuthService.validateUser (/home/juanjo/GitHub/outfitme/apps/backend/src/google-auth.service.ts:28:24)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at AuthController.validateToken (/home/juanjo/GitHub/outfitme/apps/backend/src/auth.controller.ts:16:21)
-    at /home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/router/router-execution-context.js:46:28
-    at /home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/router/router-proxy.js:9:17
-Datos de usuario de Google: {
-  issued_to: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
-  audience: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
-  user_id: '108183304094105090419',
-  scope: 'openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
-  expires_in: 3599,
-  email: 'trenadoj66@gmail.com',
-  verified_email: true,
-  access_type: 'online'
-}
-[31m[Nest] 92342  - [39m08/07/2023, 20:24:34 [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39m[31mCannot read properties of undefined (reading 'data')[39m
-TypeError: Cannot read properties of undefined (reading 'data')
-    at GoogleAuthService.validateUser (/home/juanjo/GitHub/outfitme/apps/backend/src/google-auth.service.ts:28:24)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at AuthController.validateToken (/home/juanjo/GitHub/outfitme/apps/backend/src/auth.controller.ts:16:21)
-    at /home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/router/router-execution-context.js:46:28
-    at /home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/router/router-proxy.js:9:17
-[[90m20:28:10[0m] File change detected. Starting incremental compilation...
+[32m[Nest] 12171  - [39m09/07/2023, 22:17:20 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 12171  - [39m09/07/2023, 22:17:20 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +19ms[39m
+[32m[Nest] 12171  - [39m09/07/2023, 22:17:20 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 12171  - [39m09/07/2023, 22:17:20 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 12171  - [39m09/07/2023, 22:17:20 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 12171  - [39m09/07/2023, 22:17:20 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 12171  - [39m09/07/2023, 22:17:20 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +14ms[39m
+[32m[Nest] 12171  - [39m09/07/2023, 22:17:20 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/getJwtFromGoogleToken, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 12171  - [39m09/07/2023, 22:17:20 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +3ms[39m
+[[90m22:18:16[0m] File change detected. Starting incremental compilation...
 
-[[90m20:28:10[0m] Found 0 errors. Watching for file changes.
+[[90m22:18:16[0m] Found 0 errors. Watching for file changes.
 
-process.env.JWT_SECRET undefined
-[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
-[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +13ms[39m
-[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +9ms[39m
-[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/validate, GET} route[39m[38;5;3m +3ms[39m
-[32m[Nest] 93306  - [39m08/07/2023, 20:28:11 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +2ms[39m
-Datos de usuario de Google: {
-  issued_to: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
-  audience: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
-  user_id: '108183304094105090419',
-  scope: 'openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
-  expires_in: 3598,
-  email: 'trenadoj66@gmail.com',
-  verified_email: true,
-  access_type: 'online'
-}
-Datos de usuario de Google: {
-  issued_to: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
-  audience: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
-  user_id: '108183304094105090419',
-  scope: 'openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
-  expires_in: 3598,
-  email: 'trenadoj66@gmail.com',
-  verified_email: true,
-  access_type: 'online'
-}
-[[90m20:28:52[0m] File change detected. Starting incremental compilation...
+[32m[Nest] 12744  - [39m09/07/2023, 22:18:17 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 12744  - [39m09/07/2023, 22:18:17 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +21ms[39m
+[32m[Nest] 12744  - [39m09/07/2023, 22:18:17 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 12744  - [39m09/07/2023, 22:18:17 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 12744  - [39m09/07/2023, 22:18:17 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 12744  - [39m09/07/2023, 22:18:17 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 12744  - [39m09/07/2023, 22:18:17 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +15ms[39m
+[32m[Nest] 12744  - [39m09/07/2023, 22:18:17 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/getJwtFromGoogleToken, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 12744  - [39m09/07/2023, 22:18:17 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +4ms[39m
+Error al validar el token de Google: { error: 'invalid_token', error_description: 'Invalid Value' }
+Error al validar el token de Google: { error: 'invalid_token', error_description: 'Invalid Value' }
+[[90m22:20:29[0m] File change detected. Starting incremental compilation...
 
-[[90m20:28:52[0m] Found 0 errors. Watching for file changes.
+[96msrc/auth/Domain/auth.module.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../Infrastructure/googleAuth.service"' has no exported member 'GoogleAuthService'.
 
-[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
-[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +13ms[39m
-[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +11ms[39m
-[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/validate, GET} route[39m[38;5;3m +2ms[39m
-[32m[Nest] 93705  - [39m08/07/2023, 20:28:52 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +2ms[39m
-Datos de usuario de Google: {
-  issued_to: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
-  audience: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
-  user_id: '108183304094105090419',
-  scope: 'openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
-  expires_in: 3598,
-  email: 'trenadoj66@gmail.com',
-  verified_email: true,
-  access_type: 'online'
-}
-Datos de usuario de Google: {
-  issued_to: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
-  audience: '1084292288822-qk95aqllvh7hrgqag4870egm3bvkem2o.apps.googleusercontent.com',
-  user_id: '108183304094105090419',
-  scope: 'openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
-  expires_in: 3598,
-  email: 'trenadoj66@gmail.com',
-  verified_email: true,
-  access_type: 'online'
-}
-[[90m20:30:30[0m] File change detected. Starting incremental compilation...
+[7m3[0m import { GoogleAuthService } from '../Infrastructure/googleAuth.service';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~[0m
 
-[[90m20:30:31[0m] Found 0 errors. Watching for file changes.
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m2[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"./googleAuth.service"' has no exported member 'GoogleAuthService'.
 
-[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
-[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +11ms[39m
-[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +9ms[39m
-[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/validate, GET} route[39m[38;5;3m +3ms[39m
-[32m[Nest] 94285  - [39m08/07/2023, 20:30:31 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +2ms[39m
-[[90m20:30:39[0m] File change detected. Starting incremental compilation...
+[7m2[0m import { GoogleAuthService } from './googleAuth.service';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~[0m
 
-[[90m20:30:40[0m] Found 0 errors. Watching for file changes.
+[[90m22:20:29[0m] Found 2 errors. Watching for file changes.
 
-[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
-[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +12ms[39m
-[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +10ms[39m
-[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/validate, GET} route[39m[38;5;3m +2ms[39m
-[32m[Nest] 94472  - [39m08/07/2023, 20:30:40 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +3ms[39m
-[[90m20:31:25[0m] File change detected. Starting incremental compilation...
+[[90m22:20:35[0m] File change detected. Starting incremental compilation...
 
-[[90m20:31:25[0m] Found 0 errors. Watching for file changes.
+[96msrc/auth/Domain/auth.module.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../Infrastructure/googleAuth.service"' has no exported member 'GoogleAuthService'.
 
-[32m[Nest] 94628  - [39m08/07/2023, 20:31:26 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
-[32m[Nest] 94628  - [39m08/07/2023, 20:31:26 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +12ms[39m
-[32m[Nest] 94628  - [39m08/07/2023, 20:31:26 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 94628  - [39m08/07/2023, 20:31:26 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 94628  - [39m08/07/2023, 20:31:26 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 94628  - [39m08/07/2023, 20:31:26 [32m    LOG[39m [38;5;3m[
+[7m3[0m import { GoogleAuthService } from '../Infrastructure/googleAuth.service';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m6[0m:[93m45[0m - [91merror[0m[90m TS2304: [0mCannot find name 'GoogleAuthService'.
+
+[7m6[0m   constructor(private readonly authService: GoogleAuthService) {}
+[7m [0m [91m                                            ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m6[0m:[93m45[0m - [91merror[0m[90m TS4063: [0mParameter 'authService' of constructor from exported class has or is using private name 'GoogleAuthService'.
+
+[7m6[0m   constructor(private readonly authService: GoogleAuthService) {}
+[7m [0m [91m                                            ~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:20:35[0m] Found 3 errors. Watching for file changes.
+
+[[90m22:20:37[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Domain/auth.module.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../Infrastructure/googleAuth.service"' has no exported member 'GoogleAuthService'.
+
+[7m3[0m import { GoogleAuthService } from '../Infrastructure/googleAuth.service';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:20:37[0m] Found 1 error. Watching for file changes.
+
+[[90m22:21:37[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Domain/auth.module.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../Infrastructure/googleAuth.service"' has no exported member 'GoogleAuthService'.
+
+[7m3[0m import { GoogleAuthService } from '../Infrastructure/googleAuth.service';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m2[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"./googleAuth.service"' has no exported member 'validateUser'.
+
+[7m2[0m import { validateUser } from './googleAuth.service';
+[7m [0m [91m         ~~~~~~~~~~~~[0m
+
+[[90m22:21:37[0m] Found 2 errors. Watching for file changes.
+
+[[90m22:21:49[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Domain/auth.module.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../Infrastructure/googleAuth.service"' has no exported member 'GoogleAuthService'.
+
+[7m3[0m import { GoogleAuthService } from '../Infrastructure/googleAuth.service';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:21:49[0m] Found 1 error. Watching for file changes.
+
+[[90m22:22:01[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Domain/auth.module.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../Infrastructure/googleAuth.service"' has no exported member 'GoogleAuthService'.
+
+[7m3[0m import { GoogleAuthService } from '../Infrastructure/googleAuth.service';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:22:01[0m] Found 1 error. Watching for file changes.
+
+[[90m22:22:10[0m] File change detected. Starting incremental compilation...
+
+[91merror[0m[90m TS6053: [0mFile '/home/juanjo/GitHub/outfitme/apps/backend/src/auth/Infrastructure/googleAuth.service.ts' not found.
+  The file is in the program because:
+    Matched by default include pattern '**/*'
+
+[[90m22:22:10[0m] Found 1 error. Watching for file changes.
+
+[[90m22:22:12[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Domain/auth.module.ts[0m:[93m3[0m:[93m35[0m - [91merror[0m[90m TS2307: [0mCannot find module '../Infrastructure/googleAuth.service' or its corresponding type declarations.
+
+[7m3[0m import { GoogleAuthService } from '../Infrastructure/googleAuth.service';
+[7m [0m [91m                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m2[0m:[93m29[0m - [91merror[0m[90m TS2307: [0mCannot find module './googleAuth.service' or its corresponding type declarations.
+
+[7m2[0m import { generateJwt } from './googleAuth.service';
+[7m [0m [91m                            ~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:22:12[0m] Found 2 errors. Watching for file changes.
+
+[[90m22:22:12[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Domain/auth.module.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../Application/googleAuth.service"' has no exported member 'GoogleAuthService'.
+
+[7m3[0m import { GoogleAuthService } from '../Application/googleAuth.service';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:22:13[0m] Found 1 error. Watching for file changes.
+
+[[90m22:22:32[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m5[0m:[93m3[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m5[0m   public async generateJwt(token: string): Promise<{ access_token: string }> {
+[7m [0m [91m  ~~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m5[0m:[93m10[0m - [91merror[0m[90m TS1434: [0mUnexpected keyword or identifier.
+
+[7m5[0m   public async generateJwt(token: string): Promise<{ access_token: string }> {
+[7m [0m [91m         ~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m5[0m:[93m33[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m5[0m   public async generateJwt(token: string): Promise<{ access_token: string }> {
+[7m [0m [91m                                ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m5[0m:[93m42[0m - [91merror[0m[90m TS1005: [0m';' expected.
+
+[7m5[0m   public async generateJwt(token: string): Promise<{ access_token: string }> {
+[7m [0m [91m                                         ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m6[0m:[93m9[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m6[0m     try {
+[7m [0m [91m        ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m7[0m:[93m13[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m7[0m       const response = await axios.get(
+[7m [0m [91m            ~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m9[0m:[93m8[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m9[0m       );
+[7m [0m [91m       ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m10[0m:[93m13[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m10[0m       const userData = response.data;
+[7m  [0m [91m            ~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m10[0m:[93m37[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m10[0m       const userData = response.data;
+[7m  [0m [91m                                    ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m12[0m:[93m13[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m12[0m       const payload = {
+[7m  [0m [91m            ~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m16[0m:[93m8[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m16[0m       };
+[7m  [0m [91m       ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m17[0m:[93m13[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m17[0m       const access_token = this.jwtService.sign(payload); // this generates the JWT
+[7m  [0m [91m            ~~~~~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m17[0m:[93m57[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m17[0m       const access_token = this.jwtService.sign(payload); // this generates the JWT
+[7m  [0m [91m                                                        ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m19[0m:[93m14[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m19[0m       return { access_token };
+[7m  [0m [91m             ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m19[0m:[93m30[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m19[0m       return { access_token };
+[7m  [0m [91m                             ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m20[0m:[93m7[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m20[0m     } catch (error) {
+[7m  [0m [91m      ~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m28[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m28[0m }
+[7m  [0m [91m~[0m
+
+[[90m22:22:32[0m] Found 17 errors. Watching for file changes.
+
+[[90m22:22:40[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m5[0m:[93m3[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m5[0m   public async generateJwt(token: string): Promise<{ access_token: string }> {
+[7m [0m [91m  ~~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m5[0m:[93m10[0m - [91merror[0m[90m TS1434: [0mUnexpected keyword or identifier.
+
+[7m5[0m   public async generateJwt(token: string): Promise<{ access_token: string }> {
+[7m [0m [91m         ~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m5[0m:[93m33[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m5[0m   public async generateJwt(token: string): Promise<{ access_token: string }> {
+[7m [0m [91m                                ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m5[0m:[93m42[0m - [91merror[0m[90m TS1005: [0m';' expected.
+
+[7m5[0m   public async generateJwt(token: string): Promise<{ access_token: string }> {
+[7m [0m [91m                                         ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m6[0m:[93m9[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m6[0m     try {
+[7m [0m [91m        ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m7[0m:[93m13[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m7[0m       const response = await axios.get(
+[7m [0m [91m            ~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m9[0m:[93m8[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m9[0m       );
+[7m [0m [91m       ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m10[0m:[93m13[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m10[0m       const userData = response.data;
+[7m  [0m [91m            ~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m10[0m:[93m37[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m10[0m       const userData = response.data;
+[7m  [0m [91m                                    ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m12[0m:[93m13[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m12[0m       const payload = {
+[7m  [0m [91m            ~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m16[0m:[93m8[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m16[0m       };
+[7m  [0m [91m       ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m17[0m:[93m13[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m17[0m       const access_token = this.jwtService.sign(payload); // this generates the JWT
+[7m  [0m [91m            ~~~~~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m17[0m:[93m57[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m17[0m       const access_token = this.jwtService.sign(payload); // this generates the JWT
+[7m  [0m [91m                                                        ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m19[0m:[93m14[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m19[0m       return { access_token };
+[7m  [0m [91m             ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m19[0m:[93m30[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m19[0m       return { access_token };
+[7m  [0m [91m                             ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m20[0m:[93m7[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m20[0m     } catch (error) {
+[7m  [0m [91m      ~~~~~[0m
+
+[[90m22:22:40[0m] Found 16 errors. Watching for file changes.
+
+[[90m22:24:14[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m5[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m5[0m export async generateJwt(token: string): Promise<{ payload: string }> {
+[7m [0m [91m~~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m5[0m:[93m8[0m - [91merror[0m[90m TS1434: [0mUnexpected keyword or identifier.
+
+[7m5[0m export async generateJwt(token: string): Promise<{ payload: string }> {
+[7m [0m [91m       ~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m5[0m:[93m31[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m5[0m export async generateJwt(token: string): Promise<{ payload: string }> {
+[7m [0m [91m                              ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m5[0m:[93m40[0m - [91merror[0m[90m TS1005: [0m';' expected.
+
+[7m5[0m export async generateJwt(token: string): Promise<{ payload: string }> {
+[7m [0m [91m                                       ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m6[0m:[93m7[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m6[0m   try {
+[7m [0m [91m      ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m7[0m:[93m11[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m7[0m     const Response = await axios.get(
+[7m [0m [91m          ~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m10[0m:[93m11[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m10[0m     const userData = Response.data,
+[7m  [0m [91m          ~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m12[0m:[93m11[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m12[0m     const payload = {
+[7m  [0m [91m          ~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m18[0m:[93m12[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m18[0m     return { payload },
+[7m  [0m [91m           ~[0m
+
+[96msrc/auth/Infrastructure/googleAuth.service copy.ts[0m:[93m19[0m:[93m5[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m19[0m   } catch (error: { response: { data: any; }; }) {
+[7m  [0m [91m    ~~~~~[0m
+
+[[90m22:24:14[0m] Found 10 errors. Watching for file changes.
+
+[32m[Nest] 14488  - [39m09/07/2023, 22:24:15 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[31m[Nest] 14488  - [39m09/07/2023, 22:24:15 [31m  ERROR[39m [38;5;3m[ExceptionHandler] [39m[31mA circular dependency has been detected inside AuthModule. Please, make sure that each side of a bidirectional relationships are decorated with "forwardRef()".[39m
+Error: A circular dependency has been detected inside AuthModule. Please, make sure that each side of a bidirectional relationships are decorated with "forwardRef()".
+    at NestContainer.addProvider (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/injector/container.js:136:19)
+    at DependenciesScanner.insertProvider (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/scanner.js:230:35)
+    at /home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/scanner.js:114:18
+    at Array.forEach (<anonymous>)
+    at DependenciesScanner.reflectProviders (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/scanner.js:113:19)
+    at DependenciesScanner.scanModulesForDependencies (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/scanner.js:94:18)
+    at DependenciesScanner.scan (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/scanner.js:31:9)
+    at /home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/nest-factory.js:107:17
+    at Function.asyncRun (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/errors/exceptions-zone.js:22:13)
+    at NestFactoryStatic.initialize (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/nest-factory.js:106:13)
+[[90m22:25:18[0m] File change detected. Starting incremental compilation...
+
+[91merror[0m[90m TS6053: [0mFile '/home/juanjo/GitHub/outfitme/apps/backend/src/auth/Infrastructure/googleAuth.service copy.ts' not found.
+  The file is in the program because:
+    Matched by default include pattern '**/*'
+
+[[90m22:25:18[0m] Found 1 error. Watching for file changes.
+
+[[90m22:25:19[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m5[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m5[0m export async generateJwt(token: string): Promise<{ payload: string }> {
+[7m [0m [91m~~~~~~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m5[0m:[93m8[0m - [91merror[0m[90m TS1434: [0mUnexpected keyword or identifier.
+
+[7m5[0m export async generateJwt(token: string): Promise<{ payload: string }> {
+[7m [0m [91m       ~~~~~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m5[0m:[93m31[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m5[0m export async generateJwt(token: string): Promise<{ payload: string }> {
+[7m [0m [91m                              ~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m5[0m:[93m40[0m - [91merror[0m[90m TS1005: [0m';' expected.
+
+[7m5[0m export async generateJwt(token: string): Promise<{ payload: string }> {
+[7m [0m [91m                                       ~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m6[0m:[93m7[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m6[0m   try {
+[7m [0m [91m      ~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m7[0m:[93m11[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m7[0m     const Response = await axios.get(
+[7m [0m [91m          ~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m10[0m:[93m11[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m10[0m     const userData = Response.data,
+[7m  [0m [91m          ~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m12[0m:[93m11[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m12[0m     const payload = {
+[7m  [0m [91m          ~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m18[0m:[93m12[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m18[0m     return { payload },
+[7m  [0m [91m           ~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m19[0m:[93m5[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m19[0m   } catch (error: { response: { data: any; }; }) {
+[7m  [0m [91m    ~~~~~[0m
+
+[[90m22:25:19[0m] Found 10 errors. Watching for file changes.
+
+[32m[Nest] 14708  - [39m09/07/2023, 22:25:19 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[31m[Nest] 14708  - [39m09/07/2023, 22:25:20 [31m  ERROR[39m [38;5;3m[ExceptionHandler] [39m[31mA circular dependency has been detected inside AuthModule. Please, make sure that each side of a bidirectional relationships are decorated with "forwardRef()".[39m
+Error: A circular dependency has been detected inside AuthModule. Please, make sure that each side of a bidirectional relationships are decorated with "forwardRef()".
+    at NestContainer.addProvider (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/injector/container.js:136:19)
+    at DependenciesScanner.insertProvider (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/scanner.js:230:35)
+    at /home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/scanner.js:114:18
+    at Array.forEach (<anonymous>)
+    at DependenciesScanner.reflectProviders (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/scanner.js:113:19)
+    at DependenciesScanner.scanModulesForDependencies (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/scanner.js:94:18)
+    at DependenciesScanner.scan (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/scanner.js:31:9)
+    at /home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/nest-factory.js:107:17
+    at Function.asyncRun (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/errors/exceptions-zone.js:22:13)
+    at NestFactoryStatic.initialize (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/nest-factory.js:106:13)
+[[90m22:25:25[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m5[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m5[0m export async getGoogleUserFromToken(token: string): Promise<{ payload: string }> {
+[7m [0m [91m~~~~~~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m5[0m:[93m8[0m - [91merror[0m[90m TS1434: [0mUnexpected keyword or identifier.
+
+[7m5[0m export async getGoogleUserFromToken(token: string): Promise<{ payload: string }> {
+[7m [0m [91m       ~~~~~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m5[0m:[93m42[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m5[0m export async getGoogleUserFromToken(token: string): Promise<{ payload: string }> {
+[7m [0m [91m                                         ~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m5[0m:[93m51[0m - [91merror[0m[90m TS1005: [0m';' expected.
+
+[7m5[0m export async getGoogleUserFromToken(token: string): Promise<{ payload: string }> {
+[7m [0m [91m                                                  ~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m6[0m:[93m7[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m6[0m   try {
+[7m [0m [91m      ~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m7[0m:[93m11[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m7[0m     const Response = await axios.get(
+[7m [0m [91m          ~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m10[0m:[93m11[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m10[0m     const userData = Response.data,
+[7m  [0m [91m          ~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m12[0m:[93m11[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m12[0m     const payload = {
+[7m  [0m [91m          ~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m18[0m:[93m12[0m - [91merror[0m[90m TS1005: [0m':' expected.
+
+[7m18[0m     return { payload },
+[7m  [0m [91m           ~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m19[0m:[93m5[0m - [91merror[0m[90m TS1005: [0m',' expected.
+
+[7m19[0m   } catch (error: { response: { data: any; }; }) {
+[7m  [0m [91m    ~~~~~[0m
+
+[[90m22:25:25[0m] Found 10 errors. Watching for file changes.
+
+[32m[Nest] 14849  - [39m09/07/2023, 22:25:26 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[31m[Nest] 14849  - [39m09/07/2023, 22:25:26 [31m  ERROR[39m [38;5;3m[ExceptionHandler] [39m[31mA circular dependency has been detected inside AuthModule. Please, make sure that each side of a bidirectional relationships are decorated with "forwardRef()".[39m
+Error: A circular dependency has been detected inside AuthModule. Please, make sure that each side of a bidirectional relationships are decorated with "forwardRef()".
+    at NestContainer.addProvider (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/injector/container.js:136:19)
+    at DependenciesScanner.insertProvider (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/scanner.js:230:35)
+    at /home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/scanner.js:114:18
+    at Array.forEach (<anonymous>)
+    at DependenciesScanner.reflectProviders (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/scanner.js:113:19)
+    at DependenciesScanner.scanModulesForDependencies (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/scanner.js:94:18)
+    at DependenciesScanner.scan (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/scanner.js:31:9)
+    at /home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/nest-factory.js:107:17
+    at Function.asyncRun (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/errors/exceptions-zone.js:22:13)
+    at NestFactoryStatic.initialize (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/nest-factory.js:106:13)
+[[90m22:26:38[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m19[0m:[93m3[0m - [91merror[0m[90m TS1109: [0mExpression expected.
+
+[7m19[0m   } catch (error: { response: { data: any; }; }) {
+[7m  [0m [91m  ~[0m
+
+[[90m22:26:38[0m] Found 1 error. Watching for file changes.
+
+[[90m22:27:38[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Domain/auth.module.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../Application/googleAuth.service"' has no exported member 'GoogleAuthService'.
+
+[7m3[0m import { GoogleAuthService } from '../Application/googleAuth.service';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m20[0m:[93m14[0m - [91merror[0m[90m TS2322: [0mType '{ user_id: any; email: any; token: string; }' is not assignable to type 'string'.
+
+[7m20[0m     return { payload };
+[7m  [0m [91m             ~~~~~~~[0m
+
+  [96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m7[0m:[93m14[0m
+    [7m7[0m ): Promise<{ payload: string }> {
+    [7m [0m [96m             ~~~~~~~[0m
+    The expected type comes from property 'payload' which is declared here on type '{ payload: string; }'
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m21[0m:[93m19[0m - [91merror[0m[90m TS1196: [0mCatch clause variable type annotation must be 'any' or 'unknown' if specified.
+
+[7m21[0m   } catch (error: { response: { data: any } }) {
+[7m  [0m [91m                  ~[0m
+
+[[90m22:27:38[0m] Found 3 errors. Watching for file changes.
+
+[[90m22:27:53[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Domain/auth.module.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../Application/googleAuth.service"' has no exported member 'GoogleAuthService'.
+
+[7m3[0m import { GoogleAuthService } from '../Application/googleAuth.service';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m18[0m:[93m14[0m - [91merror[0m[90m TS2322: [0mType '{ user_id: any; email: any; token: string; }' is not assignable to type 'string'.
+
+[7m18[0m     return { payload };
+[7m  [0m [91m             ~~~~~~~[0m
+
+  [96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m5[0m:[93m14[0m
+    [7m5[0m ): Promise<{ payload: string }> {
+    [7m [0m [96m             ~~~~~~~[0m
+    The expected type comes from property 'payload' which is declared here on type '{ payload: string; }'
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m19[0m:[93m19[0m - [91merror[0m[90m TS1196: [0mCatch clause variable type annotation must be 'any' or 'unknown' if specified.
+
+[7m19[0m   } catch (error: { response: { data: any } }) {
+[7m  [0m [91m                  ~[0m
+
+[[90m22:27:53[0m] Found 3 errors. Watching for file changes.
+
+[[90m22:31:52[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Domain/auth.module.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../Application/googleAuth.service"' has no exported member 'GoogleAuthService'.
+
+[7m3[0m import { GoogleAuthService } from '../Application/googleAuth.service';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m18[0m:[93m14[0m - [91merror[0m[90m TS2322: [0mType '{ user_id: any; email: any; token: string; }' is not assignable to type 'string'.
+
+[7m18[0m     return { payload };
+[7m  [0m [91m             ~~~~~~~[0m
+
+  [96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m5[0m:[93m14[0m
+    [7m5[0m ): Promise<{ payload: string }> {
+    [7m [0m [96m             ~~~~~~~[0m
+    The expected type comes from property 'payload' which is declared here on type '{ payload: string; }'
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m19[0m:[93m19[0m - [91merror[0m[90m TS1196: [0mCatch clause variable type annotation must be 'any' or 'unknown' if specified.
+
+[7m19[0m   } catch (error: { response: { data: any } }) {
+[7m  [0m [91m                  ~[0m
+
+[[90m22:31:52[0m] Found 3 errors. Watching for file changes.
+
+[[90m22:32:00[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Domain/auth.module.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../Application/googleAuth.service"' has no exported member 'GoogleAuthService'.
+
+[7m3[0m import { GoogleAuthService } from '../Application/googleAuth.service';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m18[0m:[93m14[0m - [91merror[0m[90m TS2322: [0mType '{ user_id: any; email: any; token: string; }' is not assignable to type 'string'.
+
+[7m18[0m     return { payload };
+[7m  [0m [91m             ~~~~~~~[0m
+
+  [96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m5[0m:[93m14[0m
+    [7m5[0m ): Promise<{ payload: string }> {
+    [7m [0m [96m             ~~~~~~~[0m
+    The expected type comes from property 'payload' which is declared here on type '{ payload: string; }'
+
+[96msrc/auth/Infrastructure/getGoogleUserFromToken.ts[0m:[93m19[0m:[93m19[0m - [91merror[0m[90m TS1196: [0mCatch clause variable type annotation must be 'any' or 'unknown' if specified.
+
+[7m19[0m   } catch (error: { response: { data: any } }) {
+[7m  [0m [91m                  ~[0m
+
+[[90m22:32:00[0m] Found 3 errors. Watching for file changes.
+
+[[90m22:32:30[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Domain/auth.module.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../Application/googleAuth.service"' has no exported member 'GoogleAuthService'.
+
+[7m3[0m import { GoogleAuthService } from '../Application/googleAuth.service';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:32:30[0m] Found 1 error. Watching for file changes.
+
+[[90m22:33:16[0m] File change detected. Starting incremental compilation...
+
+[91merror[0m[90m TS6053: [0mFile '/home/juanjo/GitHub/outfitme/apps/backend/src/auth/Application/googleAuth.service.ts' not found.
+  The file is in the program because:
+    Matched by default include pattern '**/*'
+
+[[90m22:33:16[0m] Found 1 error. Watching for file changes.
+
+[[90m22:33:17[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Domain/auth.module.ts[0m:[93m3[0m:[93m35[0m - [91merror[0m[90m TS2307: [0mCannot find module '../Application/googleAuth.service' or its corresponding type declarations.
+
+[7m3[0m import { GoogleAuthService } from '../Application/googleAuth.service';
+[7m [0m [91m                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m2[0m:[93m29[0m - [91merror[0m[90m TS2307: [0mCannot find module '../Application/googleAuth.service' or its corresponding type declarations.
+
+[7m2[0m import { generateJwt } from '../Application/googleAuth.service';
+[7m [0m [91m                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:33:17[0m] Found 2 errors. Watching for file changes.
+
+[[90m22:33:19[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Domain/auth.module.ts[0m:[93m16[0m:[93m15[0m - [91merror[0m[90m TS2304: [0mCannot find name 'GoogleAuthService'.
+
+[7m16[0m   providers: [GoogleAuthService],
+[7m  [0m [91m              ~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:33:20[0m] Found 1 error. Watching for file changes.
+
+[[90m22:33:30[0m] File change detected. Starting incremental compilation...
+
+[[90m22:33:30[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 16238  - [39m09/07/2023, 22:33:30 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 16238  - [39m09/07/2023, 22:33:30 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +20ms[39m
+[32m[Nest] 16238  - [39m09/07/2023, 22:33:30 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 16238  - [39m09/07/2023, 22:33:30 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 16238  - [39m09/07/2023, 22:33:30 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 16238  - [39m09/07/2023, 22:33:30 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 16238  - [39m09/07/2023, 22:33:30 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +17ms[39m
+[32m[Nest] 16238  - [39m09/07/2023, 22:33:30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/getJwtFromGoogleToken, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 16238  - [39m09/07/2023, 22:33:30 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +4ms[39m
+[[90m22:33:54[0m] File change detected. Starting incremental compilation...
+
+[[90m22:33:54[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 16415  - [39m09/07/2023, 22:33:55 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 16415  - [39m09/07/2023, 22:33:55 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +23ms[39m
+[32m[Nest] 16415  - [39m09/07/2023, 22:33:55 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 16415  - [39m09/07/2023, 22:33:55 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 16415  - [39m09/07/2023, 22:33:55 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 16415  - [39m09/07/2023, 22:33:55 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 16415  - [39m09/07/2023, 22:33:55 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +17ms[39m
+[32m[Nest] 16415  - [39m09/07/2023, 22:33:55 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/getJwtFromGoogleToken, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 16415  - [39m09/07/2023, 22:33:55 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +3ms[39m
+[[90m22:34:04[0m] File change detected. Starting incremental compilation...
+
+[91merror[0m[90m TS6053: [0mFile '/home/juanjo/GitHub/outfitme/apps/backend/src/auth/Infrastructure/getGoogleUserFromToken.ts' not found.
+  The file is in the program because:
+    Matched by default include pattern '**/*'
+
+[[90m22:34:04[0m] Found 1 error. Watching for file changes.
+
+[[90m22:34:05[0m] File change detected. Starting incremental compilation...
+
+[[90m22:34:05[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 16599  - [39m09/07/2023, 22:34:06 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 16599  - [39m09/07/2023, 22:34:06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +21ms[39m
+[32m[Nest] 16599  - [39m09/07/2023, 22:34:06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 16599  - [39m09/07/2023, 22:34:06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 16599  - [39m09/07/2023, 22:34:06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 16599  - [39m09/07/2023, 22:34:06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 16599  - [39m09/07/2023, 22:34:06 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +15ms[39m
+[32m[Nest] 16599  - [39m09/07/2023, 22:34:06 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/getJwtFromGoogleToken, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 16599  - [39m09/07/2023, 22:34:06 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +4ms[39m
+[[90m22:35:30[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Application/generateJwt.service.ts[0m:[93m11[0m:[93m7[0m - [91merror[0m[90m TS1068: [0mUnexpected token. A constructor, method, accessor, or property was expected.
+
+[7m11[0m       return { access_token };
+[7m  [0m [91m      ~~~~~~[0m
+
+[96msrc/auth/Application/generateJwt.service.ts[0m:[93m12[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m12[0m }
+[7m  [0m [91m~[0m
+
+[[90m22:35:30[0m] Found 2 errors. Watching for file changes.
+
+[[90m22:38:18[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m12[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'generateJwt' does not exist on type 'generateJwt'.
+
+[7m12[0m     const jwt = await this.authService.generateJwt(token);
+[7m  [0m [91m                                       ~~~~~~~~~~~[0m
+
+[[90m22:38:18[0m] Found 1 error. Watching for file changes.
+
+[[90m22:39:05[0m] File change detected. Starting incremental compilation...
+
+[[90m22:39:05[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 17206  - [39m09/07/2023, 22:39:05 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 17206  - [39m09/07/2023, 22:39:06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +21ms[39m
+[32m[Nest] 17206  - [39m09/07/2023, 22:39:06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 17206  - [39m09/07/2023, 22:39:06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 17206  - [39m09/07/2023, 22:39:06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 17206  - [39m09/07/2023, 22:39:06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 17206  - [39m09/07/2023, 22:39:06 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +15ms[39m
+[32m[Nest] 17206  - [39m09/07/2023, 22:39:06 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/getJwtFromGoogleToken, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 17206  - [39m09/07/2023, 22:39:06 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +3ms[39m
+[[90m22:40:40[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m14[0m:[93m14[0m - [91merror[0m[90m TS2741: [0mProperty 'access_token' is missing in type '{ jwt: string; }' but required in type '{ access_token: string; }'.
+
+[7m14[0m     if (jwt) return jwt;
+[7m  [0m [91m             ~~~~~~[0m
+
+  [96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m11[0m:[93m16[0m
+    [7m11[0m   ): Promise<{ access_token: string }> {
+    [7m  [0m [96m               ~~~~~~~~~~~~[0m
+    'access_token' is declared here.
+
+[[90m22:40:41[0m] Found 1 error. Watching for file changes.
+
+[[90m22:41:15[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Application/generateJwt.service.ts[0m:[93m15[0m:[93m2[0m - [91merror[0m[90m TS1005: [0m'}' expected.
+
+[7m15[0m Ç
+[7m  [0m [91m [0m
+
+[[90m22:41:15[0m] Found 1 error. Watching for file changes.
+
+[[90m22:41:19[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m14[0m:[93m14[0m - [91merror[0m[90m TS2741: [0mProperty 'access_token' is missing in type '{ jwt: string; }' but required in type '{ access_token: string; }'.
+
+[7m14[0m     if (jwt) return jwt;
+[7m  [0m [91m             ~~~~~~[0m
+
+  [96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m11[0m:[93m16[0m
+    [7m11[0m   ): Promise<{ access_token: string }> {
+    [7m  [0m [96m               ~~~~~~~~~~~~[0m
+    'access_token' is declared here.
+
+[[90m22:41:19[0m] Found 1 error. Watching for file changes.
+
+[[90m22:42:39[0m] File change detected. Starting incremental compilation...
+
+[[90m22:42:39[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 17821  - [39m09/07/2023, 22:42:40 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 17821  - [39m09/07/2023, 22:42:40 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +19ms[39m
+[32m[Nest] 17821  - [39m09/07/2023, 22:42:40 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 17821  - [39m09/07/2023, 22:42:40 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 17821  - [39m09/07/2023, 22:42:40 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 17821  - [39m09/07/2023, 22:42:40 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 17821  - [39m09/07/2023, 22:42:40 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +15ms[39m
+[32m[Nest] 17821  - [39m09/07/2023, 22:42:40 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/getJwtFromGoogleToken, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 17821  - [39m09/07/2023, 22:42:40 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +3ms[39m
+[[90m22:45:09[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m12[0m:[93m40[0m - [91merror[0m[90m TS2554: [0mExpected 2 arguments, but got 1.
+
+[7m12[0m     const jwt = await this.authService.generateJwt(token);
+[7m  [0m [91m                                       ~~~~~~~~~~~~~~~~~~[0m
+
+  [96msrc/auth/Application/generateJwt.service.ts[0m:[93m10[0m:[93m36[0m
+    [7m10[0m   async generateJwt(token: string, payload: User): Promise<{ jwt: string }> {
+    [7m  [0m [96m                                   ~~~~~~~~~~~~~[0m
+    An argument for 'payload' was not provided.
+
+[[90m22:45:09[0m] Found 1 error. Watching for file changes.
+
+[[90m22:45:35[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m14[0m:[93m11[0m - [91merror[0m[90m TS2739: [0mType '{ payload: User; }' is missing the following properties from type 'User': id, email, token
+
+[7m14[0m     const payload: User = await getPayloadFromToken(token);
+[7m  [0m [91m          ~~~~~~~[0m
+
+[[90m22:45:36[0m] Found 1 error. Watching for file changes.
+
+[[90m22:47:47[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Application/generateJwt.service.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../Infrastructure/getPayloadFromToken"' has no exported member 'getPayloadFromToken'.
+
+[7m3[0m import { getPayloadFromToken } from '../Infrastructure/getPayloadFromToken';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"./getPayloadFromToken"' has no exported member 'getPayloadFromToken'.
+
+[7m3[0m import { getPayloadFromToken } from './getPayloadFromToken';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:47:47[0m] Found 2 errors. Watching for file changes.
+
+[[90m22:48:05[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Application/generateJwt.service.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../Infrastructure/getPayloadFromToken"' has no exported member 'getPayloadFromToken'.
+
+[7m3[0m import { getPayloadFromToken } from '../Infrastructure/getPayloadFromToken';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m3[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"./getPayloadFromToken"' has no exported member 'getPayloadFromToken'.
+
+[7m3[0m import { getPayloadFromToken } from './getPayloadFromToken';
+[7m [0m [91m         ~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:48:05[0m] Found 2 errors. Watching for file changes.
+
+[[90m22:48:25[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m14[0m:[93m11[0m - [91merror[0m[90m TS2739: [0mType '{ payload: User; }' is missing the following properties from type 'User': id, email, token
+
+[7m14[0m     const payload: User = await getPayloadFromToken(token);
+[7m  [0m [91m          ~~~~~~~[0m
+
+[[90m22:48:26[0m] Found 1 error. Watching for file changes.
+
+[[90m22:49:58[0m] File change detected. Starting incremental compilation...
+
+[[90m22:49:59[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 19209  - [39m09/07/2023, 22:49:59 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 19209  - [39m09/07/2023, 22:49:59 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +22ms[39m
+[32m[Nest] 19209  - [39m09/07/2023, 22:49:59 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 19209  - [39m09/07/2023, 22:49:59 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 19209  - [39m09/07/2023, 22:49:59 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 19209  - [39m09/07/2023, 22:49:59 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 19209  - [39m09/07/2023, 22:49:59 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +16ms[39m
+[32m[Nest] 19209  - [39m09/07/2023, 22:49:59 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/getJwtFromGoogleToken, GET} route[39m[38;5;3m +5ms[39m
+[32m[Nest] 19209  - [39m09/07/2023, 22:49:59 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +4ms[39m
+[[90m22:50:48[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Application/UserAdapter.ts[0m:[93m1[0m:[93m36[0m - [91merror[0m[90m TS2307: [0mCannot find module '../Domain/User' or its corresponding type declarations.
+
+[7m1[0m import { EndpointUser, User } from '../Domain/User';
+[7m [0m [91m                                   ~~~~~~~~~~~~~~~~[0m
+
+[[90m22:50:49[0m] Found 1 error. Watching for file changes.
+
+[[90m22:50:59[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Application/UserAdapter.ts[0m:[93m1[0m:[93m36[0m - [91merror[0m[90m TS2307: [0mCannot find module '../Domain/User' or its corresponding type declarations.
+
+[7m1[0m import { EndpointUser, User } from '../Domain/User';
+[7m [0m [91m                                   ~~~~~~~~~~~~~~~~[0m
+
+[[90m22:50:59[0m] Found 1 error. Watching for file changes.
+
+[[90m22:51:44[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Application/UserAdapter.ts[0m:[93m6[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType '{ email: string; name: string; picture: string; jwt: string; }' is not assignable to type 'User'.
+  Object literal may only specify known properties, and 'name' does not exist in type 'User'.
+
+[7m6[0m     name: endpointUser.name,
+[7m [0m [91m    ~~~~[0m
+
+[[90m22:51:44[0m] Found 1 error. Watching for file changes.
+
+[[90m22:52:11[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Application/UserAdapter.ts[0m:[93m5[0m:[93m9[0m - [91merror[0m[90m TS2552: [0mCannot find name 'response'. Did you mean 'Response'?
+
+[7m5[0m     id: response.data.user_id,
+[7m [0m [91m        ~~~~~~~~[0m
+
+  [96m../../node_modules/typescript/lib/lib.dom.d.ts[0m:[93m18748[0m:[93m13[0m
+    [7m18748[0m declare var Response: {
+    [7m     [0m [96m            ~~~~~~~~[0m
+    'Response' is declared here.
+
+[96msrc/auth/Application/UserAdapter.ts[0m:[93m6[0m:[93m12[0m - [91merror[0m[90m TS2552: [0mCannot find name 'response'. Did you mean 'Response'?
+
+[7m6[0m     email: response.data.email,
+[7m [0m [91m           ~~~~~~~~[0m
+
+  [96m../../node_modules/typescript/lib/lib.dom.d.ts[0m:[93m18748[0m:[93m13[0m
+    [7m18748[0m declare var Response: {
+    [7m     [0m [96m            ~~~~~~~~[0m
+    'Response' is declared here.
+
+[96msrc/auth/Application/UserAdapter.ts[0m:[93m7[0m:[93m5[0m - [91merror[0m[90m TS18004: [0mNo value exists in scope for the shorthand property 'token'. Either declare one or provide an initializer.
+
+[7m7[0m     token,
+[7m [0m [91m    ~~~~~[0m
+
+[[90m22:52:11[0m] Found 3 errors. Watching for file changes.
+
+[[90m22:52:14[0m] File change detected. Starting incremental compilation...
+
+[91merror[0m[90m TS6053: [0mFile '/home/juanjo/GitHub/outfitme/apps/backend/src/auth/Application/UserAdapter.ts' not found.
+  The file is in the program because:
+    Matched by default include pattern '**/*'
+
+[[90m22:52:14[0m] Found 1 error. Watching for file changes.
+
+[[90m22:52:15[0m] File change detected. Starting incremental compilation...
+
+[[90m22:52:15[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 20036  - [39m09/07/2023, 22:52:16 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 20036  - [39m09/07/2023, 22:52:16 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +20ms[39m
+[32m[Nest] 20036  - [39m09/07/2023, 22:52:16 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 20036  - [39m09/07/2023, 22:52:16 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 20036  - [39m09/07/2023, 22:52:16 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 20036  - [39m09/07/2023, 22:52:16 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 20036  - [39m09/07/2023, 22:52:16 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +16ms[39m
+[32m[Nest] 20036  - [39m09/07/2023, 22:52:16 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/getJwtFromGoogleToken, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 20036  - [39m09/07/2023, 22:52:16 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +4ms[39m
+[[90m22:52:16[0m] File change detected. Starting incremental compilation...
+
+[[90m22:52:16[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 20046  - [39m09/07/2023, 22:52:17 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 20046  - [39m09/07/2023, 22:52:17 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +19ms[39m
+[32m[Nest] 20046  - [39m09/07/2023, 22:52:17 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 20046  - [39m09/07/2023, 22:52:17 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 20046  - [39m09/07/2023, 22:52:17 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 20046  - [39m09/07/2023, 22:52:17 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 20046  - [39m09/07/2023, 22:52:17 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +15ms[39m
+[32m[Nest] 20046  - [39m09/07/2023, 22:52:17 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/getJwtFromGoogleToken, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 20046  - [39m09/07/2023, 22:52:17 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +4ms[39m
+[[90m22:52:17[0m] File change detected. Starting incremental compilation...
+
+[[90m22:52:17[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 20089  - [39m09/07/2023, 22:52:18 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 20089  - [39m09/07/2023, 22:52:18 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +18ms[39m
+[32m[Nest] 20089  - [39m09/07/2023, 22:52:18 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 20089  - [39m09/07/2023, 22:52:18 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 20089  - [39m09/07/2023, 22:52:18 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 20089  - [39m09/07/2023, 22:52:18 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 20089  - [39m09/07/2023, 22:52:18 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +14ms[39m
+[32m[Nest] 20089  - [39m09/07/2023, 22:52:18 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/getJwtFromGoogleToken, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 20089  - [39m09/07/2023, 22:52:18 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +3ms[39m
+[[90m22:53:07[0m] File change detected. Starting incremental compilation...
+
+[91merror[0m[90m TS6053: [0mFile '/home/juanjo/GitHub/outfitme/apps/backend/src/auth/Domain/auth.module.ts' not found.
+  The file is in the program because:
+    Matched by default include pattern '**/*'
+
+[[90m22:53:07[0m] Found 1 error. Watching for file changes.
+
+[[90m22:53:08[0m] File change detected. Starting incremental compilation...
+
+[96msrc/app.module.ts[0m:[93m2[0m:[93m28[0m - [91merror[0m[90m TS2307: [0mCannot find module './auth/Domain/auth.module' or its corresponding type declarations.
+
+[7m2[0m import { AuthModule } from './auth/Domain/auth.module';
+[7m [0m [91m                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:53:08[0m] Found 1 error. Watching for file changes.
+
+[[90m22:53:09[0m] File change detected. Starting incremental compilation...
+
+[[90m22:53:09[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 20363  - [39m09/07/2023, 22:53:10 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 20363  - [39m09/07/2023, 22:53:10 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +20ms[39m
+[32m[Nest] 20363  - [39m09/07/2023, 22:53:10 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 20363  - [39m09/07/2023, 22:53:10 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 20363  - [39m09/07/2023, 22:53:10 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 20363  - [39m09/07/2023, 22:53:10 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 20363  - [39m09/07/2023, 22:53:10 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +14ms[39m
+[32m[Nest] 20363  - [39m09/07/2023, 22:53:10 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/getJwtFromGoogleToken, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 20363  - [39m09/07/2023, 22:53:10 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +3ms[39m
+[[90m22:53:13[0m] File change detected. Starting incremental compilation...
+
+[[90m22:53:13[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 20409  - [39m09/07/2023, 22:53:14 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 20409  - [39m09/07/2023, 22:53:14 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +19ms[39m
+[32m[Nest] 20409  - [39m09/07/2023, 22:53:14 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 20409  - [39m09/07/2023, 22:53:14 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 20409  - [39m09/07/2023, 22:53:14 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 20409  - [39m09/07/2023, 22:53:14 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 20409  - [39m09/07/2023, 22:53:14 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +16ms[39m
+[32m[Nest] 20409  - [39m09/07/2023, 22:53:14 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/getJwtFromGoogleToken, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 20409  - [39m09/07/2023, 22:53:14 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +3ms[39m
+[[90m22:57:20[0m] File change detected. Starting incremental compilation...
+
+[91merror[0m[90m TS6053: [0mFile '/home/juanjo/GitHub/outfitme/apps/backend/src/auth/Infrastructure/getPayloadFromToken.ts' not found.
+  The file is in the program because:
+    Matched by default include pattern '**/*'
+
+[[90m22:57:20[0m] Found 1 error. Watching for file changes.
+
+[[90m22:57:21[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m3[0m:[93m37[0m - [91merror[0m[90m TS2307: [0mCannot find module './getPayloadFromToken' or its corresponding type declarations.
+
+[7m3[0m import { getPayloadFromToken } from './getPayloadFromToken';
+[7m [0m [91m                                    ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:57:21[0m] Found 1 error. Watching for file changes.
+
+[[90m22:57:33[0m] File change detected. Starting incremental compilation...
+
+[91merror[0m[90m TS6053: [0mFile '/home/juanjo/GitHub/outfitme/apps/backend/src/auth/Application/getPayloadFromToken.ts' not found.
+  The file is in the program because:
+    Matched by default include pattern '**/*'
+
+[[90m22:57:33[0m] Found 1 error. Watching for file changes.
+
+[[90m22:57:34[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m3[0m:[93m37[0m - [91merror[0m[90m TS2307: [0mCannot find module './getPayloadFromToken' or its corresponding type declarations.
+
+[7m3[0m import { getPayloadFromToken } from './getPayloadFromToken';
+[7m [0m [91m                                    ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:57:34[0m] Found 1 error. Watching for file changes.
+
+[[90m22:57:56[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m3[0m:[93m37[0m - [91merror[0m[90m TS2307: [0mCannot find module './getPayloadFromToken' or its corresponding type declarations.
+
+[7m3[0m import { getPayloadFromToken } from './getPayloadFromToken';
+[7m [0m [91m                                    ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:57:56[0m] Found 1 error. Watching for file changes.
+
+[[90m22:59:25[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m8[0m:[93m22[0m - [91merror[0m[90m TS2300: [0mDuplicate identifier 'authService'.
+
+[7m8[0m     private readonly authService: generateJwt,
+[7m [0m [91m                     ~~~~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m9[0m:[93m22[0m - [91merror[0m[90m TS2300: [0mDuplicate identifier 'authService'.
+
+[7m9[0m     private readonly authService: generateJwt,
+[7m [0m [91m                     ~~~~~~~~~~~[0m
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m16[0m:[93m31[0m - [91merror[0m[90m TS2348: [0mValue of type 'typeof getPayloadFromToken' is not callable. Did you mean to include 'new'?
+
+[7m16[0m     const { payload } = await getPayloadFromToken(token);
+[7m  [0m [91m                              ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m22:59:26[0m] Found 3 errors. Watching for file changes.
+
+[[90m22:59:56[0m] File change detected. Starting incremental compilation...
+
+[[90m22:59:56[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 21467  - [39m09/07/2023, 22:59:57 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 21467  - [39m09/07/2023, 22:59:57 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +21ms[39m
+[32m[Nest] 21467  - [39m09/07/2023, 22:59:57 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 21467  - [39m09/07/2023, 22:59:57 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 21467  - [39m09/07/2023, 22:59:57 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[31m[Nest] 21467  - [39m09/07/2023, 22:59:57 [31m  ERROR[39m [38;5;3m[ExceptionHandler] [39m[31mNest can't resolve dependencies of the AuthController (generateJwt, ?). Please make sure that the argument getPayloadFromToken at index [1] is available in the AuthModule context.
+
+Potential solutions:
+- Is AuthModule a valid NestJS module?
+- If getPayloadFromToken is a provider, is it part of the current AuthModule?
+- If getPayloadFromToken is exported from a separate @Module, is that module imported within AuthModule?
+  @Module({
+    imports: [ /* the Module containing getPayloadFromToken */ ]
+  })
+[39m
+Error: Nest can't resolve dependencies of the AuthController (generateJwt, ?). Please make sure that the argument getPayloadFromToken at index [1] is available in the AuthModule context.
+
+Potential solutions:
+- Is AuthModule a valid NestJS module?
+- If getPayloadFromToken is a provider, is it part of the current AuthModule?
+- If getPayloadFromToken is exported from a separate @Module, is that module imported within AuthModule?
+  @Module({
+    imports: [ /* the Module containing getPayloadFromToken */ ]
+  })
+
+    at Injector.lookupComponentInParentModules (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/injector/injector.js:248:19)
+    at Injector.resolveComponentInstance (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/injector/injector.js:202:33)
+    at resolveParam (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/injector/injector.js:123:38)
+    at async Promise.all (index 1)
+    at Injector.resolveConstructorParams (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/injector/injector.js:138:27)
+    at Injector.loadInstance (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/injector/injector.js:64:13)
+    at Injector.loadController (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/injector/injector.js:82:9)
+    at /home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/injector/instance-loader.js:68:13
+    at async Promise.all (index 0)
+    at InstanceLoader.createInstancesOfControllers (/home/juanjo/GitHub/outfitme/node_modules/@nestjs/core/injector/instance-loader.js:67:9)
+[[90m23:01:19[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m13[0m:[93m31[0m - [91merror[0m[90m TS2348: [0mValue of type 'typeof getPayloadFromToken' is not callable. Did you mean to include 'new'?
+
+[7m13[0m     const { payload } = await getPayloadFromToken(token);
+[7m  [0m [91m                              ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m23:01:20[0m] Found 1 error. Watching for file changes.
+
+[[90m23:01:29[0m] File change detected. Starting incremental compilation...
+
+[91merror[0m[90m TS6053: [0mFile '/home/juanjo/GitHub/outfitme/apps/backend/src/auth/Application/getPayloadFromToken.service.ts' not found.
+  The file is in the program because:
+    Matched by default include pattern '**/*'
+
+[[90m23:01:29[0m] Found 1 error. Watching for file changes.
+
+[[90m23:01:30[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m3[0m:[93m37[0m - [91merror[0m[90m TS2307: [0mCannot find module '../Application/getPayloadFromToken.service' or its corresponding type declarations.
+
+[7m3[0m import { getPayloadFromToken } from '../Application/getPayloadFromToken.service';
+[7m [0m [91m                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m23:01:30[0m] Found 1 error. Watching for file changes.
+
+[[90m23:01:48[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/Infrastructure/auth.controller.ts[0m:[93m3[0m:[93m37[0m - [91merror[0m[90m TS2307: [0mCannot find module '../Application/getPayloadFromToken.service' or its corresponding type declarations.
+
+[7m3[0m import { getPayloadFromToken } from '../Application/getPayloadFromToken.service';
+[7m [0m [91m                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m23:01:48[0m] Found 1 error. Watching for file changes.
+
+[[90m23:01:49[0m] File change detected. Starting incremental compilation...
+
+[[90m23:01:49[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 22193  - [39m09/07/2023, 23:01:50 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 22193  - [39m09/07/2023, 23:01:50 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +22ms[39m
+[32m[Nest] 22193  - [39m09/07/2023, 23:01:50 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 22193  - [39m09/07/2023, 23:01:50

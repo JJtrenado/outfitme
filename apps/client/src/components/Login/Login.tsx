@@ -4,9 +4,9 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
-import { removeLocalUser } from '../../modules/Login/Infraestructure/LocalStorageUser';
+import { removeLocalUser } from '../../modules/Login/Infrastructure/LocalStorageUser';
 import { User } from '../../modules/Login/Domain/User';
-import { getUser } from '../../modules/Login/Infraestructure/getUser';
+import { getUser } from '../../modules/Login/Infrastructure/getUser';
 import { reloadApp } from '../../modules/App/Application/ReloadApp';
 
 WebBrowser.maybeCompleteAuthSession();

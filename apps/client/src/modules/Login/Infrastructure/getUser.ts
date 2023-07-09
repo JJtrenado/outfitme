@@ -3,7 +3,7 @@ import { EndpointUser, User } from "../Domain/User";
 import { fetchUserFromGoogle } from "./FetchUserFromGoogle";
 import { getLocalUser, saveLocalUser } from "./LocalStorageUser";
 import { UserAdapter } from "../Application/UserAdapter";
-import { validateToken } from "./getJwt";
+import { getJwt } from "./getJwt";
 
 /**
  * probes if the user is logged in(storaged in local), if not, fetches the user from google
@@ -17,8 +17,9 @@ export async function getUser(response: AuthSessionResult) :Promise<User> {
   if(!user && response?.type === "success") {
     const endpointUser: EndpointUser = await fetchUserFromGoogle(response.authentication.accessToken);
     user = UserAdapter(endpointUser);
-    const jwt: string = await validateToken(response.authentication.accessToken);
+    const jwt: string = await getJwt(response.authentication.accessToken);
     user.jwt = jwt;
+    if(!jwt) throw new Error("Error validating user from backend");
     saveLocalUser(user);
   }
   

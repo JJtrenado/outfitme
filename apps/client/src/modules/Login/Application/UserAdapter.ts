@@ -5,6 +5,7 @@ export const UserAdapter = (endpointUser: EndpointUser): User =>{
       email: endpointUser.email,
       name: endpointUser.name,
       picture: endpointUser.picture,
+      jwt: ''
     };
     return user;
   };
