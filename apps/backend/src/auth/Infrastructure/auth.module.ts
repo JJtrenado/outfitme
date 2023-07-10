@@ -3,7 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { generateJwt } from '../Application/generateJwt.service';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
-import { getPayload } from './getPayload.service';
+import { getUser, IGoogleService } from '../Application/getUser.service'; // Importa la interfaz también
+import { GoogleService } from '../Infrastructure/google.service';
 
 @Module({
   imports: [
@@ -14,6 +15,13 @@ import { getPayload } from './getPayload.service';
     }),
   ],
   controllers: [AuthController],
-  providers: [generateJwt, getPayload],
+  providers: [
+    generateJwt,
+    getUser,
+    {
+      provide: 'IGoogleService', // Define el nombre del proveedor
+      useClass: GoogleService, // Asocia el proveedor con la implementación
+    },
+  ],
 })
 export class AuthModule {}

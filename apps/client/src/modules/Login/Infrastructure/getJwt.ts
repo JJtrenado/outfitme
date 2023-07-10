@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function getJwt(token: string): Promise<string> {
+export async function getJwtFromBackend(token: string): Promise<string> {
   try {
     const API = axios.create({
       baseURL: "http://192.168.1.19:3000",
