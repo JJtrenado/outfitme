@@ -1,11 +1,11 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { User } from 'src/common/Domain/User';
-import { IGoogleService } from './googleService.interface'; // Importa correctamente la interfaz
+import { IGoogleService } from './googleService.interface';
 
 @Injectable()
 export class getUser {
   constructor(
-    @Inject('IGoogleService') // Utiliza el decorador @Inject con el nombre del proveedor
+    @Inject('IGoogleService')
     private readonly googleService: IGoogleService,
   ) {}
 
