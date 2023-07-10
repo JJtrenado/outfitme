@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { generateJwt } from '../Application/generateJwt.service';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
+import { getPayload } from './getPayload.service';
 
 @Module({
   imports: [
@@ -13,6 +14,6 @@ import { JwtModule } from '@nestjs/jwt';
     }),
   ],
   controllers: [AuthController],
-  providers: [generateJwt],
+  providers: [generateJwt, getPayload],
 })
 export class AuthModule {}
