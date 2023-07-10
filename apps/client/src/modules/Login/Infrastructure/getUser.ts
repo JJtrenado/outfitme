@@ -3,7 +3,25 @@ import { EndpointUser, User } from "../Domain/User";
 import { fetchUserFromGoogle } from "./FetchUserFromGoogle";
 import { getLocalUser, saveLocalUser } from "./LocalStorageUser";
 import { UserAdapter } from "../Application/UserAdapter";
-import { getJwt } from "./getJwt";
+import { getJwtFromBackend } from "./getJwt";
+
+async function addJwt(user: User, token: string) :Promise<User> {
+  const jwt: string = await getJwtFromBackend(token);
+  if(!jwt) throw new Error("Error validating user from backend");
+  user.jwt = jwt;
+  return user;
+}
+
+async function getUserFromGoogle(response: AuthSessionResult) :Promise<User> {
+  if(response?.type === "success") {
+    const endpointUser: EndpointUser = await fetchUserFromGoogle(response.authentication.accessToken);
+    let user = UserAdapter(endpointUser);
+
+    user = await addJwt(user, response.authentication.accessToken);
+    return user;
+  }
+  throw new Error("User not logged in");
+}
 
 /**
  * probes if the user is logged in(storaged in local), if not, fetches the user from google
@@ -14,17 +32,10 @@ import { getJwt } from "./getJwt";
 export async function getUser(response: AuthSessionResult) :Promise<User> {
   let user: User = await getLocalUser();
 
-  if(!user && response?.type === "success") {
-    const endpointUser: EndpointUser = await fetchUserFromGoogle(response.authentication.accessToken);
-    user = UserAdapter(endpointUser);
-    const jwt: string = await getJwt(response.authentication.accessToken);
-    user.jwt = jwt;
-    if(!jwt) throw new Error("Error validating user from backend");
+  if(!user) {
+    user = await getUserFromGoogle(response);
     saveLocalUser(user);
   }
   
-  if(!user && response?.type != "success") throw new Error("User not logged in");
-  
-  console.log("User logged in:", user);
   return user;
 }
