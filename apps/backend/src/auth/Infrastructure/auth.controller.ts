@@ -1,22 +1,26 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Query, Res, HttpStatus } from '@nestjs/common';
 import { generateJwt } from '../Application/generateJwt.service';
-import { getPayload } from './getPayload.service';
+import { getUser } from '../Application/getUser.service';
+import { Response } from 'express';
 
 @Controller('auth')
 export class AuthController {
   constructor(
-    private readonly jwtService: generateJwt,
-    private readonly payloadService: getPayload,
+    private readonly GenerateJwt: generateJwt,
+    private readonly GetUser: getUser,
   ) {}
 
   @Get('getJwtFromGoogleToken')
   async getJwtFromGoogleToken(
     @Query('token') token: string,
-  ): Promise<{ jwt: string }> {
-    const { payload } = await this.payloadService.getPayload(token);
-    const jwt = await this.jwtService.generateJwt(token, payload);
-
-    if (jwt) return jwt;
-    return { jwt: 'Token inválido' };
+    @Res() response: Response,
+  ) {
+    const { user } = await this.GetUser.fromToken(token);
+    if (user) {
+      const jwt = await this.GenerateJwt.fromTokenAndUser(token, user);
+      response.status(HttpStatus.OK).send(jwt);
+    } else {
+      response.status(HttpStatus.BAD_REQUEST).json({ Token: 'Invalid Token' });
+    }
   }
 }
