@@ -14,11 +14,10 @@ WebBrowser.maybeCompleteAuthSession();
 
 export default function LoginScreen() {
   const navigation = useNavigation();
-
-  //this disable the back button
+  
   React.useLayoutEffect(() => {
     navigation.setOptions({
-      headerLeft: null,
+      headerShown: false,
     });
   }, [navigation]);
 
