@@ -12,7 +12,7 @@ async function addJwt(user: User, token: string) :Promise<User> {
   return user;
 }
 
-async function getUserFromGoogle(response: AuthSessionResult) :Promise<User> {
+export async function getUserFromGoogle(response: AuthSessionResult) :Promise<User> {
   if(response?.type === "success") {
     const endpointUser: EndpointUser = await fetchUserFromGoogle(response.authentication.accessToken);
     let user = UserAdapter(endpointUser);
@@ -21,21 +21,4 @@ async function getUserFromGoogle(response: AuthSessionResult) :Promise<User> {
     return user;
   }
   throw new Error("User not logged in");
-}
-
-/**
- * probes if the user is logged in(storaged in local), if not, fetches the user from google
- *
- * @param {AuthSessionResult} response response object obtained from the useAuthRequest hook provided by the Google API
- * @return {Promise<User>} user from local storage or from google
- */
-export async function getUser(response: AuthSessionResult) :Promise<User> {
-  let user: User = await getLocalUser();
-
-  if(!user) {
-    user = await getUserFromGoogle(response);
-    saveLocalUser(user);
-  }
-  
-  return user;
 }
