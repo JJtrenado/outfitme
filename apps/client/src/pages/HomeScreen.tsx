@@ -3,7 +3,6 @@ import { StyleSheet, Image, View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { getLocalUser } from '../common/Infrastructure/LocalStorageUser';
 import { useState } from "react";
-import constants from "expo-constants";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -36,15 +35,15 @@ const HomeScreen = () => {
   }
 
   return (
-    <View style={{marginTop: constants.statusBarHeight}}>
+    <View>
       <TouchableOpacity onPress={() => { navigation.navigate('Settings' as never); }}>
-        <Image source={{ uri: user.picture }} style={styles.profileImage} resizeMode="contain"/>
+        <Image source={{ uri: user.picture }} style={styles.profileImage} resizeMode="cover"/>
       </TouchableOpacity>
-
-        <Image source={require("../../assets/tshirt.png")} style={styles.tshirt} resizeMode="contain"/>
-        <View style={[styles.card]}>
-          <Text style={styles.text}>Hola {user.name} !</Text>
-        </View>
+      <Text style={styles.textLogo}>outfitme</Text>
+      
+      <View style={[styles.card]}>
+        <Text style={styles.text}>Hola {user.name} !</Text>
+      </View>
 
     </View>
   );
@@ -53,21 +52,9 @@ const HomeScreen = () => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: "#2196F3",
-    borderRadius: 5,
-    padding: 10,
-    margin: 5,
-  },
-  container: {
+  header: {
     flex: 1,
-    marginTop: 50,
-    alignItems: "center",
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
+    height: 35,
   },
   text: {
     fontSize: 20,
@@ -86,6 +73,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   profileImage: {
+    flex: 1,
     position: "absolute",
     left: 0,
     width: 35,
@@ -94,15 +82,9 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   textLogo: {
-    position: "absolute",
-    left: 0,
-    width: 150,
-    height: 30,
-    margin: 10,
-  },
-  tshirt: {
-    alignSelf: "center",
-    width: 35,
-    height: 35,
+    textAlign: "center",
+    fontSize: 30,
+    margin: 8,
+    fontWeight: "bold",
   },
 });
