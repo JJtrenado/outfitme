@@ -1,28 +1,27 @@
 import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from "./src/pages/HomeScreen";
-import StackScreen from "./src/pages/StackScreen";
 import LoginScreen from "./src/pages/LoginScreen";
 
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
-function MyTabs() {
+function MyStack() {
   return (
-    <Tab.Navigator
+    <Stack.Navigator
       initialRouteName="Home"
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Login" component={LoginScreen} />
-    </Tab.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Outfitme' }}/>
+      <Stack.Screen name="Login" component={LoginScreen} />
+    </Stack.Navigator>
   );
 }
 
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <MyTabs />
+      <MyStack />
     </NavigationContainer>
   );
 }
