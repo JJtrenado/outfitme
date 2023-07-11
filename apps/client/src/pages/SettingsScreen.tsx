@@ -25,9 +25,14 @@ const SettingsScreen = () => {
   }
     
   return (
-    <View style={styles.container}>
+    <View>
+      <TouchableOpacity onPress={() => { navigation.navigate('Settings' as never); }}>
+        <Image source={{ uri: user.picture }} style={styles.profileImage} resizeMode="cover"/>
+      </TouchableOpacity>
+      <Text style={styles.textLogo}>outfitme</Text>
+      <View style={styles.container}>
       <Image source={require("../../assets/tshirt.png")} style={styles.tshirt} resizeMode="contain"/>
-      <Image source={require("../../assets/text.png")} style={styles.textLogo} resizeMode="contain"/>
+      <Image source={require("../../assets/text.png")} style={styles.textLogoImage} resizeMode="contain"/>
       <View style={styles.card}>
         <Image source={{ uri: user?.picture }} style={styles.image} />
         
@@ -40,6 +45,7 @@ const SettingsScreen = () => {
         }}>
           <Text style={styles.buttonText}>Cerrar sesión</Text>
         </TouchableOpacity>
+      </View>
       </View>
     </View>
   );
@@ -85,12 +91,30 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     margin: 5,
   },
-  textLogo: {
+  textLogoImage: {
     width: 150,
     height: 50,
   },
   tshirt: {
     width: 100,
     height: 100,
+  },header: {
+    flex: 1,
+    height: 35,
+  },
+  profileImage: {
+    flex: 1,
+    position: "absolute",
+    left: 0,
+    width: 35,
+    height: 35,
+    borderRadius: 50,
+    margin: 5,
+  },
+  textLogo: {
+    textAlign: "center",
+    fontSize: 30,
+    margin: 8,
+    fontWeight: "bold",
   },
 });
