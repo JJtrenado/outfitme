@@ -1,14 +1,20 @@
 import React, { useEffect } from "react";
 import { StyleSheet, Image, View, Text, TouchableOpacity } from "react-native";
-import { useFocusEffect, useIsFocused, useNavigation } from "@react-navigation/native";
-import { getLocalUser, removeLocalUser } from '../common/Infrastructure/LocalStorageUser';
+import { useNavigation } from "@react-navigation/native";
+import { getLocalUser } from '../common/Infrastructure/LocalStorageUser';
 import { useState } from "react";
-import { reloadApp } from "../common/Application/ReloadApp";
+import constants from "expo-constants";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  }, [navigation]);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -28,25 +34,18 @@ const HomeScreen = () => {
     navigation.navigate('Login' as never);
     return null;
   }
-    
+
   return (
-    <View style={styles.container}>
-      <Image source={require("../../assets/tshirt.png")} style={styles.tshirt} resizeMode="contain"/>
-      <Image source={require("../../assets/text.png")} style={styles.textLogo} resizeMode="contain"/>
-      <View style={styles.card}>
-        {user?.picture && (
-          <Image source={{ uri: user?.picture }} style={styles.image} />
-          )}
-        <Text style={styles.text}>Name: {user.name}</Text>
-        <Text style={styles.text}>Email: {user.email}</Text>
-        <TouchableOpacity style={styles.button}
-          onPress={() => {
-          removeLocalUser();
-          reloadApp();
-        }}>
-          <Text style={styles.buttonText}>Cerrar sesión</Text>
-        </TouchableOpacity>
-      </View>
+    <View style={{marginTop: constants.statusBarHeight}}>
+      <TouchableOpacity onPress={() => { navigation.navigate('Settings' as never); }}>
+        <Image source={{ uri: user.picture }} style={styles.profileImage} resizeMode="contain"/>
+      </TouchableOpacity>
+
+        <Image source={require("../../assets/tshirt.png")} style={styles.tshirt} resizeMode="contain"/>
+        <View style={[styles.card]}>
+          <Text style={styles.text}>Hola {user.name} !</Text>
+        </View>
+
     </View>
   );
 }
@@ -86,18 +85,24 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
   },
-  image: {
-    width: 100,
-    height: 100,
+  profileImage: {
+    position: "absolute",
+    left: 0,
+    width: 35,
+    height: 35,
     borderRadius: 50,
     margin: 5,
   },
   textLogo: {
+    position: "absolute",
+    left: 0,
     width: 150,
-    height: 50,
+    height: 30,
+    margin: 10,
   },
   tshirt: {
-    width: 100,
-    height: 100,
+    alignSelf: "center",
+    width: 35,
+    height: 35,
   },
 });
