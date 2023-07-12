@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { generateJwt } from '../Application/generateJwt.service';
+import { generateJwt } from './generateJwt.service';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { getUser } from '../Application/getUser.service';

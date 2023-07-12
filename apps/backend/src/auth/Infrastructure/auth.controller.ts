@@ -1,5 +1,5 @@
 import { Controller, Get, Query, Res, HttpStatus } from '@nestjs/common';
-import { generateJwt } from '../Application/generateJwt.service';
+import { generateJwt } from './generateJwt.service';
 import { getUser } from '../Application/getUser.service';
 import { Response } from 'express';
 
