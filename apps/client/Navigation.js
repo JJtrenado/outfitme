@@ -1,10 +1,11 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import HomeScreen from "./src/pages/HomeScreen";
-import LoginScreen from "./src/pages/LoginScreen";
-import SettingsScreen from "./src/pages/SettingsScreen";
+import HomeScreen from "./src/components/pages/HomeScreen";
+import LoginScreen from "./src/components/pages/LoginScreen";
+import SettingsScreen from "./src/components/pages/SettingsScreen";
 
 const Stack = createStackNavigator();
 
@@ -22,8 +23,10 @@ function MyStack() {
 
 export default function Navigation() {
   return (
-    <NavigationContainer>
-      <MyStack />
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <MyStack />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
