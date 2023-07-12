@@ -1,7 +1,7 @@
 import { AuthSessionResult } from "expo-auth-session";
-import { EndpointUser, User } from "../../../common/Domain/User";
+import { EndpointUser, User } from "../../common/Domain/User";
 import { fetchUserFromGoogle } from "./FetchUserFromGoogle";
-import { getLocalUser, saveLocalUser } from "../../../common/Infrastructure/LocalStorageUser";
+import { getLocalUser, saveLocalUser } from "../../common/Infrastructure/LocalStorageUser";
 import { UserAdapter } from "../Application/UserAdapter";
 import { getJwtFromBackend } from "./getJwt";
 

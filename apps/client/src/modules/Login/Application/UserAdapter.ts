@@ -1,4 +1,4 @@
-import { EndpointUser, User } from '../../../common/Domain/User';
+import { EndpointUser, User } from '../../common/Domain/User';
 
 export const UserAdapter = (endpointUser: EndpointUser): User =>{
     const user: User = {

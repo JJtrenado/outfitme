@@ -1,4 +1,4 @@
-import { EndpointUser } from "../../../common/Domain/User";
+import { EndpointUser } from "../../common/Domain/User";
 
   /**
   * This code fetches user information from the Google API using an access token.
