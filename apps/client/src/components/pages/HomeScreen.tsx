@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { StyleSheet, Image, View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { getLocalUser } from '../common/Infrastructure/LocalStorageUser';
+import { getLocalUser } from '../../common/Infrastructure/LocalStorageUser';
 import { useState } from "react";
+import Header from "../Header";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -36,13 +37,10 @@ const HomeScreen = () => {
 
   return (
     <View>
-      <TouchableOpacity onPress={() => { navigation.navigate('Settings' as never); }}>
-        <Image source={{ uri: user.picture }} style={styles.profileImage} resizeMode="cover"/>
-      </TouchableOpacity>
-      <Text style={styles.textLogo}>outfitme</Text>
+      <Header picture={user.picture} />
       
       <View style={[styles.card]}>
-        <Text style={styles.text}>Hola {user.name} !</Text>
+        <Text style={styles.text}>Hola {user.name}!</Text>
       </View>
 
     </View>
@@ -51,40 +49,15 @@ const HomeScreen = () => {
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({
-  header: {
-    flex: 1,
-    height: 35,
-  },
+const styles = StyleSheet.create({  
   text: {
     fontSize: 20,
     margin: 5,
     fontWeight: "bold",
   },
   card: {
-    backgroundColor: "#e4e4e4",
-    borderColor: "#cacaca",
-    borderWidth: 1,
-    borderRadius: 5,
-    padding: 10,
-    margin: 10,
     marginTop: 100,
     alignItems: "center",
     justifyContent: "space-between",
-  },
-  profileImage: {
-    flex: 1,
-    position: "absolute",
-    left: 0,
-    width: 35,
-    height: 35,
-    borderRadius: 50,
-    margin: 5,
-  },
-  textLogo: {
-    textAlign: "center",
-    fontSize: 30,
-    margin: 8,
-    fontWeight: "bold",
   },
 });
