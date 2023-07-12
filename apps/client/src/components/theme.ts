@@ -6,7 +6,7 @@ const theme = {
     other1: '#ff2a71',
     other2: '#ffbd47',
     other3: '#f9f871',
-  }
+  },
   colors: {
     primary: '#24292e',
     white: '#fefefe',
