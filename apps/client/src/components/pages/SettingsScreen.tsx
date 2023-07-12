@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import { StyleSheet, Image, View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { getLocalUser, removeLocalUser } from '../../common/Infrastructure/LocalStorageUser';
+import { getLocalUser, removeLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import { useState } from "react";
-import { reloadApp } from "../../common/Application/ReloadApp";
-import Header from "../Header";
+import { reloadApp } from "../../modules/common/Application/ReloadApp";
+import Header from "../molecules/Header";
+import StyledText from "../atoms/StyledText";
+import StyledButton from "../atoms/StyledButton";
+import { logOut } from "../../modules/Login/Infrastructure/logOut";
 
 const SettingsScreen = () => {
   const navigation = useNavigation();
@@ -30,17 +33,12 @@ const SettingsScreen = () => {
       <Header picture={user.picture} />
 
       <View style={styles.container}>
-        <Image source={{ uri: user?.picture }} style={styles.image} />
-        
-        <Text style={styles.text}>{user.name}</Text>
-        <Text style={styles.thinText}>{user.email}</Text>
-        <TouchableOpacity style={styles.button}
-          onPress={() => {
-          removeLocalUser();
-          reloadApp();
-        }}>
-          <Text style={styles.buttonText}>Cerrar sesión</Text>
-        </TouchableOpacity>
+        <View style={styles.user}>
+          <Image source={{ uri: user?.picture }} style={styles.image} />
+          <StyledText align='center' fontWeight='bold'>{user.name}</StyledText>
+          <StyledText align='center'>{user.email}</StyledText>
+        </View>
+        <StyledButton onPress={() => {logOut();}}>Cerrar sesión</StyledButton>
       </View>
     </View>
   );
@@ -49,34 +47,18 @@ const SettingsScreen = () => {
 export default SettingsScreen;
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: "#2196F3",
-    borderRadius: 5,
-    padding: 10,
-    margin: 5,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  text: {
-    fontSize: 20,
-    margin: 5,
-    fontWeight: "bold",
-  },
-  thinText: {
-    fontSize: 16,
-    margin: 5,
-  },
   container: {
     marginTop: 20,
     alignItems: "center",
+    gap: 10,
+  },
+  user: {
+    gap: 5,
   },
   image: {
-    width: 100,
-    height: 100,
+    alignSelf: "center",
+    width: 80,
+    height: 80,
     borderRadius: 50,
-    margin: 5,
   },
 });

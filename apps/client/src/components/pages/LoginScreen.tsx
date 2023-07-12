@@ -4,11 +4,12 @@ import React, { useEffect } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
-import { User } from '../../common/Domain/User';
-import { saveLocalUser } from '../../common/Infrastructure/LocalStorageUser';
+import { User } from '../../modules/common/Domain/User';
+import { saveLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import { getUserFromGoogle } from '../../modules/Login/Infrastructure/getUser';
-import { reloadApp } from '../../common/Application/ReloadApp';
+import { reloadApp } from '../../modules/common/Application/ReloadApp';
 import { useNavigation } from '@react-navigation/native';
+import StyledButton from '../atoms/StyledButton';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -39,38 +40,21 @@ export default function LoginScreen() {
   
   return (
     <View style={styles.container}>
-      <Image source={require("../../../assets/tshirt.png")} style={styles.tshirt} resizeMode="contain"/>
-      <Image source={require("../../../assets/text.png")} style={styles.textLogo} resizeMode="contain"/>
-      <TouchableOpacity style={styles.button} onPress={() => { promptAsync(); }}>
-        <Text style={styles.buttonText}>Iniciar con Google</Text>
-      </TouchableOpacity>
+      <Image source={require("../../../assets/ceroGapLogo.png")} style={styles.logo} resizeMode="contain"/>
+      <StyledButton onPress={() => {promptAsync();}}>Iniciar con Google</StyledButton>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: "#2196F3",
-    borderRadius: 5,
-    padding: 10,
-    marginTop: 20,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
   container: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    gap: 30,
   },
-  textLogo: {
+  logo: {
     width: 150,
-    height: 50,
-  },
-  tshirt: {
-    width: 100,
-    height: 100,
+    height: 150,
   },
 });
