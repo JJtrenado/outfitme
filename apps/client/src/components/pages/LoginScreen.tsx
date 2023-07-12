@@ -15,12 +15,6 @@ WebBrowser.maybeCompleteAuthSession();
 
 export default function LoginScreen() {
   const navigation = useNavigation();
-  
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  }, [navigation]);
 
   const [request, response, promptAsync] = Google.useAuthRequest({
     androidClientId: ANDROID_GOOGLE_CLIENT_ID,

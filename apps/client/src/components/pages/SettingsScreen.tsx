@@ -1,16 +1,13 @@
 import React, { useEffect } from "react";
-import { StyleSheet, Image, View, Text, TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { getLocalUser, removeLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
+import { StyleSheet, Image, View} from "react-native";
+import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import { useState } from "react";
-import { reloadApp } from "../../modules/common/Application/ReloadApp";
 import Header from "../molecules/Header";
 import StyledText from "../atoms/StyledText";
 import StyledButton from "../atoms/StyledButton";
 import { logOut } from "../../modules/Login/Infrastructure/logOut";
 
 const SettingsScreen = () => {
-  const navigation = useNavigation();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
