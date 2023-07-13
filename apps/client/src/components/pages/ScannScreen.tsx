@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { StyleSheet, Image, View, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import { useState } from "react";
 import Header from "../molecules/Header";
 import StyledText from "../atoms/StyledText";
 import MyBarCodeScanner from "../atoms/BarCodeScanner";
+
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -28,11 +29,9 @@ const HomeScreen = () => {
 
   return (
     <>
-    <Header picture={user.picture} />
-    <View style={[styles.card]}>
-      <StyledText align='center' fontWeight='bold'>Escanea lo que quieras</StyledText>
-    </View>
-    <MyBarCodeScanner jwt={user.jwt.jwt}/>
+      <Header picture={user.picture}/>
+      <StyledText align='center' fontWeight='bold' style={{marginTop: 20}}>Escanea el código de la prenda</StyledText>
+      <MyBarCodeScanner jwt={user.jwt.jwt}/>
     </>
   );
 }
