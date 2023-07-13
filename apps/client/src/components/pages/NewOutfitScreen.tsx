@@ -5,7 +5,7 @@ import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUs
 import { useState } from "react";
 import Header from "../molecules/Header";
 import StyledText from "../atoms/StyledText";
-import Formulario from "../molecules/Form";
+import NewOutfitForm from "../molecules/NewOutfitForm";
 
 
 const NewOutfitScreen = () => {
@@ -36,7 +36,7 @@ const NewOutfitScreen = () => {
     <View>
       <Header picture={user.picture} />
       <StyledText align="center" fontWeight="bold" style={{marginTop: 20}}>Nuevo Outfit</StyledText>
-      <Formulario />
+      <NewOutfitForm />
     </View>
   );
 }

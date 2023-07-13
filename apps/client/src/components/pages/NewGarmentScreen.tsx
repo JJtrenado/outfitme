@@ -4,8 +4,8 @@ import { useNavigation } from "@react-navigation/native";
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import { useState } from "react";
 import Header from "../molecules/Header";
-import Formulario from "../molecules/Form";
 import StyledText from "../atoms/StyledText";
+import NewGarmentForm from "../molecules/NewGarmentForm";
 
 const NewGarmentScreen = () => {
   const navigation = useNavigation();
@@ -35,7 +35,7 @@ const NewGarmentScreen = () => {
     <View>
       <Header picture={user.picture} />
       <StyledText align="center" fontWeight="bold" style={{marginTop: 20}}>Nueva Prenda</StyledText>
-      <Formulario />
+      <NewGarmentForm />
     </View>
   );
 }
