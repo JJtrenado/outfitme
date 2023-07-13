@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import { SendBarCode } from '../../modules/BarCodeScanner/Infrastructure/SendBarCode';
 
-export default function MyBarCodeScanner() {
+export default function MyBarCodeScanner(jwt) {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
@@ -17,6 +18,7 @@ export default function MyBarCodeScanner() {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
+    SendBarCode(jwt.jwt, data);
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
   };
 

@@ -32,7 +32,7 @@ const HomeScreen = () => {
     <View style={[styles.card]}>
       <StyledText align='center' fontWeight='bold'>Escanea lo que quieras</StyledText>
     </View>
-    <MyBarCodeScanner />
+    <MyBarCodeScanner jwt={user.jwt.jwt}/>
     </>
   );
 }
