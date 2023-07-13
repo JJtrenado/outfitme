@@ -1,6 +1,7 @@
 import { StyleSheet, Text, Image, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { useNavigation } from "@react-navigation/native";
+import StyledImageButton from '../atoms/StyledImageButton';
 
 export default function Header(picture) {
   const navigation = useNavigation();
@@ -9,9 +10,7 @@ export default function Header(picture) {
       <TouchableOpacity onPress={() => { navigation.navigate('Home' as never); }}>
         <Text style={styles.textLogo}>outfitme</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => { navigation.navigate('Settings' as never); }}>
-        <Image source={{ uri: picture.picture }} style={styles.profileImage} resizeMode="contain" />
-      </TouchableOpacity>
+      <StyledImageButton onPress={() => { navigation.navigate('Settings' as never); }} imageSource={{ uri: picture.picture }} isRound={true} />
     </View>
   )
 }
@@ -21,7 +20,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    margin: 10,
+    marginHorizontal: 10,
   },
   profileImage: {
     width: 35,

@@ -5,7 +5,10 @@ import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUs
 import { useState } from "react";
 import Header from "../molecules/Header";
 import StyledText from "../atoms/StyledText";
-import StyledButton from "../atoms/StyledButton";
+import BarCodeButton from "../atoms/BarCodeButton";
+import OutfitButton from "../atoms/OutfitButton";
+import StyledImageButton from "../atoms/StyledImageButton";
+
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -34,10 +37,12 @@ const HomeScreen = () => {
   return (
     <View>
       <Header picture={user.picture} />
-      <View style={[styles.card]}>
-        <StyledText align='center' fontWeight='bold'>Hola {user.name}!</StyledText>
-        <StyledButton onPress={() => {navigation.navigate('Scann' as never);}}>Scann</StyledButton>
+      <View style={[styles.buttons]}>
+        <BarCodeButton onPress={() => {navigation.navigate('Scann' as never);}} size={40}/>
+        <StyledImageButton onPress={() => { navigation.navigate('Scann' as never); }} imageSource={require("../../../assets/tshirtIcon.png")} size={45}/>
+        <OutfitButton onPress={() => {navigation.navigate('Scann' as never);}} size={40}/>
       </View>
+      <StyledText align='center' fontWeight='bold'>Hola {user.name}!</StyledText>
     </View>
   );
 }
@@ -45,9 +50,10 @@ const HomeScreen = () => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({  
-  card: {
-    marginTop: 100,
+  buttons: {
+    justifyContent: "space-around",
+    flexDirection: "row",
+    marginVertical: 20,
     alignItems: "center",
-    gap: 10,
   },
 });
