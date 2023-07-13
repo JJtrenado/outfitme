@@ -3,7 +3,7 @@ import axios from 'axios';
 import { IGoogleService } from '../Application/getUser.service';
 
 @Injectable()
-export class GoogleService implements IGoogleService {
+export class googleService implements IGoogleService {
   async getUserInfo(token: string): Promise<any> {
     try {
       const response = await axios.get(
@@ -11,7 +11,6 @@ export class GoogleService implements IGoogleService {
       );
       return response.data;
     } catch (error) {
-      // Maneja el error y devuelve un resultado apropiado
       if (error.response && error.response.status === 400) {
         throw new HttpException('Invalid Token', HttpStatus.BAD_REQUEST);
       }

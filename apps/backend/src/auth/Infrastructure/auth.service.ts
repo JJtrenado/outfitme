@@ -3,11 +3,20 @@ import { JwtService } from '@nestjs/jwt';
 import { User } from 'src/common/Domain/User';
 
 @Injectable()
-export class generateJwt {
+export class authService {
   constructor(private readonly jwtService: JwtService) {}
 
-  async fromTokenAndUser(user: User): Promise<{ jwt: string }> {
+  async generateJwtfromUser(user: User): Promise<{ jwt: string }> {
     const jwt = this.jwtService.sign(user);
     return { jwt };
+  }
+
+  verifyToken(token: string) {
+    try {
+      const decoded = this.jwtService.verify(token);
+      return decoded;
+    } catch (error) {
+      return null;
+    }
   }
 }

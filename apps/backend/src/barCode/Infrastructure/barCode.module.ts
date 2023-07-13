@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AuthService } from './barCode.service';
+import { authService } from '../../auth/Infrastructure/auth.service';
 import { UsersController } from './barCode.controller';
 import { JwtModule } from '@nestjs/jwt';
 
@@ -9,10 +9,9 @@ import { JwtModule } from '@nestjs/jwt';
     ConfigModule.forRoot(),
     JwtModule.register({
       secret: process.env.JWT_SECRET,
-      // signOptions: { expiresIn: '1h' },
     }),
   ],
   controllers: [UsersController],
-  providers: [AuthService],
+  providers: [authService],
 })
 export class BarCodeModule {}
