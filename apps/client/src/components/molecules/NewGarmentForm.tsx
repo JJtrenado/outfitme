@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, TextInput, Button, Text, StyleSheet, Switch } from 'react-native';
+import { View, TextInput, Text, StyleSheet, Switch } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 import { useForm, Controller } from 'react-hook-form';
 import StyledText from '../atoms/StyledText';
 import StyledButton from '../atoms/StyledButton';
@@ -16,18 +17,17 @@ const NewGarmentForm = () => {
       <Controller
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
-          <select 
+          <Picker
             style={styles.input}
             onBlur={onBlur}
-            onChange={onChange}
-            value={value}
-            placeholder="gender"
+            onValueChange={onChange}
+            selectedValue={value}
           >
-            <option value="Cabeza">Cabeza</option>
-            <option value="Torso">Torso</option>
-            <option value="Piernas">Piernas</option>
-            <option value="Pies">Pies</option>
-          </select>
+            <Picker.Item label="Cabeza" value="Cabeza" />
+            <Picker.Item label="Torso" value="Torso" />
+            <Picker.Item label="Piernas" value="Piernas" />
+            <Picker.Item label="Pies" value="Pies" />
+          </Picker>
         )}
         name="bodyPart"
         rules={{ required: true }}
@@ -39,12 +39,12 @@ const NewGarmentForm = () => {
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-          style={styles.input}
+            style={styles.input}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
             placeholder="Marca"
-            />
+          />
         )}
         name="brand"
         rules={{ required: false }}
@@ -73,12 +73,11 @@ const NewGarmentForm = () => {
           render={({ field: { onChange, value } }) => (
             <Switch value={value} onValueChange={onChange} />
           )}
-          name="avaliable"
+          name="available"
           defaultValue={false}
         />
       </View>
-      <StyledButton onPress={() => {handleSubmit(onSubmit);}}>Crear Prenda</StyledButton>
-            
+      <StyledButton onPress={handleSubmit(onSubmit)}>Crear Prenda</StyledButton>
     </View>
   );
 };
@@ -94,6 +93,7 @@ const styles = StyleSheet.create({
     width: '100%',
     borderColor: 'gray',
     borderWidth: 1,
+    borderRadius: 5,
     marginBottom: 10,
     paddingHorizontal: 10,
   },

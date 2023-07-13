@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, TextInput, Button, Text, StyleSheet, Switch } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 import { useForm, Controller } from 'react-hook-form';
 import StyledText from '../atoms/StyledText';
 import StyledButton from '../atoms/StyledButton';
@@ -16,18 +17,17 @@ const NewOutfitForm = () => {
       <Controller
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
-          <select 
+          <Picker
             style={styles.input}
             onBlur={onBlur}
-            onChange={onChange}
-            value={value}
-            placeholder="Cabeza"
+            onValueChange={onChange}
+            selectedValue={value}
           >
-            <option value="Prenda1">Prenda1</option>
-            <option value="Prenda2">Prenda2</option>
-            <option value="Prenda3">Prenda3</option>
-            <option value="Cabeza">Cabeza</option>
-          </select>
+            <Picker.Item label="Prenda1" value="Prenda1" />
+            <Picker.Item label="Prenda2" value="Prenda2" />
+            <Picker.Item label="Prenda3" value="Prenda3" />
+            <Picker.Item label="Cabeza" value="Cabeza" />
+          </Picker>
         )}
         name="head"
         rules={{ required: false }}
@@ -37,18 +37,17 @@ const NewOutfitForm = () => {
       <Controller
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
-          <select 
+          <Picker
             style={styles.input}
             onBlur={onBlur}
-            onChange={onChange}
-            value={value}
-            placeholder="Torso"
+            onValueChange={onChange}
+            selectedValue={value}
           >
-            <option value="Prenda1">Prenda1</option>
-            <option value="Prenda2">Prenda2</option>
-            <option value="Prenda3">Prenda3</option>
-            <option value="Torso">Torso</option>
-          </select>
+            <Picker.Item label="Prenda1" value="Prenda1" />
+            <Picker.Item label="Prenda2" value="Prenda2" />
+            <Picker.Item label="Prenda3" value="Prenda3" />
+            <Picker.Item label="Torso" value="Torso" />
+          </Picker>
         )}
         name="torso"
         rules={{ required: false }}
@@ -58,18 +57,17 @@ const NewOutfitForm = () => {
       <Controller
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
-          <select 
+          <Picker
             style={styles.input}
             onBlur={onBlur}
-            onChange={onChange}
-            value={value}
-            placeholder="Piernas"
+            onValueChange={onChange}
+            selectedValue={value}
           >
-            <option value="Prenda1">Prenda1</option>
-            <option value="Prenda2">Prenda2</option>
-            <option value="Prenda3">Prenda3</option>
-            <option value="Piernas">Piernas</option>
-          </select>
+            <Picker.Item label="Prenda1" value="Prenda1" />
+            <Picker.Item label="Prenda2" value="Prenda2" />
+            <Picker.Item label="Prenda3" value="Prenda3" />
+            <Picker.Item label="Piernas" value="Piernas" />
+          </Picker>
         )}
         name="legs"
         rules={{ required: false }}
@@ -79,25 +77,24 @@ const NewOutfitForm = () => {
       <Controller
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
-          <select 
+          <Picker
             style={styles.input}
             onBlur={onBlur}
-            onChange={onChange}
-            value={value}
-            placeholder="Pies"
+            onValueChange={onChange}
+            selectedValue={value}
           >
-            <option value="Prenda1">Prenda1</option>
-            <option value="Prenda2">Prenda2</option>
-            <option value="Prenda3">Prenda3</option>
-            <option value="Pies">Pies</option>
-          </select>
+            <Picker.Item label="Prenda1" value="Prenda1" />
+            <Picker.Item label="Prenda2" value="Prenda2" />
+            <Picker.Item label="Prenda3" value="Prenda3" />
+            <Picker.Item label="Pies" value="Pies" />
+          </Picker>
         )}
         name="feet"
         rules={{ required: false }}
         defaultValue="Pies"
       />
 
-      <StyledButton onPress={() => {handleSubmit(onSubmit);}}>Crear Outfit</StyledButton>
+      <StyledButton onPress={handleSubmit(onSubmit)}>Crear Outfit</StyledButton>
     </View>
   );
 };
