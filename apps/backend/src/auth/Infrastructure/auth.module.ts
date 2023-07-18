@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { authService } from './auth.service';
+import { generateJwtService } from './generateJwt.service';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { getUser } from '../Application/getUser.service';
@@ -16,7 +16,7 @@ import { googleService } from '../Infrastructure/google.service';
   ],
   controllers: [AuthController],
   providers: [
-    authService,
+    generateJwtService,
     getUser,
     {
       provide: 'IGoogleService',
