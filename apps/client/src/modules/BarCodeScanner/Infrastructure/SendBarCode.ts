@@ -2,10 +2,6 @@ import axios from "axios";
 
 export async function SendBarCode(jwt: string, barCode: string): Promise<string> {
   try {
-    const API = axios.create({
-      baseURL: "http://192.168.1.19:3000/users/profile",
-      withCredentials: true,
-    });
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };

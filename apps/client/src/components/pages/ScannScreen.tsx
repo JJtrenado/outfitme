@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import { useState } from "react";
