@@ -5,10 +5,10 @@ export type GarmentDocument = HydratedDocument<Garment>;
 
 @Schema()
 export class Garment {
-  @Prop({ required: true, unique: true })
+  @Prop({ required: true })
   user: string;
 
-  @Prop()
+  @Prop({ unique: true })
   barCode: string;
 
   @Prop()
