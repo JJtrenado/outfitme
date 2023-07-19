@@ -12,6 +12,7 @@ const theme = {
     white: '#fefefe',
     textPrimary: '#24292e',
     textSecondary: '#fefefe',
+    textError: 'red',
     buttonPrimary: '#24292e',
     buttonSecondary: '#fefefe',
   },
