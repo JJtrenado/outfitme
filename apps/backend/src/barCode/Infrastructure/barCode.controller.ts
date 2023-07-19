@@ -3,8 +3,8 @@ import { Request } from 'express';
 import { verifyJwtService } from 'src/common/Infrastructure/verifyJwt.service';
 import { User } from 'src/common/Domain/User';
 
-@Controller('users')
-export class UsersController {
+@Controller('barCode')
+export class BarCodeController {
   constructor(private readonly VerifyJwtService: verifyJwtService) {}
 
   @Post('profile')
