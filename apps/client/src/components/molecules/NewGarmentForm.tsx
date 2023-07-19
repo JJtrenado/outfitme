@@ -1,87 +1,91 @@
-//
-//
-//It is provisional, do not review it in PR.
-//
-//
-import React from 'react';
-import { View, TextInput, Text, StyleSheet, Switch } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
-import { useForm, Controller } from 'react-hook-form';
-import StyledText from '../atoms/StyledText';
+import React, { useEffect, useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { useForm } from 'react-hook-form';
 import StyledButton from '../atoms/StyledButton';
+import CustomInput from '../atoms/textInputField';
+import PickerInput from '../atoms/pickerInputField';
+import SwitchInput from '../atoms/switchInputField';
+import { NewGarment } from '../../modules/Garment/Infrastructure/NewGarment';
+import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 
 const NewGarmentForm = () => {
   const { control, handleSubmit, formState: { errors } } = useForm();
 
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const localUser = await getLocalUser();
+      setUser(localUser);
+      setIsLoading(false);
+    };
+
+    fetchUser();
+  }, []);
+
+  if (isLoading) {
+    return null;
+  }
+
   const onSubmit = data => {
-    console.log(data);
+    data.user=user.email;
+    NewGarment (user.jwt.jwt, data);
   };
 
   return (
     <View style={styles.container}>
-      <Controller
+      <CustomInput
+        name="barCode"
+        placeholder="Código de barras"
         control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <Picker
-            style={styles.input}
-            onBlur={onBlur}
-            onValueChange={onChange}
-            selectedValue={value}
-          >
-            <Picker.Item label="Cabeza" value="Cabeza" />
-            <Picker.Item label="Torso" value="Torso" />
-            <Picker.Item label="Piernas" value="Piernas" />
-            <Picker.Item label="Pies" value="Pies" />
-          </Picker>
-        )}
-        name="bodyPart"
-        rules={{ required: true }}
-        defaultValue=""
+        secureTextEntry={undefined}
       />
-      {errors.bodyPart && <Text style={styles.errorText}>Este campo es requerido.</Text>}
 
-      <Controller
+      <CustomInput
+        name="img"
+        placeholder="Imagen de la prenda"
         control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput
-            style={styles.input}
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-            placeholder="Marca"
-          />
-        )}
+        secureTextEntry={undefined}
+      />
+
+      <PickerInput
+        name="type"
+        placeholder="Parte del cuerpo"
+        control={control}
+        secureTextEntry={undefined}
+        rules={{ required: 'Elige una parte del cuerpo' }}
+        labels={['Cabeza', 'Torso', 'Piernas', 'Pies']}
+      />
+
+      <CustomInput
         name="brand"
-        rules={{ required: false }}
-        defaultValue=""
+        placeholder="Marca"
+        control={control}
+        secureTextEntry={undefined}
       />
 
-      <Controller
+      <CustomInput
+        name="model"
+        placeholder="Modelo"
         control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput
-            style={styles.input}
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-            placeholder="Descripción"
-          />
-        )}
-        name="description"
-        rules={{ required: false }}
-        defaultValue=""
+        secureTextEntry={undefined}
       />
-      <View style={styles.switchContainer}>
-        <StyledText>Prenda disponible: </StyledText>
-        <Controller
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <Switch value={value} onValueChange={onChange} />
-          )}
-          name="available"
-          defaultValue={false}
-        />
-      </View>
+
+      <CustomInput
+        name="description"
+        placeholder="Descripción"
+        control={control}
+        secureTextEntry={undefined}
+      />
+      
+      <SwitchInput
+        name="avaliable"
+        placeholder="Prenda disponible"
+        control={control}
+        defaultValue={true}      
+      />
+      
       <StyledButton onPress={handleSubmit(onSubmit)}>Crear Prenda</StyledButton>
     </View>
   );
@@ -92,19 +96,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-  },
-  input: {
-    height: 40,
-    width: '100%',
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 10,
-    paddingHorizontal: 10,
-  },
-  errorText: {
-    color: 'red',
-    marginBottom: 10,
   },
   switchContainer: {
     flexDirection: 'row',
