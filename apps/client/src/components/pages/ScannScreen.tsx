@@ -5,7 +5,7 @@ import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUs
 import { useState } from "react";
 import Header from "../molecules/Header";
 import StyledText from "../atoms/StyledText";
-import MyBarCodeScanner from "../atoms/BarCodeScanner";
+import MyBarCodeScanner from "../molecules/BarCodeScanner";
 
 
 const HomeScreen = () => {

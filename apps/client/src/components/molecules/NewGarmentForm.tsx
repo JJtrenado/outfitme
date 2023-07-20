@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { useForm } from 'react-hook-form';
 import StyledButton from '../atoms/StyledButton';
 import CustomInput from '../atoms/textInput';
-import PickerInput from '../atoms/listPickerInput';
 import SwitchInput from '../atoms/switchInput';
 import { NewGarment } from '../../modules/Garment/Infrastructure/NewGarment';
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import ButtonPickerInput from '../atoms/buttonPickerInput';
 
-const NewGarmentForm = () => {
+const NewGarmentForm = ({ barCode }) => {
   const { control, handleSubmit, formState: { errors } } = useForm();
 
   const [user, setUser] = useState(null);
@@ -31,17 +30,12 @@ const NewGarmentForm = () => {
 
   const onSubmit = data => {
     data.user=user.email;
+    data.barCode=barCode;
     NewGarment (user.jwt.jwt, data);
   };
 
   return (
     <View style={styles.container}>
-      <CustomInput
-        name="barCode"
-        placeholder="Código de barras"
-        control={control}
-        secureTextEntry={undefined}
-      />
 
       <CustomInput
         name="img"
