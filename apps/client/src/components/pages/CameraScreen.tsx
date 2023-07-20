@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
-import { View } from "react-native";
+import { StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import { useState } from "react";
 import Header from "../molecules/Header";
-import OptionsButtons from "../molecules/OptionsButtons";
-import StyledButton from "../atoms/StyledButton";
+import StyledText from "../atoms/StyledText";
+import MyBarCodeScanner from "../molecules/BarCodeScanner";
+import CameraComponent from "../molecules/CameraComponent";
 
 
-const HomeScreen = () => {
+const CamaraScreen = () => {
   const navigation = useNavigation();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -27,18 +28,13 @@ const HomeScreen = () => {
     return null;
   }
 
-  if (!user) {
-    navigation.navigate('Login' as never);
-    return null;
-  }
-
   return (
-    <View>
-      <Header picture={user.picture} />
-      <OptionsButtons />
-      <StyledButton onPress={() => { navigation.navigate('Camera' as never); }}>Cámara</StyledButton>
-    </View>
+    <>
+      <Header picture={user.picture}/>
+      <StyledText align='center' fontWeight='bold' style={{marginTop: 20}}>Haz una foto a la prenda</StyledText>
+      <CameraComponent />
+    </>
   );
 }
 
-export default HomeScreen;
+export default CamaraScreen;
