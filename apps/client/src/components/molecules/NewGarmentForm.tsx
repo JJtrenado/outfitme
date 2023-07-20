@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useForm } from 'react-hook-form';
 import StyledButton from '../atoms/StyledButton';
-import CustomInput from '../atoms/textInputField';
-import PickerInput from '../atoms/pickerInputField';
-import SwitchInput from '../atoms/switchInputField';
+import CustomInput from '../atoms/textInput';
+import PickerInput from '../atoms/listPickerInput';
+import SwitchInput from '../atoms/switchInput';
 import { NewGarment } from '../../modules/Garment/Infrastructure/NewGarment';
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
+import ButtonPickerInput from '../atoms/buttonPickerInput';
 
 const NewGarmentForm = () => {
   const { control, handleSubmit, formState: { errors } } = useForm();
@@ -49,14 +50,20 @@ const NewGarmentForm = () => {
         secureTextEntry={undefined}
       />
 
-      <PickerInput
+      <ButtonPickerInput
         name="type"
         placeholder="Parte del cuerpo"
         control={control}
         secureTextEntry={undefined}
         rules={{ required: 'Elige una parte del cuerpo' }}
-        labels={['Cabeza', 'Torso', 'Piernas', 'Pies']}
-      />
+        labels={['Cabeza', 'Torso', 'Piernas', 'Pies']} 
+        images={[
+          require('../../../assets/cap.png'),
+          require('../../../assets/tshirtIcon.png'),
+          require('../../../assets/pants.png'),
+          require('../../../assets/shoes.png'),
+        ]}
+        />
 
       <CustomInput
         name="brand"

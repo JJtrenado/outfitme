@@ -1,104 +1,76 @@
-//
-//
-//It is provisional, do not review it in PR.
-//
-//
-import React from 'react';
-import { View, TextInput, Button, Text, StyleSheet, Switch } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
-import { useForm, Controller } from 'react-hook-form';
-import StyledText from '../atoms/StyledText';
+import React, { useEffect, useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { useForm } from 'react-hook-form';
 import StyledButton from '../atoms/StyledButton';
+import CustomInput from '../atoms/textInput';
+import PickerInput from '../atoms/listPickerInput';
+import SwitchInput from '../atoms/switchInput';
+import { NewGarment } from '../../modules/Garment/Infrastructure/NewGarment';
+import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 
 const NewOutfitForm = () => {
   const { control, handleSubmit, formState: { errors } } = useForm();
 
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const localUser = await getLocalUser();
+      setUser(localUser);
+      setIsLoading(false);
+    };
+
+    fetchUser();
+  }, []);
+
+  if (isLoading) {
+    return null;
+  }
+
   const onSubmit = data => {
-    console.log(data);
+    data.user=user.email;
+    NewOutfit (user.jwt.jwt, data);
   };
 
   return (
     <View style={styles.container}>
-      <Controller
+      <PickerInput
+        name="type"
+        placeholder="Parte del cuerpo"
         control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <Picker
-            style={styles.input}
-            onBlur={onBlur}
-            onValueChange={onChange}
-            selectedValue={value}
-          >
-            <Picker.Item label="Prenda1" value="Prenda1" />
-            <Picker.Item label="Prenda2" value="Prenda2" />
-            <Picker.Item label="Prenda3" value="Prenda3" />
-            <Picker.Item label="Cabeza" value="Cabeza" />
-          </Picker>
-        )}
-        name="head"
-        rules={{ required: false }}
-        defaultValue="Cabeza"
+        secureTextEntry={undefined}
+        rules={{ required: 'Elige una parte del cuerpo' }}
+        labels={['Cabeza', 'Prenda 1', 'Prenda 2', 'Prenda 3']}
       />
 
-      <Controller
+      <PickerInput
+        name="type"
+        placeholder="Parte del cuerpo"
         control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <Picker
-            style={styles.input}
-            onBlur={onBlur}
-            onValueChange={onChange}
-            selectedValue={value}
-          >
-            <Picker.Item label="Prenda1" value="Prenda1" />
-            <Picker.Item label="Prenda2" value="Prenda2" />
-            <Picker.Item label="Prenda3" value="Prenda3" />
-            <Picker.Item label="Torso" value="Torso" />
-          </Picker>
-        )}
-        name="torso"
-        rules={{ required: false }}
-        defaultValue="Torso"
+        secureTextEntry={undefined}
+        rules={{ required: 'Elige una parte del cuerpo' }}
+        labels={['Torso', 'Prenda 1', 'Prenda 2', 'Prenda 3']}
       />
 
-      <Controller
+      <PickerInput
+        name="type"
+        placeholder="Parte del cuerpo"
         control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <Picker
-            style={styles.input}
-            onBlur={onBlur}
-            onValueChange={onChange}
-            selectedValue={value}
-          >
-            <Picker.Item label="Prenda1" value="Prenda1" />
-            <Picker.Item label="Prenda2" value="Prenda2" />
-            <Picker.Item label="Prenda3" value="Prenda3" />
-            <Picker.Item label="Piernas" value="Piernas" />
-          </Picker>
-        )}
-        name="legs"
-        rules={{ required: false }}
-        defaultValue="Piernas"
+        secureTextEntry={undefined}
+        rules={{ required: 'Elige una parte del cuerpo' }}
+        labels={['Piernas', 'Prenda 1', 'Prenda 2', 'Prenda 3']}
       />
 
-      <Controller
+      <PickerInput
+        name="type"
+        placeholder="Parte del cuerpo"
         control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <Picker
-            style={styles.input}
-            onBlur={onBlur}
-            onValueChange={onChange}
-            selectedValue={value}
-          >
-            <Picker.Item label="Prenda1" value="Prenda1" />
-            <Picker.Item label="Prenda2" value="Prenda2" />
-            <Picker.Item label="Prenda3" value="Prenda3" />
-            <Picker.Item label="Pies" value="Pies" />
-          </Picker>
-        )}
-        name="feet"
-        rules={{ required: false }}
-        defaultValue="Pies"
+        secureTextEntry={undefined}
+        rules={{ required: 'Elige una parte del cuerpo' }}
+        labels={['Pies', 'Prenda 1', 'Prenda 2', 'Prenda 3']}
       />
-
+      
       <StyledButton onPress={handleSubmit(onSubmit)}>Crear Outfit</StyledButton>
     </View>
   );
@@ -109,18 +81,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-  },
-  input: {
-    height: 40,
-    width: '100%',
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingHorizontal: 10,
-  },
-  errorText: {
-    color: 'red',
-    marginBottom: 10,
   },
   switchContainer: {
     flexDirection: 'row',
