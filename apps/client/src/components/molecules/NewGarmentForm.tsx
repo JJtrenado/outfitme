@@ -8,7 +8,7 @@ import { NewGarment } from '../../modules/Garment/Infrastructure/NewGarment';
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import ButtonPickerInput from '../atoms/buttonPickerInput';
 
-const NewGarmentForm = ({ barCode }) => {
+const NewGarmentForm = ({ barCode, img }) => {
   const { control, handleSubmit, formState: { errors } } = useForm();
 
   const [user, setUser] = useState(null);
@@ -31,19 +31,13 @@ const NewGarmentForm = ({ barCode }) => {
   const onSubmit = data => {
     data.user=user.email;
     data.barCode=barCode;
+    data.img=img;
     NewGarment (user.jwt.jwt, data);
   };
 
   return (
     <View style={styles.container}>
-
-      <CustomInput
-        name="img"
-        placeholder="Imagen de la prenda"
-        control={control}
-        secureTextEntry={undefined}
-      />
-
+      
       <ButtonPickerInput
         name="type"
         placeholder="Parte del cuerpo"

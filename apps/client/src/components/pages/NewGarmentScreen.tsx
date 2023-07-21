@@ -1,18 +1,19 @@
-import React, { useEffect } from "react";
-import { View, Text, ScrollView } from "react-native";
+import React, { useEffect, useState } from "react";
+import { ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
-import { useState } from "react";
 import Header from "../molecules/Header";
 import StyledText from "../atoms/StyledText";
 import NewGarmentForm from "../molecules/NewGarmentForm";
 import MyBarCodeScanner from "../molecules/BarCodeScanner";
+import CameraComponent from "../molecules/CameraComponent";
 
 const NewGarmentScreen = () => {
   const navigation = useNavigation();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [barCode, setBarCode] = useState(null);
+  const [img, setImg] = useState(null);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -20,9 +21,18 @@ const NewGarmentScreen = () => {
       setUser(localUser);
       setIsLoading(false);
     };
-
+    
     fetchUser();
   }, []);
+
+  const handleScanSuccess = (data) => {
+    setBarCode(data);
+  };
+
+  const handlePhotoTaken = (photoUri) => {
+    setImg(photoUri);
+    console.log(photoUri);
+  };
 
   if (isLoading) {
     return null;
@@ -33,26 +43,23 @@ const NewGarmentScreen = () => {
     return null;
   }
 
-  const handleScanSuccess = (data) => {
-    setBarCode(data);
-  };
-
-  if (barCode==null) {
-    return (
-      <>
-        <Header picture={user.picture}/>
-        <StyledText align='center' fontWeight='bold' style={{marginTop: 20}}>Escanea el código de la prenda</StyledText>
-        <MyBarCodeScanner jwt={user.jwt.jwt} onScanSuccess={handleScanSuccess} />
-      </>
-    );
-  }
-
   return (
-    <ScrollView>
+    <>
       <Header picture={user.picture} />
-      <StyledText align="center" fontWeight="bold" style={{marginTop: 20}}>Nueva Prenda</StyledText>
-      <NewGarmentForm barCode={barCode}/>
-    </ScrollView>
+      {barCode == null ? (
+        <>
+          <StyledText align='center' fontWeight='bold' style={{marginTop: 20}}>Escanea el código de la prenda</StyledText>
+          <MyBarCodeScanner onScanSuccess={handleScanSuccess} />
+        </>
+      ) : img == null ? (
+        <CameraComponent onImgSuccess={handlePhotoTaken} />
+      ) : (
+        <ScrollView>
+          <StyledText align="center" fontWeight="bold" style={{marginTop: 20}}>Nueva Prenda</StyledText>
+          <NewGarmentForm barCode={barCode} img={img} />
+        </ScrollView>
+      )}
+    </>
   );
 }
 
