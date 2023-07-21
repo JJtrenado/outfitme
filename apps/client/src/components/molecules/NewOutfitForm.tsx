@@ -2,10 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useForm } from 'react-hook-form';
 import StyledButton from '../atoms/StyledButton';
-import CustomInput from '../atoms/textInput';
 import PickerInput from '../atoms/listPickerInput';
-import SwitchInput from '../atoms/switchInput';
-import { NewGarment } from '../../modules/Garment/Infrastructure/NewGarment';
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 
 const NewOutfitForm = () => {
@@ -81,12 +78,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-  },
-  switchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
+  }
 });
 
 export default NewOutfitForm;

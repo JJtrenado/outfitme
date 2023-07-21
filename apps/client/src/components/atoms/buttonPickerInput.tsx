@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Controller } from 'react-hook-form';
 import StyledText from './StyledText';
-import StyledButton from './StyledButton';
 import StyledImageButton from './StyledImageButton';
 
 const ButtonPickerInput = ({

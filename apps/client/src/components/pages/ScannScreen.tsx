@@ -31,7 +31,7 @@ const HomeScreen = () => {
     <>
       <Header picture={user.picture}/>
       <StyledText align='center' fontWeight='bold' style={{marginTop: 20}}>Escanea el código de la prenda</StyledText>
-      <MyBarCodeScanner jwt={user.jwt.jwt}/>
+      <MyBarCodeScanner onScanSuccess={undefined} />
     </>
   );
 }

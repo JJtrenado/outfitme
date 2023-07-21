@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text, TextInput, StyleSheet, Switch } from 'react-native';
+import { View, StyleSheet, Switch } from 'react-native';
 import { Controller } from 'react-hook-form';
-import { Picker } from '@react-native-picker/picker';
 import StyledText from './StyledText';
 
 const SwitchInput = ({
