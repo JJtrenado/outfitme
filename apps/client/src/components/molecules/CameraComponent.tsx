@@ -1,15 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
 import Constants from 'expo-constants';
 import { Camera, CameraType } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
-import { MaterialIcons } from '@expo/vector-icons';
 import Button from '../Button';
-import { Dimensions } from 'react-native';
 
-
-
-export default function CameraComponent() {
+export default function CameraComponent({ onImgSuccess }) {
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
   const [image, setImage] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
@@ -39,7 +35,7 @@ export default function CameraComponent() {
     if (image) {
       try {
         const asset = await MediaLibrary.createAssetAsync(image);
-        alert('Picture saved! 🎉');
+        onImgSuccess(image);
         setImage(null);
         console.log('saved successfully');
       } catch (error) {
