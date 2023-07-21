@@ -56,6 +56,8 @@ const ButtonPickerInput = ({
 
 const styles = StyleSheet.create({
   container: {
+    flexWrap: 'wrap',
+    flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-around',
     alignItems: 'center',
