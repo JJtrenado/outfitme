@@ -48,14 +48,17 @@ const NewGarmentScreen = () => {
       <Header picture={user.picture} />
       {barCode == null ? (
         <>
-          <StyledText align='center' fontWeight='bold' style={{marginTop: 20}}>Escanea el código de la prenda</StyledText>
+          <StyledText align='center' fontSize="title" fontWeight='bold' style={{marginTop: 20}}>Escanea el código de la prenda</StyledText>
           <MyBarCodeScanner onScanSuccess={handleScanSuccess} />
         </>
       ) : img == null ? (
-        <CameraComponent onImgSuccess={handlePhotoTaken} />
+        <>
+          <StyledText align='center' fontSize="title" fontWeight='bold' style={{marginTop: 20}}>Haz una foto a la prenda</StyledText>
+          <CameraComponent onImgSuccess={handlePhotoTaken} />
+        </>
       ) : (
         <ScrollView>
-          <StyledText align="center" fontWeight="bold" style={{marginTop: 20}}>Nueva Prenda</StyledText>
+          <StyledText align="center" fontSize="title" fontWeight="bold" style={{marginTop: 20}}>Nueva Prenda</StyledText>
           <NewGarmentForm barCode={barCode} img={img} />
         </ScrollView>
       )}

@@ -36,7 +36,6 @@ const HomeScreen = () => {
     <View>
       <Header picture={user.picture} />
       <OptionsButtons />
-      <StyledButton onPress={() => { navigation.navigate('Camera' as never); }}>Cámara</StyledButton>
     </View>
   );
 }

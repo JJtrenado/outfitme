@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
-import Constants from 'expo-constants';
 import { Camera, CameraType } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
-import Button from '../Button';
+import StyledImageTextButton from '../atoms/StyledImageTextButton';
 
 export default function CameraComponent({ onImgSuccess }) {
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
@@ -51,52 +50,42 @@ export default function CameraComponent({ onImgSuccess }) {
   return (
     <View style={styles.container}>
       {!image ? (
-        <Camera
-          style={styles.camera}
-          type={type}
-          ref={cameraRef}
-        >
-          </Camera>
+        <View>
+          <Camera
+            style={styles.camera}
+            type={type}
+            ref={cameraRef}
+          />
+          <View style={styles.controls}>
+            <StyledImageTextButton title="Tomar foto" onPress={takePicture} icon="camera" color={undefined} />
+
+            <StyledImageTextButton
+              title="Girar"
+              icon="retweet"
+              onPress={() => {
+                setType(
+                  type === CameraType.back ? CameraType.front : CameraType.back
+                );
+              } } color={undefined} />
+
+            </View>
+          </View>
       ) : (
-        <Image source={{ uri: image }} style={styles.camera} />
+        <View>
+          <Image source={{ uri: image }} style={styles.camera} />
+          <View style={styles.controls}>
+            <StyledImageTextButton
+              title="Re-take"
+              onPress={() => setImage(null)}
+              icon="retweet" color={undefined}
+            />
+            <StyledImageTextButton title="Save" onPress={savePicture} icon="check" color={undefined} />
+          </View>
+        </View>
       )}
 
       <View>
-        {image ? (
-          <View
-          style={{
-              marginTop: 20,
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              paddingHorizontal: 50,
-            }}
-          >
-            <Button
-              title="Re-take"
-              onPress={() => setImage(null)}
-              icon="retweet" color={undefined}            />
-            <Button title="Save" onPress={savePicture} icon="check" color={undefined} />
-          </View>
-        ) : (
-          <View
-            style={{
-              marginTop: 20,
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              paddingHorizontal: 50,
-            }}
-          ><Button title="Tomar foto" onPress={takePicture} icon="camera" color={undefined} /><View>
-              <Button
-                title=""
-                icon="retweet"
-                onPress={() => {
-                  setType(
-                    type === CameraType.back ? CameraType.front : CameraType.back
-                  );
-                } } color={undefined} />
-
-            </View></View>
-        )}
+        
       </View>
     </View>
   );
@@ -106,32 +95,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#000',
-    padding: 8,
-  },
-  button: {
-    height: 40,
-    borderRadius: 6,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    fontWeight: 'bold',
-    fontSize: 16,
-    color: '#E9730F',
-    marginLeft: 10,
   },
   camera: {
     width: '100%',
     alignSelf: 'center',
     aspectRatio: 3/4,
   },
-  topControls: {
-    marginTop: 20,
+  controls: {
+    margin: 30,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 30,
   },
 });
