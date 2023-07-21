@@ -8,7 +8,6 @@ import SettingsScreen from "./src/components/pages/SettingsScreen";
 import ScannScreen from "./src/components/pages/ScannScreen";
 import NewGarmentScreen from "./src/components/pages/NewGarmentScreen";
 import NewOutfitScreen from './src/components/pages/NewOutfitScreen';
-import CameraScreen from './src/components/pages/CameraScreen';
 
 const Stack = createStackNavigator();
 
@@ -22,7 +21,6 @@ export default function App() {
         <Stack.Screen name="Scann" component={ScannScreen} />
         <Stack.Screen name="NewGarment" component={NewGarmentScreen} />
         <Stack.Screen name="NewOutfit" component={NewOutfitScreen} />
-        <Stack.Screen name="Camera" component={CameraScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
