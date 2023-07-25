@@ -12,7 +12,7 @@ export class Garment {
   barCode: string;
 
   @Prop()
-  img: string;
+  imagePath: string;
 
   @Prop({ required: true })
   type: string;

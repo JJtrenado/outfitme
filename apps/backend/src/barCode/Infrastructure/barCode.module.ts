@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { verifyJwtService } from 'src/common/Infrastructure/verifyJwt.service';
+import { VerifyJwtService } from 'src/common/user/Infrastructure/verifyJwt.service';
 import { BarCodeController } from './barCode.controller';
 import { JwtModule } from '@nestjs/jwt';
 
@@ -12,6 +12,6 @@ import { JwtModule } from '@nestjs/jwt';
     }),
   ],
   controllers: [BarCodeController],
-  providers: [verifyJwtService],
+  providers: [VerifyJwtService],
 })
 export class BarCodeModule {}

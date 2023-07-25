@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { User } from 'src/common/Domain/User';
+import { User } from 'src/common/user/Domain/User';
 import { IGoogleService } from './googleService.interface';
 
 @Injectable()
