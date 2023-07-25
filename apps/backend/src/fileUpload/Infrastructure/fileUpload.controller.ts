@@ -1,19 +1,31 @@
 import {
   Controller,
+  ParseFilePipeBuilder,
   Post,
-  UseInterceptors,
   UploadedFile,
+  UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { FileUploadService } from './fileUpload.service';
+import { Express } from 'express';
 
-@Controller('upload') // Asegúrate de que el endpoint sea 'upload'
+@Controller('upload')
 export class FileUploadController {
-  constructor(private readonly fileUploadService: FileUploadService) {}
-
-  @Post()
   @UseInterceptors(FileInterceptor('file'))
-  async uploadFile(@UploadedFile() file: Express.Multer.File) {
-    return this.fileUploadService.uploadFile(file);
+  @Post('image')
+  uploadFileAndPassValidation(
+    @UploadedFile(
+      new ParseFilePipeBuilder()
+        .addFileTypeValidator({
+          fileType: 'png',
+        })
+        .build({
+          fileIsRequired: false,
+        }),
+    )
+    file?: Express.Multer.File,
+  ) {
+    return {
+      file: file,
+    };
   }
 }
