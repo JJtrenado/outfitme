@@ -7,6 +7,7 @@ import StyledText from "../atoms/StyledText";
 import NewGarmentForm from "../molecules/NewGarmentForm";
 import MyBarCodeScanner from "../molecules/BarCodeScanner";
 import CameraComponent from "../molecules/CameraComponent";
+import ImagePickerExample from "../molecules/ImagePicker";
 
 const NewGarmentScreen = () => {
   const navigation = useNavigation();
@@ -54,7 +55,9 @@ const NewGarmentScreen = () => {
       ) : img == null ? (
         <>
           <StyledText align='center' fontSize="title" fontWeight='bold' style={{marginTop: 20}}>Haz una foto a la prenda</StyledText>
-          <CameraComponent onImgSuccess={handlePhotoTaken} />
+          {/* <CameraComponent onImgSuccess={handlePhotoTaken} /> */}
+          <ImagePickerExample onPickerSuccess={handlePhotoTaken}/>
+
         </>
       ) : (
         <ScrollView>

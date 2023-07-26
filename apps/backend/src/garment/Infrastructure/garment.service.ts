@@ -11,11 +11,15 @@ export class GarmentService {
   ) {}
 
   async create(createGarmentDto: CreateGarmentDto): Promise<Garment> {
-    const createdCat = new this.garmentModel(createGarmentDto);
-    return createdCat.save();
+    const createdGarment = new this.garmentModel(createGarmentDto);
+    return createdGarment.save();
   }
 
   async findAll(): Promise<Garment[]> {
     return this.garmentModel.find().exec();
+  }
+
+  async findByUser(userId: string): Promise<Garment[]> {
+    return this.garmentModel.find({ user: userId }).exec();
   }
 }
