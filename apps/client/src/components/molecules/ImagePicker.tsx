@@ -6,20 +6,26 @@ export default function ImagePickerExample({ onPickerSuccess }) {
   const [image, setImage] = useState(null);
 
   const pickImage = async () => {
-    // No permissions request is necessary for launching the image library
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
+    const imagePickerResult = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
     });
 
-    console.log(result);
-
-    if (!result.canceled) {
-      setImage(result.assets[0].uri);
-      onPickerSuccess(result.assets[0].uri);
+    if (imagePickerResult.canceled) {
+      console.log('Image selection cancelled.');
+      return;
     }
+
+    const { uri } = imagePickerResult;
+    let bodyContent = new FormData();
+    bodyContent.append("file", {
+      uri,
+      name: `image.jpg`,
+      type: 'image/jpeg',
+    });
+    onPickerSuccess(bodyContent);
   };
 
   return (

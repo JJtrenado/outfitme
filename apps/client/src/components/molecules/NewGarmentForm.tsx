@@ -9,7 +9,7 @@ import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUs
 import ButtonPickerInput from '../atoms/buttonPickerInput';
 import ImagePickerExample from './ImagePicker';
 
-const NewGarmentForm = ({ barCode, img }) => {
+const NewGarmentForm = ({ barCode, formDataPhotoUri }) => {
   const { control, handleSubmit, formState: { errors } } = useForm();
 
   const [user, setUser] = useState(null);
@@ -32,9 +32,13 @@ const NewGarmentForm = ({ barCode, img }) => {
   
 
   const onSubmit = data => {
-    data.user=user.email;
-    data.barCode=barCode;
-    uploadData(user.jwt.jwt, data, img);
+    Object.keys(data).map((key: string) => {
+      formDataPhotoUri.append(key, data[key]);
+    });
+    formDataPhotoUri.append("user" , user.email);
+    formDataPhotoUri.append("barcode", barCode);
+    console.log(formDataPhotoUri);
+    uploadData(user.jwt.jwt, formDataPhotoUri);
   };
 
   return (

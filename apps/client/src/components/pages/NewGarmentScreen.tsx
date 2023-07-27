@@ -14,7 +14,7 @@ const NewGarmentScreen = () => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [barCode, setBarCode] = useState(null);
-  const [img, setImg] = useState(null);
+  const [formDataPhotoUri, setFormDataPhotoUri] = useState(null);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -30,9 +30,8 @@ const NewGarmentScreen = () => {
     setBarCode(data);
   };
 
-  const handlePhotoTaken = (photoUri) => {
-    setImg(photoUri);
-    console.log(photoUri);
+  const handlePhotoTaken = (formDataPhotoUri) => {
+    setFormDataPhotoUri(formDataPhotoUri);
   };
 
   if (isLoading) {
@@ -52,7 +51,7 @@ const NewGarmentScreen = () => {
           <StyledText align='center' fontSize="title" fontWeight='bold' style={{marginTop: 20}}>Escanea el código de la prenda</StyledText>
           <MyBarCodeScanner onScanSuccess={handleScanSuccess} />
         </>
-      ) : img == null ? (
+      ) : formDataPhotoUri == null ? (
         <>
           <StyledText align='center' fontSize="title" fontWeight='bold' style={{marginTop: 20}}>Haz una foto a la prenda</StyledText>
           {/* <CameraComponent onImgSuccess={handlePhotoTaken} /> */}
@@ -62,7 +61,7 @@ const NewGarmentScreen = () => {
       ) : (
         <ScrollView>
           <StyledText align="center" fontSize="title" fontWeight="bold" style={{marginTop: 20}}>Nueva Prenda</StyledText>
-          <NewGarmentForm barCode={barCode} img={img} />
+          <NewGarmentForm barCode={barCode} formDataPhotoUri={formDataPhotoUri} />
         </ScrollView>
       )}
     </>

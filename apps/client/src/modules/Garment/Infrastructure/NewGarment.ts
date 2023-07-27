@@ -1,20 +1,11 @@
-export const uploadData = async (jwt: string, _data: JSON, imagePath: any) => {
+export const uploadData = async (jwt: string, formData: FormData) => {
   try {
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };
 
-    const response = await fetch(imagePath); // Fetch the file as a Blob
-    const fileBlob = await response.blob();
-
     let bodyContent = new FormData();
-    bodyContent.append("file", fileBlob);
-    Object.keys(_data).map((key: string) => {
-      bodyContent.append(key, _data[key]);
-    });
-
-    console.log(bodyContent);
-
+    bodyContent= formData;
     const uploadResponse = await fetch("http://192.168.1.19:3000/garments", {
       method: "POST",
       body: bodyContent,
