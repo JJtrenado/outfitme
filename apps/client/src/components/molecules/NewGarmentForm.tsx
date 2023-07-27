@@ -81,7 +81,7 @@ const NewGarmentForm = ({ barCode, formDataPhotoUri }) => {
       />
       
       <SwitchInput
-        name="avaliable"
+        name="available"
         placeholder="Prenda disponible"
         control={control}
         defaultValue={true}      

@@ -27,7 +27,7 @@ export class Garment {
   description: string;
 
   @Prop({ required: true })
-  avaliable: boolean;
+  available: boolean;
 }
 
 export const GarmentSchema = SchemaFactory.createForClass(Garment);

@@ -5,6 +5,6 @@ export class CreateGarmentDto {
   brand: string;
   model: string;
   description: string;
-  avaliable: boolean;
+  available: boolean;
   imagePath: string;
 }
