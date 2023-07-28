@@ -5,15 +5,17 @@ import {
   Param,
   Post,
   Req,
+  Res,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
-import { Request } from 'express';
+import { Request, Response } from 'express';
 import { Garment } from './garment.schema';
 import { CreateGarmentDto } from './create-garment.dto';
 import { GarmentService } from './garment.service';
 import { VerifyJwtService } from 'src/common/user/Infrastructure/verifyJwt.service';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { resolve } from 'path';
 
 @Controller('garments')
 export class GarmentController {
@@ -58,5 +60,11 @@ export class GarmentController {
     }
     console.log('no jwt');
     return null;
+  }
+
+  @Get('/uploads/:imageName')
+  serveImage(@Param('imageName') imageName: string, @Res() res: Response) {
+    const imagePath = resolve(process.cwd(), 'uploads', imageName);
+    return res.sendFile(imagePath);
   }
 }
