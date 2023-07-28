@@ -37,7 +37,6 @@ const NewGarmentForm = ({ barCode, formDataPhotoUri }) => {
     });
     formDataPhotoUri.append("user" , user.email);
     formDataPhotoUri.append("barCode", barCode);
-    console.log(formDataPhotoUri);
     uploadData(user.jwt.jwt, formDataPhotoUri);
   };
 
