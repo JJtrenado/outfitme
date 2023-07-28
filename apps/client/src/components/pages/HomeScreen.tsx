@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import { useState } from "react";
@@ -33,11 +32,11 @@ const HomeScreen = () => {
   }
 
   return (
-    <View>
+    <>
       <Header picture={user.picture} />
       <OptionsButtons />
       <GarmentListSimple jwt={user.jwt.jwt} userId={user.email}/>
-    </View>
+    </>
   );
 }
 
