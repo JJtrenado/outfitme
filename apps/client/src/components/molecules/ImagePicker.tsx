@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Image, View, Platform } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import StyledButton from '../atoms/StyledButton';
 
 export default function ImagePickerExample({ onPickerSuccess }) {
-  const [image, setImage] = useState(null);
 
   const pickImage = async () => {
     const imagePickerResult = await ImagePicker.launchImageLibraryAsync({
@@ -29,9 +29,14 @@ export default function ImagePickerExample({ onPickerSuccess }) {
   };
 
   return (
-    <View >
-      <Button title="Pick an image from camera roll" onPress={pickImage} />
-      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+    <View style={styles.button}>
+      <StyledButton onPress={pickImage} children={'Sube una foto de tu galería'} />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  button: {
+  margin: 30,
+},
+});

@@ -34,10 +34,8 @@ export class GarmentController {
     const jwt = request.headers.authorization?.split(' ')[1];
     if (jwt) {
       const decoded = await this.verifyJwtService.verifyJwt(jwt);
-      if (decoded) {
-        if (file) {
-          createGarmentDto.imagePath = file.path;
-        }
+      if (decoded && file) {
+        createGarmentDto.imagePath = file.path;
         console.log(createGarmentDto);
         return this.garmentService.create(createGarmentDto);
       }

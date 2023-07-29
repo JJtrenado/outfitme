@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { useForm } from 'react-hook-form';
 import StyledButton from '../atoms/StyledButton';
 import CustomInput from '../atoms/textInput';
@@ -7,7 +7,6 @@ import SwitchInput from '../atoms/switchInput';
 import { uploadData } from '../../modules/Garment/Infrastructure/NewGarment';
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import ButtonPickerInput from '../atoms/buttonPickerInput';
-import ImagePickerExample from './ImagePicker';
 
 const NewGarmentForm = ({ barCode, formDataPhotoUri }) => {
   const { control, handleSubmit, formState: { errors } } = useForm();
@@ -28,8 +27,6 @@ const NewGarmentForm = ({ barCode, formDataPhotoUri }) => {
   if (isLoading) {
     return null;
   }
-
-  
 
   const onSubmit = data => {
     Object.keys(data).map((key: string) => {
