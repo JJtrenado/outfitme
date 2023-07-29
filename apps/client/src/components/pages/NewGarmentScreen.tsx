@@ -54,7 +54,7 @@ const NewGarmentScreen = () => {
       ) : formDataPhotoUri == null ? (
         <>
           <StyledText align='center' fontSize="title" fontWeight='bold' style={{marginTop: 20}}>Haz una foto a la prenda</StyledText>
-          {/* <CameraComponent onImgSuccess={handlePhotoTaken} /> */}
+          <CameraComponent onImgSuccess={handlePhotoTaken} />
           <ImagePickerExample onPickerSuccess={handlePhotoTaken}/>
 
         </>
