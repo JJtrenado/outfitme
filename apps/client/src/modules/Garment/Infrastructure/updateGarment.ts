@@ -1,3 +1,4 @@
+// @ts-ignore
 import { BACKEND_URL } from '@env';
 
 export const updateGarmentAvailabilityByBarCode = async (
