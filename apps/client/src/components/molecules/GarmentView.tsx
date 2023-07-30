@@ -57,7 +57,7 @@ const GarmentListSimple = ({ jwt, userId }) => {
           }}>
             <Image
               source={{ uri: `http://192.168.1.19:3000/garments/${item.imagePath}` }}
-              style={[styles.itemImage, { width: imageWidth }]}
+              style={[styles.itemImage, { width: imageWidth }, item.available === false ? { borderColor: '#EA0C5F' } : null]}
             />
           </TouchableOpacity>
         )}
