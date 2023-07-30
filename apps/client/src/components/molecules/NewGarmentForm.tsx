@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import StyledButton from '../atoms/StyledButton';
 import CustomInput from '../atoms/textInput';
 import SwitchInput from '../atoms/switchInput';
-import { uploadData } from '../../modules/Garment/Infrastructure/NewGarment';
+import { uploadData } from '../../modules/Garment/Infrastructure/newGarment';
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import ButtonPickerInput from '../atoms/buttonPickerInput';
 
