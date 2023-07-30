@@ -1,9 +1,10 @@
+import { BACKEND_URL }from '@env';
 import axios from "axios";
 
 export async function getJwtFromBackend(token: string): Promise<string> {
   try {
     const API = axios.create({
-      baseURL: "http://192.168.1.19:3000",
+      baseURL: BACKEND_URL,
       withCredentials: true,
     });
 
