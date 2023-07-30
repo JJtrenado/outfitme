@@ -1,7 +1,7 @@
 // @ts-ignore
 import { BACKEND_URL }from '@env';
 
-export const uploadData = async (jwt: string, formData: FormData) => {
+export const uploadData = async (jwt: string, formData: FormData): Promise<boolean> =>{
   try {
     const headers = {
       Authorization: `Bearer ${jwt}`,
@@ -15,9 +15,11 @@ export const uploadData = async (jwt: string, formData: FormData) => {
       headers: headers,
     });
 
-    const data = await uploadResponse.text();
-    console.log(data);
+    if (uploadResponse.ok) return true;
+    console.error("Error:", uploadResponse.statusText);
+    return false;
   } catch (error) {
     console.error("Error:", error);
+    return false;
   }
 };
