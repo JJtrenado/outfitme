@@ -1,31 +1,38 @@
 {
-  "name": "prueba",
+  "name": "outfitme",
   "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "expo start --dev-client",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
-    "web": "expo start --web"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "web": "turbo web",
+    "android": "turbo antroid",
+    "buildapk": "turbo buildapk",
+    "start": "turbo start"
   },
-  "dependencies": {
-    "@react-native-async-storage/async-storage": "1.17.11",
-    "@types/react": "~18.0.27",
-    "expo": "~48.0.18",
-    "expo-auth-session": "~4.0.3",
-    "expo-status-bar": "~1.4.4",
-    "expo-updates": "~0.16.4",
-    "expo-web-browser": "~12.1.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.71.8",
-    "react-native-dotenv": "^3.4.9",
-    "typescript": "^4.9.4",
-    "react-native-web": "~0.18.10",
-    "react-dom": "18.2.0",
-    "@expo/webpack-config": "^18.0.1"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "apps/*"
+  ],
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "babel-eslint": "^10.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-config-standard-react": "^13.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "jsx": "^0.9.89",
+    "turbo": "^1.10.7"
   },
-  "private": true
+  "eslintConfig": {
+    "extends": [
+      "standard",
+      "standard-jsx",
+      "standard-react"
+    ],
+    "parser": "babel-eslint"
+  }
 }
