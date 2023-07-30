@@ -1,7 +1,7 @@
 // @ts-ignore
 import { BACKEND_URL }from '@env';
-import React, { useEffect, useState } from 'react';
-import { View, Text, ActivityIndicator, FlatList, Image, Modal, TouchableOpacity, Dimensions, Platform } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, ActivityIndicator, FlatList, Image, Modal, TouchableOpacity, Dimensions, Platform, Switch } from 'react-native';
 import { getGarmentByUser } from '../../modules/Garment/Infrastructure/getGarments';
 import { Garment } from '../../modules/Garment/Domain/garment';
 import { StyleSheet } from 'react-native';
@@ -9,6 +9,7 @@ import StyledText from '../atoms/StyledText';
 import StyledButton from '../atoms/StyledButton';
 import { deleteGarmentByBarCode } from '../../modules/Garment/Infrastructure/deleteGarment';
 import { updateGarmentAvailabilityByBarCode } from '../../modules/Garment/Infrastructure/updateGarment';
+import { useFocusEffect } from '@react-navigation/native';
 
 
 const GarmentListSimple = ({ jwt, userId }) => {
@@ -18,20 +19,23 @@ const GarmentListSimple = ({ jwt, userId }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const garments = await getGarmentByUser(jwt, userId);
-        setGarmentsData(garments);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching garments:', error);
-        setLoading(false);
-      }
-    };
-    
-    fetchData();
-  }, []);
+  const loadGarments = async () => {
+    try {
+      const garments = await getGarmentByUser(jwt, userId);
+      setGarmentsData(garments);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching garments:', error);
+      setLoading(false);
+    }
+  };
+
+  // Agregar el listener para actualizar los garments cuando la pantalla obtiene el enfoque
+  useFocusEffect(
+    React.useCallback(() => {
+      loadGarments();
+    }, [])
+  );
   
   console.log('garmentsData', garmentsData);
 
@@ -85,11 +89,23 @@ const GarmentListSimple = ({ jwt, userId }) => {
               <StyledText>Marca: {selectedGarment.brand}</StyledText>
               <StyledText>Modelo: {selectedGarment.model}</StyledText>
               <StyledText>Descripción: {selectedGarment.description}</StyledText>
-              <StyledText>Disponible: {selectedGarment.available ? 'Yes' : 'No'}</StyledText>
               <View style={styles.buttonsContainer}>
-              <StyledButton color='red' onPress={() => deleteGarmentByBarCode(jwt, selectedGarment.barCode)} >Eliminar</StyledButton>
+              <StyledButton color='red' onPress={async () => {
+                await deleteGarmentByBarCode(jwt, selectedGarment.barCode);
+                setIsModalVisible(false);
+                loadGarments();
+              }}>
+                Eliminar
+              </StyledButton>
+              <View>
+                <StyledText fontWeight='bold'>Estado:</StyledText>
+                <Switch value={selectedGarment.available} onValueChange={async () => {
+                  setIsModalVisible(false);
+                  await updateGarmentAvailabilityByBarCode(jwt, selectedGarment.barCode, selectedGarment.available);
+                  loadGarments();
+                }}/>
+              </View>
               <StyledButton onPress={() => setIsModalVisible(false)} >Cerrar</StyledButton>
-              <StyledButton onPress={() => updateGarmentAvailabilityByBarCode(jwt, selectedGarment.barCode, selectedGarment.available)} >Cambiar estado</StyledButton>
               </View>
            </View>
           )}
@@ -107,7 +123,7 @@ const styles = StyleSheet.create({
     borderWidth: 5,
   },
   modalContainer: {
-    marginTop: '50%',
+    marginTop: '30%',
     justifySelf: 'center',
     alignSelf: 'center',
     padding: 5,
@@ -128,11 +144,9 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   buttonsContainer: {
-    alignSelf: 'center',
-    position: 'absolute',
-    bottom: 0,
-    right: 0,  
-    gap: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   flatListContent: {
     flexGrow: 1,
