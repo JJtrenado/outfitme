@@ -30,7 +30,6 @@ const GarmentListSimple = ({ jwt, userId }) => {
     }
   };
 
-  // Agregar el listener para actualizar los garments cuando la pantalla obtiene el enfoque
   useFocusEffect(
     React.useCallback(() => {
       loadGarments();
