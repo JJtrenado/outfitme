@@ -34,5 +34,11 @@
       "standard-react"
     ],
     "parser": "babel-eslint"
+  },
+  "dependencies": {
+    "@nestjs/mongoose": "^10.0.0",
+    "mongoose": "^7.3.4",
+    "expo-media-library": "~15.2.3",
+    "expo-camera": "~13.2.1"
   }
 }

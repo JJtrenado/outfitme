@@ -1,11 +1,15 @@
 import React, { useEffect } from "react";
-import { View } from "react-native";
+import { StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import { useState } from "react";
 import Header from "../molecules/Header";
-import Profile from "../molecules/ProfileMenu";
+import StyledText from "../atoms/StyledText";
+import MyBarCodeScanner from "../molecules/BarCodeScanner";
 
-const SettingsScreen = () => {
+
+const HomeScreen = () => {
+  const navigation = useNavigation();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,13 +26,20 @@ const SettingsScreen = () => {
   if (isLoading) {
     return null;
   }
-    
+
   return (
-    <View>
+    <>
       <Header picture={user.picture}/>
-      <Profile user={user}/>
-    </View>
+      <StyledText align='center' fontWeight='bold' style={{marginTop: 20}}>Escanea el código de la prenda</StyledText>
+      <MyBarCodeScanner onScanSuccess={undefined} />
+    </>
   );
 }
 
-export default SettingsScreen;
+export default HomeScreen;
+
+const styles = StyleSheet.create({  
+  card: {
+    marginTop: 50,
+  },
+});

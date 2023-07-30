@@ -1,12 +1,12 @@
 import { Controller, Get, Query, Res, HttpStatus } from '@nestjs/common';
-import { generateJwt } from './generateJwt.service';
+import { generateJwtService } from './generateJwt.service';
 import { getUser } from '../Application/getUser.service';
 import { Response } from 'express';
 
 @Controller('auth')
 export class AuthController {
   constructor(
-    private readonly GenerateJwt: generateJwt,
+    private readonly GenerateJwtService: generateJwtService,
     private readonly GetUser: getUser,
   ) {}
 
@@ -17,7 +17,7 @@ export class AuthController {
   ) {
     const { user } = await this.GetUser.fromToken(token);
     if (user) {
-      const jwt = await this.GenerateJwt.withTokenAndUser(token, user);
+      const jwt = await this.GenerateJwtService.withUser(user);
       response.status(HttpStatus.OK).send(jwt);
     } else {
       response.status(HttpStatus.BAD_REQUEST).json({ Token: 'Invalid Token' });

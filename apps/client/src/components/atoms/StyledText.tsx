@@ -21,11 +21,17 @@ const styles = StyleSheet.create({
   colorSecondary: {
     color: theme.colors.textSecondary
   },
+  colorError: {
+    color: theme.colors.textError
+  },
   bold: {
     fontWeight: theme.fontWeights.bold
   },
   subheading: {
     fontSize: theme.fontSizes.subheading
+  },
+  title: {
+    fontSize: theme.fontSizes.title
   },
   textAlignCenter: {
     textAlign: 'center'
@@ -40,7 +46,9 @@ export default function StyledText({ align, color, fontSize, fontWeight, style, 
     align === 'center' && styles.textAlignCenter,
     color === 'primary' && styles.colorPrimary,
     color === 'secondary' && styles.colorSecondary,
+    color === 'error' && styles.colorError,
     fontSize === 'subheading' && styles.subheading,
+    fontSize === 'title' && styles.title,
     fontWeight === 'bold' && styles.bold,
     style
   ];
