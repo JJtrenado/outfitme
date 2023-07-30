@@ -7,8 +7,11 @@ import SwitchInput from '../atoms/switchInput';
 import { uploadData } from '../../modules/Garment/Infrastructure/newGarment';
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import ButtonPickerInput from '../atoms/buttonPickerInput';
+import { useNavigation } from '@react-navigation/native';
 
 const NewGarmentForm = ({ barCode, formDataPhotoUri }) => {
+  const navigation = useNavigation();
+  
   const { control, handleSubmit, formState: { errors } } = useForm();
 
   const [user, setUser] = useState(null);
@@ -35,6 +38,7 @@ const NewGarmentForm = ({ barCode, formDataPhotoUri }) => {
     formDataPhotoUri.append("user" , user.email);
     formDataPhotoUri.append("barCode", barCode);
     uploadData(user.jwt.jwt, formDataPhotoUri);
+    navigation.navigate('Home' as never);
   };
 
   return (
