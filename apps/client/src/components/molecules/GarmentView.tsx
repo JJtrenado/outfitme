@@ -1,3 +1,5 @@
+// @ts-ignore
+import { BACKEND_URL }from '@env';
 import React, { useEffect, useState } from 'react';
 import { View, Text, ActivityIndicator, FlatList, Image, Modal, TouchableOpacity, Dimensions, Platform } from 'react-native';
 import { getGarmentByUser } from '../../modules/Garment/Infrastructure/getGarments';
@@ -5,7 +7,8 @@ import { Garment } from '../../modules/Garment/Domain/garment';
 import { StyleSheet } from 'react-native';
 import StyledText from '../atoms/StyledText';
 import StyledButton from '../atoms/StyledButton';
-import e from 'express';
+import { deleteGarmentByBarCode } from '../../modules/Garment/Infrastructure/deleteGarment';
+import { updateGarmentAvailabilityByBarCode } from '../../modules/Garment/Infrastructure/updateGarment';
 
 
 const GarmentListSimple = ({ jwt, userId }) => {
@@ -56,7 +59,7 @@ const GarmentListSimple = ({ jwt, userId }) => {
             setIsModalVisible(true);
           }}>
             <Image
-              source={{ uri: `http://192.168.1.19:3000/garments/${item.imagePath}` }}
+              source={{ uri: `${BACKEND_URL}/garments/${item.imagePath}` }}
               style={[styles.itemImage, { width: imageWidth }, item.available === false ? { borderColor: '#EA0C5F' } : null]}
             />
           </TouchableOpacity>
@@ -74,7 +77,7 @@ const GarmentListSimple = ({ jwt, userId }) => {
           {selectedGarment && (
             <View>
               <Image
-              source={{ uri: `http://192.168.1.19:3000/garments/${selectedGarment.imagePath}` }}
+              source={{ uri: `${BACKEND_URL}/garments/${selectedGarment.imagePath}` }}
               style={styles.detailImage}
               />
               <StyledText>Código: {selectedGarment.barCode}</StyledText>
@@ -83,7 +86,11 @@ const GarmentListSimple = ({ jwt, userId }) => {
               <StyledText>Modelo: {selectedGarment.model}</StyledText>
               <StyledText>Descripción: {selectedGarment.description}</StyledText>
               <StyledText>Disponible: {selectedGarment.available ? 'Yes' : 'No'}</StyledText>
-              <StyledButton style={styles.closeButton} onPress={() => setIsModalVisible(false)} >Cerrar</StyledButton>
+              <View style={styles.buttonsContainer}>
+              <StyledButton color='red' onPress={() => deleteGarmentByBarCode(jwt, selectedGarment.barCode)} >Eliminar</StyledButton>
+              <StyledButton onPress={() => setIsModalVisible(false)} >Cerrar</StyledButton>
+              <StyledButton onPress={() => updateGarmentAvailabilityByBarCode(jwt, selectedGarment.barCode, selectedGarment.available)} >Cambiar estado</StyledButton>
+              </View>
            </View>
           )}
         </View>
@@ -94,7 +101,7 @@ const GarmentListSimple = ({ jwt, userId }) => {
 
 const styles = StyleSheet.create({
   itemImage: {
-    aspectRatio: 1, // Aspecto 1:1 para hacer que la imagen sea cuadrada
+    aspectRatio: 1,
     resizeMode: 'cover',
     borderColor: 'white',
     borderWidth: 5,
@@ -108,7 +115,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   androidShadow: {
-    elevation: 5, // Sombras en dispositivos Android
+    elevation: 5,
   },
   iosShadow: {
     shadowColor: '#000',
@@ -118,17 +125,18 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5, // Sombras en dispositivos iOS
+    elevation: 5,
   },
-  closeButton: {
+  buttonsContainer: {
     alignSelf: 'center',
     position: 'absolute',
     bottom: 0,
     right: 0,  
+    gap: 20,
   },
   flatListContent: {
-    flexGrow: 1, // Permite que el contenido de FlatList ocupe todo el espacio
-    justifyContent: 'space-between', // Espaciado entre elementos en la cuadrícula
+    flexGrow: 1,
+    justifyContent: 'space-between',
   },
   detailImage: { 
     width: 300,

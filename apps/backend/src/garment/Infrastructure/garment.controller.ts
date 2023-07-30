@@ -1,8 +1,10 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
+  Patch,
   Post,
   Req,
   Res,
@@ -64,5 +66,41 @@ export class GarmentController {
   serveImage(@Param('imageName') imageName: string, @Res() res: Response) {
     const imagePath = resolve(process.cwd(), 'uploads', imageName);
     return res.sendFile(imagePath);
+  }
+
+  @Delete(':barCode')
+  async delete(
+    @Param('barCode') barCode: string,
+    @Req() request: Request,
+  ): Promise<boolean> {
+    const jwt = request.headers.authorization?.split(' ')[1];
+    if (jwt) {
+      const decoded = await this.verifyJwtService.verifyJwt(jwt);
+      if (decoded) {
+        return this.garmentService.deleteByBarCode(barCode);
+      }
+    }
+    console.log('no jwt');
+    return false;
+  }
+
+  @Patch('byBarcode/:barCode/available')
+  async updateAvailabilityByBarCode(
+    @Param('barCode') barCode: string,
+    @Body() updateAvailabilityDto: { available: boolean },
+    @Req() request: Request,
+  ): Promise<Garment> {
+    const jwt = request.headers.authorization?.split(' ')[1];
+    if (jwt) {
+      const decoded = await this.verifyJwtService.verifyJwt(jwt);
+      if (decoded) {
+        return this.garmentService.updateAvailabilityByBarCode(
+          barCode,
+          updateAvailabilityDto.available,
+        );
+      }
+    }
+    console.log('no jwt');
+    return null;
   }
 }
