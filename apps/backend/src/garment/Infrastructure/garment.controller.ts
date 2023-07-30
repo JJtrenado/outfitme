@@ -10,9 +10,9 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { Garment } from './garment.schema';
-import { CreateGarmentDto } from './create-garment.dto';
-import { GarmentService } from './garment.service';
+import { Garment } from '../Domain/garment.schema';
+import { CreateGarmentDto } from '../Application/create-garment.dto';
+import { GarmentService } from '../Application/garment.service';
 import { VerifyJwtService } from 'src/common/user/Infrastructure/verifyJwt.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { resolve } from 'path';

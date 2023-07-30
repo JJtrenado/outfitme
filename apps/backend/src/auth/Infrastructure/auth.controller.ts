@@ -17,7 +17,7 @@ export class AuthController {
   ) {
     const { user } = await this.GetUser.fromToken(token);
     if (user) {
-      const jwt = await this.GenerateJwtService.fromUser(user);
+      const jwt = await this.GenerateJwtService.withUser(user);
       response.status(HttpStatus.OK).send(jwt);
     } else {
       response.status(HttpStatus.BAD_REQUEST).json({ Token: 'Invalid Token' });

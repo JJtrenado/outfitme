@@ -1,9 +1,9 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import axios from 'axios';
-import { IGoogleService } from '../Application/getUser.service';
+import { IExternalUserService } from '../Application/getUser.service';
 
 @Injectable()
-export class googleService implements IGoogleService {
+export class googleService implements IExternalUserService {
   async getUserInfo(token: string): Promise<any> {
     try {
       const response = await axios.get(

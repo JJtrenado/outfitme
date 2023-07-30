@@ -1,16 +1,16 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { User } from 'src/common/user/Domain/User';
-import { IGoogleService } from './googleService.interface';
+import { User } from '../../common/user/Domain/User';
+import { IExternalUserService } from './externalUserService.interface';
 
 @Injectable()
 export class getUser {
   constructor(
     @Inject('IGoogleService')
-    private readonly googleService: IGoogleService,
+    private readonly externalUserService: IExternalUserService,
   ) {}
 
   async fromToken(token: string): Promise<{ user: User }> {
-    const response = await this.googleService.getUserInfo(token);
+    const response = await this.externalUserService.getUserInfo(token);
     const user: User = {
       id: response.user_id,
       email: response.email,
@@ -19,4 +19,4 @@ export class getUser {
     return { user };
   }
 }
-export { IGoogleService };
+export { IExternalUserService };

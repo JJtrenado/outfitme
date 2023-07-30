@@ -1,3 +1,3 @@
-export interface IGoogleService {
+export interface IExternalUserService {
   getUserInfo(token: string): Promise<any>;
 }
