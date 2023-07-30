@@ -1,7 +1,7 @@
 import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Garment } from './garment.schema';
+import { Garment } from '../Domain/garment.schema';
 import { CreateGarmentDto } from './create-garment.dto';
 
 @Injectable()
