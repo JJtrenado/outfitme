@@ -6,7 +6,7 @@ import { User } from 'src/common/Domain/User';
 export class generateJwtService {
   constructor(private readonly jwtService: JwtService) {}
 
-  async fromUser(user: User): Promise<{ jwt: string }> {
+  async withUser(user: User): Promise<{ jwt: string }> {
     const jwt = this.jwtService.sign(user);
     return { jwt };
   }
