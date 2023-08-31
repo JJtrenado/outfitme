@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
-export class verifyJwtService {
+export class VerifyJwtService {
   constructor(private readonly jwtService: JwtService) {}
 
   verifyJwt(jwt: string) {

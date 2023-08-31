@@ -7,13 +7,14 @@ import StyledText from "../atoms/StyledText";
 import NewGarmentForm from "../molecules/NewGarmentForm";
 import MyBarCodeScanner from "../molecules/BarCodeScanner";
 import CameraComponent from "../molecules/CameraComponent";
+import ImagePickerExample from "../molecules/ImagePicker";
 
 const NewGarmentScreen = () => {
   const navigation = useNavigation();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [barCode, setBarCode] = useState(null);
-  const [img, setImg] = useState(null);
+  const [formDataPhotoUri, setFormDataPhotoUri] = useState(null);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -29,9 +30,8 @@ const NewGarmentScreen = () => {
     setBarCode(data);
   };
 
-  const handlePhotoTaken = (photoUri) => {
-    setImg(photoUri);
-    console.log(photoUri);
+  const handlePhotoTaken = (formDataPhotoUri) => {
+    setFormDataPhotoUri(formDataPhotoUri);
   };
 
   if (isLoading) {
@@ -48,18 +48,19 @@ const NewGarmentScreen = () => {
       <Header picture={user.picture} />
       {barCode == null ? (
         <>
-          <StyledText align='center' fontSize="title" fontWeight='bold' style={{marginTop: 20}}>Escanea el código de la prenda</StyledText>
+          <StyledText align='center' fontSize="title" fontWeight='bold' style={{marginTop: 20, paddingBottom:30}}>Escanea el código de la prenda</StyledText>
           <MyBarCodeScanner onScanSuccess={handleScanSuccess} />
         </>
-      ) : img == null ? (
+      ) : formDataPhotoUri == null ? (
         <>
-          <StyledText align='center' fontSize="title" fontWeight='bold' style={{marginTop: 20}}>Haz una foto a la prenda</StyledText>
+          <StyledText align='center' fontSize="title" fontWeight='bold' style={{marginTop: 20, paddingBottom:30}}>Haz una foto a la prenda</StyledText>
           <CameraComponent onImgSuccess={handlePhotoTaken} />
+          <ImagePickerExample onPickerSuccess={handlePhotoTaken}/>
         </>
       ) : (
         <ScrollView>
-          <StyledText align="center" fontSize="title" fontWeight="bold" style={{marginTop: 20}}>Nueva Prenda</StyledText>
-          <NewGarmentForm barCode={barCode} img={img} />
+          <StyledText align="center" fontSize="title" fontWeight="bold" style={{marginTop: 20, paddingBottom:30}}>Nueva Prenda</StyledText>
+          <NewGarmentForm barCode={barCode} formDataPhotoUri={formDataPhotoUri} />
         </ScrollView>
       )}
     </>

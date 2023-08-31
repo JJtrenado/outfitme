@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { User } from 'src/common/Domain/User';
-import { IExternalUserService } from './googleService.interface';
+import { User } from '../../common/user/Domain/User';
+import { IExternalUserService } from './externalUserService.interface';
 
 @Injectable()
 export class getUser {

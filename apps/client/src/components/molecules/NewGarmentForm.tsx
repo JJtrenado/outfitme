@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { useForm } from 'react-hook-form';
 import StyledButton from '../atoms/StyledButton';
 import CustomInput from '../atoms/textInput';
 import SwitchInput from '../atoms/switchInput';
-import { NewGarment } from '../../modules/Garment/Infrastructure/NewGarment';
+import { uploadData } from '../../modules/Garment/Infrastructure/newGarment';
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import ButtonPickerInput from '../atoms/buttonPickerInput';
+import { useNavigation } from '@react-navigation/native';
 
-const NewGarmentForm = ({ barCode, img }) => {
+const NewGarmentForm = ({ barCode, formDataPhotoUri }) => {
+  const navigation = useNavigation();
+  
   const { control, handleSubmit, formState: { errors } } = useForm();
 
   const [user, setUser] = useState(null);
@@ -29,10 +32,13 @@ const NewGarmentForm = ({ barCode, img }) => {
   }
 
   const onSubmit = data => {
-    data.user=user.email;
-    data.barCode=barCode;
-    data.img=img;
-    NewGarment (user.jwt.jwt, data);
+    Object.keys(data).map((key: string) => {
+      formDataPhotoUri.append(key, data[key]);
+    });
+    formDataPhotoUri.append("user" , user.email);
+    formDataPhotoUri.append("barCode", barCode);
+    uploadData(user.jwt.jwt, formDataPhotoUri);
+    navigation.navigate('Home' as never);
   };
 
   return (
@@ -75,7 +81,7 @@ const NewGarmentForm = ({ barCode, img }) => {
       />
       
       <SwitchInput
-        name="avaliable"
+        name="available"
         placeholder="Prenda disponible"
         control={control}
         defaultValue={true}      

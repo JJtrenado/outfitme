@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { User } from 'src/common/Domain/User';
+import { User } from '../../common/user/Domain/User';
 
 @Injectable()
 export class generateJwtService {

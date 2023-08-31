@@ -34,7 +34,15 @@ export default function CameraComponent({ onImgSuccess }) {
     if (image) {
       try {
         const asset = await MediaLibrary.createAssetAsync(image);
-        onImgSuccess(image);
+        const uri: string = asset.uri;
+        let bodyContent = new FormData();
+        bodyContent.append("file", {
+          uri,
+          name: `image.jpg`,
+          type: 'image/jpeg',
+        });
+        onImgSuccess(bodyContent);
+
         setImage(null);
         console.log('saved successfully');
       } catch (error) {

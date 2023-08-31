@@ -3,9 +3,10 @@ import { GarmentController } from './garment.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Garment, GarmentSchema } from '../Domain/garment.schema';
 import { GarmentService } from '../Application/garment.service';
-import { verifyJwtService } from 'src/common/Infrastructure/verifyJwt.service';
+import { VerifyJwtService } from 'src/common/user/Infrastructure/verifyJwt.service';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [
@@ -18,8 +19,11 @@ import { ConfigModule } from '@nestjs/config';
       secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '9999 years' },
     }),
+    MulterModule.register({
+      dest: './uploads',
+    }),
   ],
   controllers: [GarmentController],
-  providers: [GarmentService, verifyJwtService],
+  providers: [GarmentService, VerifyJwtService],
 })
 export class GarmentModule {}
