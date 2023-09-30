@@ -36,7 +36,7 @@ const NewOutfitScreen = () => {
     <View>
       <Header picture={user.picture} />
       <StyledText align="center" fontWeight="bold" style={{marginTop: 20}}>Nuevo Outfit</StyledText>
-      <NewOutfitForm />
+      <NewOutfitForm jwt={user.jwt.jwt} userId={user.email} />
     </View>
   );
 }

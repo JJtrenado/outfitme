@@ -4,18 +4,25 @@ import { useForm } from 'react-hook-form';
 import StyledButton from '../atoms/StyledButton';
 import PickerInput from '../atoms/listPickerInput';
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
+import { getGarmentByUser, getGarmentsByType } from '../../modules/Garment/Infrastructure/getGarments';
+import { Garment } from '../../modules/Garment/Domain/garment';
+import { get } from 'mongoose';
 
-const NewOutfitForm = () => {
+const NewOutfitForm = ({ jwt, userId }) => {
   const { control, handleSubmit, formState: { errors } } = useForm();
 
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [garmentsData, setGarmentsData] = useState<Garment[]>([]);
 
   useEffect(() => {
     const fetchUser = async () => {
       const localUser = await getLocalUser();
       setUser(localUser);
       setIsLoading(false);
+      const garments = await getGarmentByUser(jwt, userId);
+      setGarmentsData(garments);
     };
 
     fetchUser();
@@ -30,6 +37,11 @@ const NewOutfitForm = () => {
     NewOutfit (user.jwt.jwt, data);
   };
 
+  const cabeza: Garment[] = getGarmentsByType(garmentsData, 'Cabeza');
+  const torso: Garment[] = getGarmentsByType(garmentsData, 'Torso');
+  const piernas: Garment[] = getGarmentsByType(garmentsData, 'Piernas');
+  const pies: Garment[] = getGarmentsByType(garmentsData, 'Pies');
+
   return (
     <View style={styles.container}>
       <PickerInput
@@ -38,7 +50,7 @@ const NewOutfitForm = () => {
         control={control}
         secureTextEntry={undefined}
         rules={{ required: 'Elige una parte del cuerpo' }}
-        labels={['Cabeza', 'Prenda 1', 'Prenda 2', 'Prenda 3']}
+        labels={cabeza.map(garment => garment.type)}
       />
 
       <PickerInput
@@ -47,7 +59,7 @@ const NewOutfitForm = () => {
         control={control}
         secureTextEntry={undefined}
         rules={{ required: 'Elige una parte del cuerpo' }}
-        labels={['Torso', 'Prenda 1', 'Prenda 2', 'Prenda 3']}
+        labels={torso.map(garment => garment.type)}
       />
 
       <PickerInput
@@ -56,7 +68,7 @@ const NewOutfitForm = () => {
         control={control}
         secureTextEntry={undefined}
         rules={{ required: 'Elige una parte del cuerpo' }}
-        labels={['Piernas', 'Prenda 1', 'Prenda 2', 'Prenda 3']}
+        labels={piernas.map(garment => garment.type)}
       />
 
       <PickerInput
@@ -65,7 +77,7 @@ const NewOutfitForm = () => {
         control={control}
         secureTextEntry={undefined}
         rules={{ required: 'Elige una parte del cuerpo' }}
-        labels={['Pies', 'Prenda 1', 'Prenda 2', 'Prenda 3']}
+        labels={pies.map(garment => garment.type)}
       />
       
       <StyledButton onPress={handleSubmit(onSubmit)}>Crear Outfit</StyledButton>

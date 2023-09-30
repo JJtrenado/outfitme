@@ -2,7 +2,7 @@
 import { BACKEND_URL }from '@env';
 import { Garment } from '../Domain/garment';
 
-export const getGarmentByUser = async ( jwt: string, userId: string ) :Promise<Garment> => {
+export const getGarmentByUser = async ( jwt: string, userId: string ) :Promise<Garment[]> => {
   try {
     const response = await fetch(
       `${BACKEND_URL}/garments/byUser/${userId}`,
@@ -16,4 +16,8 @@ export const getGarmentByUser = async ( jwt: string, userId: string ) :Promise<G
   } catch (error) {
     console.error('Error fetching garments:', error);
   }
+};
+
+export const getGarmentsByType = ( garments: Garment[], type:string ) :Garment[] => {
+  return garments.filter(garments => garments.type === type);
 };
