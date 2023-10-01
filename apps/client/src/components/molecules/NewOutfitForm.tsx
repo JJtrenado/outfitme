@@ -1,26 +1,26 @@
+// @ts-ignore
+import { BACKEND_URL }from '@env';
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, ScrollView, Image, Text, StyleSheet, TouchableOpacity, Dimensions, Animated, ImageSourcePropType } from 'react-native';
 import { useForm } from 'react-hook-form';
 import StyledButton from '../atoms/StyledButton';
 import PickerInput from '../atoms/listPickerInput';
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import { getGarmentByUser, getGarmentsByType } from '../../modules/Garment/Infrastructure/getGarments';
 import { Garment } from '../../modules/Garment/Domain/garment';
-import { get } from 'mongoose';
+
+const { width } = Dimensions.get('window');
+
+
 
 const NewOutfitForm = ({ jwt, userId }) => {
-  const { control, handleSubmit, formState: { errors } } = useForm();
-
   const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
   const [garmentsData, setGarmentsData] = useState<Garment[]>([]);
 
   useEffect(() => {
     const fetchUser = async () => {
       const localUser = await getLocalUser();
       setUser(localUser);
-      setIsLoading(false);
       const garments = await getGarmentByUser(jwt, userId);
       setGarmentsData(garments);
     };
@@ -28,69 +28,82 @@ const NewOutfitForm = ({ jwt, userId }) => {
     fetchUser();
   }, []);
 
-  if (isLoading) {
-    return null;
+  // Función para crear el estado y las fotos para un tipo de prenda
+  function createGarmentStateAndPhotos(type) {
+    const garments = getGarmentsByType(garmentsData, type);
+    const photos = garments.map((item) => `${BACKEND_URL}/garments/${item.imagePath}`);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const handleAnterior = () => {
+      if (currentIndex > 0) {
+        setCurrentIndex(currentIndex - 1);
+      }
+    };
+
+    const handlePosterior = () => {
+      if (currentIndex < photos.length - 1) {
+        setCurrentIndex(currentIndex + 1);
+      }
+    };
+
+    return { garments, photos, currentIndex, handleAnterior, handlePosterior };
   }
 
-  const onSubmit = data => {
-    data.user=user.email;
-    NewOutfit (user.jwt.jwt, data);
+  // Crear estados y fotos para cada tipo de prenda
+  const { garments: cabeza, photos: photosCabeza, currentIndex: currentIndexCabeza, handleAnterior: handleAnteriorCabeza, handlePosterior: handlePosteriorCabeza } = createGarmentStateAndPhotos('Cabeza');
+  const { garments: torso, photos: photosTorso, currentIndex: currentIndexTorso, handleAnterior: handleAnteriorTorso, handlePosterior: handlePosteriorTorso } = createGarmentStateAndPhotos('Torso');
+  const { garments: piernas, photos: photosPiernas, currentIndex: currentIndexPiernas, handleAnterior: handleAnteriorPiernas, handlePosterior: handlePosteriorPiernas } = createGarmentStateAndPhotos('Piernas');
+  const { garments: pies, photos: photosPies, currentIndex: currentIndexPies, handleAnterior: handleAnteriorPies, handlePosterior: handlePosteriorPies } = createGarmentStateAndPhotos('Pies');
+
+  // Función para manejar el envío de datos
+  const handleSubmit = (cabezaIndex, torsoIndex, piernasIndex, piesIndex) => {
+    const data = {
+      cabeza: cabeza[cabezaIndex],
+      torso: torso[torsoIndex],
+      piernas: piernas[piernasIndex],
+      pies: pies[piesIndex],
+      user: user.email,
+    };
+    console.log('data', data);
+    NewOutfit(user.jwt.jwt, data);
   };
 
-  const cabeza: Garment[] = getGarmentsByType(garmentsData, 'Cabeza');
-  const torso: Garment[] = getGarmentsByType(garmentsData, 'Torso');
-  const piernas: Garment[] = getGarmentsByType(garmentsData, 'Piernas');
-  const pies: Garment[] = getGarmentsByType(garmentsData, 'Pies');
-
   return (
-    <View style={styles.container}>
-      <PickerInput
-        name="type"
-        placeholder="Parte del cuerpo"
-        control={control}
-        secureTextEntry={undefined}
-        rules={{ required: 'Elige una parte del cuerpo' }}
-        labels={cabeza.map(garment => garment.type)}
-      />
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <Text>Cabeza</Text>
+      <View style={{ flexDirection: 'row' }}>
+        <StyledButton onPress={handleAnteriorCabeza}>Anterior</StyledButton>
+        <Image style={{ width:width/2, height: width/2 }} source={{ uri: `${photosCabeza[currentIndexCabeza]}` }} />
+        <StyledButton onPress={handlePosteriorCabeza}>Posterior</StyledButton>
+      </View>
 
-      <PickerInput
-        name="type"
-        placeholder="Parte del cuerpo"
-        control={control}
-        secureTextEntry={undefined}
-        rules={{ required: 'Elige una parte del cuerpo' }}
-        labels={torso.map(garment => garment.type)}
-      />
+      <Text>Torso</Text>
+      <View style={{ flexDirection: 'row' }}>
+        <StyledButton onPress={handleAnteriorTorso}>Anterior</StyledButton>
+        <Image style={{ width:width/2, height: width/2 }} source={{ uri: `${photosTorso[currentIndexTorso]}` }} />
+        <StyledButton onPress={handlePosteriorTorso}>Posterior</StyledButton>
+      </View>
 
-      <PickerInput
-        name="type"
-        placeholder="Parte del cuerpo"
-        control={control}
-        secureTextEntry={undefined}
-        rules={{ required: 'Elige una parte del cuerpo' }}
-        labels={piernas.map(garment => garment.type)}
-      />
+      <Text>Piernas</Text>
+      <View style={{ flexDirection: 'row' }}>
+        <StyledButton onPress={handleAnteriorPiernas}>Anterior</StyledButton>
+        <Image style={{ width:width/2, height: width/2 }} source={{ uri: `${photosPiernas[currentIndexPiernas]}` }} />
+        <StyledButton onPress={handlePosteriorPiernas}>Posterior</StyledButton>
+      </View>
 
-      <PickerInput
-        name="type"
-        placeholder="Parte del cuerpo"
-        control={control}
-        secureTextEntry={undefined}
-        rules={{ required: 'Elige una parte del cuerpo' }}
-        labels={pies.map(garment => garment.type)}
-      />
-      
-      <StyledButton onPress={handleSubmit(onSubmit)}>Crear Outfit</StyledButton>
+      <Text>Pies</Text>
+      <View style={{ flexDirection: 'row' }}>
+        <StyledButton onPress={handleAnteriorPies}>Anterior</StyledButton>
+        <Image style={{ width:width/2, height: width/2 }} source={{ uri: `${photosPies[currentIndexPies]}` }} />
+        <StyledButton onPress={handlePosteriorPies}>Posterior</StyledButton>
+      </View>
+
+      <StyledButton onPress={() => handleSubmit(currentIndexCabeza, currentIndexTorso, currentIndexPiernas, currentIndexPies)}>Crear Outfit</StyledButton>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  }
-});
-
 export default NewOutfitForm;
+
+
+
