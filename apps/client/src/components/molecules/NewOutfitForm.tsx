@@ -8,6 +8,7 @@ import PickerInput from '../atoms/listPickerInput';
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import { getGarmentByUser, getGarmentsByType } from '../../modules/Garment/Infrastructure/getGarments';
 import { Garment } from '../../modules/Garment/Domain/garment';
+import { newOutfit } from '../../modules/Outfit/Infrastructure/newOutfit';
 
 const { width } = Dimensions.get('window');
 
@@ -57,15 +58,13 @@ const NewOutfitForm = ({ jwt, userId }) => {
 
   // Función para manejar el envío de datos
   const handleSubmit = (cabezaIndex, torsoIndex, piernasIndex, piesIndex) => {
-    const data = {
-      cabeza: cabeza[cabezaIndex],
-      torso: torso[torsoIndex],
-      piernas: piernas[piernasIndex],
-      pies: pies[piesIndex],
-      user: user.email,
-    };
-    console.log('data', data);
-    NewOutfit(user.jwt.jwt, data);
+    const data: FormData = new FormData();
+    data.append('cabeza', cabeza[cabezaIndex].barCode);
+    data.append('torso', torso[torsoIndex].barCode);
+    data.append('piernas', piernas[piernasIndex].barCode);
+    data.append('pies', pies[piesIndex].barCode);
+    data.append('user', user.email);
+    newOutfit(user.jwt.jwt, data);
   };
 
   return (
