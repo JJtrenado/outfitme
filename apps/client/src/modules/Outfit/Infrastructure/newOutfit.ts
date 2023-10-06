@@ -1,14 +1,14 @@
 // @ts-ignore
-import { BACKEND_URL }from '@env';
+import { BACKEND_URL } from '@env';
 
-export const newOutfit = async (jwt: string, formData: FormData): Promise<boolean> =>{
+export const newOutfit = async (jwt: string, bodyContent: string): Promise<boolean> => {
+
   try {
     const headers = {
       Authorization: `Bearer ${jwt}`,
+      "Content-Type": "application/json"
     };
 
-    let bodyContent = new FormData();
-    bodyContent= formData;
     const uploadResponse = await fetch(`${BACKEND_URL}/outfits`, {
       method: "POST",
       body: bodyContent,

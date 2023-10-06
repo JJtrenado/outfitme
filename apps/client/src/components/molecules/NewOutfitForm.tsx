@@ -58,13 +58,15 @@ const NewOutfitForm = ({ jwt, userId }) => {
 
   // Función para manejar el envío de datos
   const handleSubmit = (cabezaIndex, torsoIndex, piernasIndex, piesIndex) => {
-    const data: FormData = new FormData();
-    data.append('cabeza', cabeza[cabezaIndex].barCode);
-    data.append('torso', torso[torsoIndex].barCode);
-    data.append('piernas', piernas[piernasIndex].barCode);
-    data.append('pies', pies[piesIndex].barCode);
-    data.append('user', user.email);
-    newOutfit(user.jwt.jwt, data);
+    let bodyContent = JSON.stringify({
+    "cabezaBarCode": cabeza[cabezaIndex].barCode,
+    "torsoBarCode": torso[torsoIndex].barCode,
+    "piernasBarCode": piernas[piernasIndex].barCode,
+    "piesBarCode": pies[piesIndex].barCode,
+    "user": user.email,
+    "avaliable": "true",
+    });
+    newOutfit(user.jwt.jwt, bodyContent);
   };
 
   return (
