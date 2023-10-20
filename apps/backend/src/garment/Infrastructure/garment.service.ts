@@ -1,8 +1,8 @@
 import { Model } from 'mongoose';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Garment } from '../Domain/garment.schema';
-import { CreateGarmentDto } from './create-garment.dto';
+import { Garment } from './garment.schema';
+import { CreateGarmentDto } from '../Application/create-garment.dto';
 
 @Injectable()
 export class GarmentService {

@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { OutfitController } from './outfit.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Outfit, OutfitSchema } from '../Domain/outfit.schema';
-import { OutfitService } from '../Application/outfit.service';
+import { Outfit, OutfitSchema } from './outfit.schema';
+import { OutfitService } from './outfit.service';
 import { VerifyJwtService } from 'src/common/user/Infrastructure/verifyJwt.service';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';

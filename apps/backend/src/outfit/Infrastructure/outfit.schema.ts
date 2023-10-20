@@ -5,8 +5,11 @@ export type OutfitDocument = HydratedDocument<Outfit>;
 
 @Schema()
 export class Outfit {
-  @Prop()
+  @Prop({ required: true })
   user: string;
+
+  @Prop({ required: true, unique: true })
+  validation: string;
 
   @Prop()
   cabezaBarCode: string;
@@ -20,7 +23,7 @@ export class Outfit {
   @Prop()
   piesBarCode: string;
 
-  @Prop()
+  @Prop({ required: true })
   available: boolean;
 }
 

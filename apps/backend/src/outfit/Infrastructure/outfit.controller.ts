@@ -1,8 +1,8 @@
 import { Body, Controller, Post, Req } from '@nestjs/common';
 import { Request } from 'express';
-import { Outfit } from '../Domain/outfit.schema';
+import { Outfit } from './outfit.schema';
 import { CreateOutfitDto } from '../Application/create-outfit.dto';
-import { OutfitService } from '../Application/outfit.service';
+import { OutfitService } from './outfit.service';
 import { VerifyJwtService } from 'src/common/user/Infrastructure/verifyJwt.service';
 
 @Controller('outfits')

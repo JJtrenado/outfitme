@@ -1,8 +1,8 @@
 // @ts-ignore
 import { BACKEND_URL }from '@env';
 import React, { useEffect, useState } from 'react';
-import { View, ScrollView, Image, Text, StyleSheet, TouchableOpacity, Dimensions, Animated, ImageSourcePropType } from 'react-native';
-import { useForm } from 'react-hook-form';
+import { View, ScrollView, Image, Text, StyleSheet, TouchableOpacity, Dimensions, Animated, ImageSourcePropType, Switch } from 'react-native';
+import { set, useForm } from 'react-hook-form';
 import StyledButton from '../atoms/StyledButton';
 import PickerInput from '../atoms/listPickerInput';
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
@@ -34,6 +34,7 @@ const NewOutfitForm = ({ jwt, userId }) => {
     const garments = getGarmentsByType(garmentsData, type);
     const photos = garments.map((item) => `${BACKEND_URL}/garments/${item.imagePath}`);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [availability, setAvailability] = useState(true);
 
     const handleAnterior = () => {
       if (currentIndex > 0) {
@@ -47,59 +48,99 @@ const NewOutfitForm = ({ jwt, userId }) => {
       }
     };
 
-    return { garments, photos, currentIndex, handleAnterior, handlePosterior };
+    const handleAvailability = () => {
+      setAvailability(!availability);
+      if (availability) {
+        setCurrentIndex(-1);
+      }
+      else{
+        setCurrentIndex(0);
+      }
+    }
+
+    return { garments, photos, currentIndex, availability, handleAnterior, handlePosterior, handleAvailability: handleAvailability };
   }
 
   // Crear estados y fotos para cada tipo de prenda
-  const { garments: cabeza, photos: photosCabeza, currentIndex: currentIndexCabeza, handleAnterior: handleAnteriorCabeza, handlePosterior: handlePosteriorCabeza } = createGarmentStateAndPhotos('Cabeza');
-  const { garments: torso, photos: photosTorso, currentIndex: currentIndexTorso, handleAnterior: handleAnteriorTorso, handlePosterior: handlePosteriorTorso } = createGarmentStateAndPhotos('Torso');
-  const { garments: piernas, photos: photosPiernas, currentIndex: currentIndexPiernas, handleAnterior: handleAnteriorPiernas, handlePosterior: handlePosteriorPiernas } = createGarmentStateAndPhotos('Piernas');
-  const { garments: pies, photos: photosPies, currentIndex: currentIndexPies, handleAnterior: handleAnteriorPies, handlePosterior: handlePosteriorPies } = createGarmentStateAndPhotos('Pies');
+  const { garments: cabeza, photos: photosCabeza, currentIndex: currentIndexCabeza, availability: availabilityCabeza, handleAnterior: handleAnteriorCabeza, handlePosterior: handlePosteriorCabeza, handleAvailability: handleAvailabilityCabeza } = createGarmentStateAndPhotos('Cabeza');
+  const { garments: torso, photos: photosTorso, currentIndex: currentIndexTorso, availability: availabilityTorso, handleAnterior: handleAnteriorTorso, handlePosterior: handlePosteriorTorso, handleAvailability: handleAvailabilityTorso } = createGarmentStateAndPhotos('Torso');
+  const { garments: piernas, photos: photosPiernas, currentIndex: currentIndexPiernas, availability: availabilityPiernas, handleAnterior: handleAnteriorPiernas, handlePosterior: handlePosteriorPiernas, handleAvailability: handleAvailabilityPiernas } = createGarmentStateAndPhotos('Piernas');
+  const { garments: pies, photos: photosPies, currentIndex: currentIndexPies, availability: availabilityPies, handleAnterior: handleAnteriorPies, handlePosterior: handlePosteriorPies, handleAvailability: handleAvailabilityPies } = createGarmentStateAndPhotos('Pies');
 
   // Función para manejar el envío de datos
-  const handleSubmit = (cabezaIndex, torsoIndex, piernasIndex, piesIndex) => {
+  const handleSubmit = () => {
+    if(!availabilityCabeza && !availabilityTorso && !availabilityPiernas && !availabilityPies){
+      alert("No hay prendas seleccionadas");
+      return;
+    }
+
+    let validation = "";
+    !availabilityCabeza ? validation = "undefined" : validation += cabeza[currentIndexCabeza].barCode;
+    !availabilityTorso ? validation += "undefined" : validation += torso[currentIndexTorso].barCode;
+    !availabilityPiernas ? validation += "undefined" : validation += piernas[currentIndexPiernas].barCode;
+    !availabilityPies ? validation += "undefined" : validation += pies[currentIndexPies].barCode;
+
+    const cabezaBarCode = !availabilityCabeza ? "undefined" : cabeza[currentIndexCabeza].barCode;
+    const torsoBarCode = !availabilityTorso ? "undefined" : torso[currentIndexTorso].barCode;
+    const piernasBarCode = !availabilityPiernas ? "undefined" : piernas[currentIndexPiernas].barCode;
+    const piesBarCode = !availabilityPies ? "undefined" : pies[currentIndexPies].barCode;
+
     let bodyContent = JSON.stringify({
-    "cabezaBarCode": cabeza[cabezaIndex].barCode,
-    "torsoBarCode": torso[torsoIndex].barCode,
-    "piernasBarCode": piernas[piernasIndex].barCode,
-    "piesBarCode": pies[piesIndex].barCode,
+    "validation": validation,
+    "cabezaBarCode": cabezaBarCode,
+    "torsoBarCode": torsoBarCode,
+    "piernasBarCode":piernasBarCode,
+    "piesBarCode": piesBarCode,
     "user": user.email,
-    "avaliable": "true",
+    "available": "true",
     });
     newOutfit(user.jwt.jwt, bodyContent);
   };
-
+  
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>Cabeza</Text>
+      
+      <Text>Cabeza</Text>
+      <Switch value={availabilityCabeza} onValueChange={handleAvailabilityCabeza} />
+      {availabilityCabeza ? 
       <View style={{ flexDirection: 'row' }}>
         <StyledButton onPress={handleAnteriorCabeza}>Anterior</StyledButton>
         <Image style={{ width:width/2, height: width/2 }} source={{ uri: `${photosCabeza[currentIndexCabeza]}` }} />
         <StyledButton onPress={handlePosteriorCabeza}>Posterior</StyledButton>
       </View>
+      : null }
 
       <Text>Torso</Text>
+      <Switch value={availabilityTorso} onValueChange={handleAvailabilityTorso} />
+      {availabilityTorso ? 
       <View style={{ flexDirection: 'row' }}>
         <StyledButton onPress={handleAnteriorTorso}>Anterior</StyledButton>
         <Image style={{ width:width/2, height: width/2 }} source={{ uri: `${photosTorso[currentIndexTorso]}` }} />
         <StyledButton onPress={handlePosteriorTorso}>Posterior</StyledButton>
       </View>
+      : null }
 
       <Text>Piernas</Text>
+      <Switch value={availabilityPiernas} onValueChange={handleAvailabilityPiernas} />
+      {availabilityPiernas ?
       <View style={{ flexDirection: 'row' }}>
         <StyledButton onPress={handleAnteriorPiernas}>Anterior</StyledButton>
         <Image style={{ width:width/2, height: width/2 }} source={{ uri: `${photosPiernas[currentIndexPiernas]}` }} />
         <StyledButton onPress={handlePosteriorPiernas}>Posterior</StyledButton>
       </View>
+      : null }
 
       <Text>Pies</Text>
+      <Switch value={availabilityPies} onValueChange={handleAvailabilityPies} />
+      {availabilityPies ?
       <View style={{ flexDirection: 'row' }}>
         <StyledButton onPress={handleAnteriorPies}>Anterior</StyledButton>
         <Image style={{ width:width/2, height: width/2 }} source={{ uri: `${photosPies[currentIndexPies]}` }} />
         <StyledButton onPress={handlePosteriorPies}>Posterior</StyledButton>
       </View>
+      : null }
 
-      <StyledButton onPress={() => handleSubmit(currentIndexCabeza, currentIndexTorso, currentIndexPiernas, currentIndexPies)}>Crear Outfit</StyledButton>
+      <StyledButton onPress={() => handleSubmit(currentIndexCabeza, availabilityCabeza, currentIndexTorso, availabilityTorso, currentIndexPiernas, availabilityPiernas, currentIndexPies, availabilityPies)}>Crear Outfit</StyledButton>
     </View>
   );
 };
