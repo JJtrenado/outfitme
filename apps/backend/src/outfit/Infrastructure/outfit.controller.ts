@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Req } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Req } from '@nestjs/common';
 import { Request } from 'express';
 import { Outfit } from './outfit.schema';
 import { CreateOutfitDto } from '../Application/create-outfit.dto';
@@ -25,5 +25,21 @@ export class OutfitController {
         return this.outfitService.create(createOutfitDto);
       }
     }
+  }
+
+  @Get('byUser/:userId')
+  async findByUser(
+    @Param('userId') userId: string,
+    @Req() request: Request,
+  ): Promise<Outfit[]> {
+    const jwt = request.headers.authorization?.split(' ')[1];
+    if (jwt) {
+      const decoded = await this.verifyJwtService.verifyJwt(jwt);
+      if (decoded) {
+        return this.outfitService.findByUser(userId);
+      }
+    }
+    console.log('no jwt');
+    return null;
   }
 }

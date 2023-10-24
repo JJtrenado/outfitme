@@ -17,7 +17,7 @@ export class OutfitService {
   //   return this.outfitModel.find().exec();
   // }
 
-  // async findByUser(userId: string): Promise<Outfit[]> {
-  //   return this.outfitModel.find({ user: userId }).exec();
-  // }
+  async findByUser(userId: string): Promise<Outfit[]> {
+    return this.outfitModel.find({ user: userId }).exec();
+  }
 }

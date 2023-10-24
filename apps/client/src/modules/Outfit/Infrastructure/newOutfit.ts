@@ -3,6 +3,8 @@ import { BACKEND_URL } from '@env';
 
 export const newOutfit = async (jwt: string, bodyContent: string): Promise<boolean> => {
 
+  console.log("bodyContent", bodyContent);
+  console.log("newOutfit", jwt, bodyContent);
   try {
     const headers = {
       Authorization: `Bearer ${jwt}`,

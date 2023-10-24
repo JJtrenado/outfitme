@@ -9,14 +9,21 @@ import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUs
 import { getGarmentByUser, getGarmentsByType } from '../../modules/Garment/Infrastructure/getGarments';
 import { Garment } from '../../modules/Garment/Domain/garment';
 import { newOutfit } from '../../modules/Outfit/Infrastructure/newOutfit';
+import StyledText from '../atoms/StyledText';
+import CustomInput from '../atoms/textInput';
+import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
 
 
 
 const NewOutfitForm = ({ jwt, userId }) => {
+  const navigation = useNavigation();
+
   const [user, setUser] = useState(null);
   const [garmentsData, setGarmentsData] = useState<Garment[]>([]);
+
+  const { control, handleSubmit, formState: { errors } } = useForm();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -68,7 +75,7 @@ const NewOutfitForm = ({ jwt, userId }) => {
   const { garments: pies, photos: photosPies, currentIndex: currentIndexPies, availability: availabilityPies, handleAnterior: handleAnteriorPies, handlePosterior: handlePosteriorPies, handleAvailability: handleAvailabilityPies } = createGarmentStateAndPhotos('Pies');
 
   // Función para manejar el envío de datos
-  const handleSubmit = () => {
+  const onSubmit = data => {
     if(!availabilityCabeza && !availabilityTorso && !availabilityPiernas && !availabilityPies){
       alert("No hay prendas seleccionadas");
       return;
@@ -93,57 +100,88 @@ const NewOutfitForm = ({ jwt, userId }) => {
     "piesBarCode": piesBarCode,
     "user": user.email,
     "available": "true",
+    "name": data.name,
+    "description": data.description,
     });
     newOutfit(user.jwt.jwt, bodyContent);
+    navigation.navigate('Home' as never);
   };
   
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles.container}>
       
-      <Text>Cabeza</Text>
-      <Switch value={availabilityCabeza} onValueChange={handleAvailabilityCabeza} />
-      {availabilityCabeza ? 
-      <View style={{ flexDirection: 'row' }}>
-        <StyledButton onPress={handleAnteriorCabeza}>Anterior</StyledButton>
-        <Image style={{ width:width/2, height: width/2 }} source={{ uri: `${photosCabeza[currentIndexCabeza]}` }} />
-        <StyledButton onPress={handlePosteriorCabeza}>Posterior</StyledButton>
-      </View>
-      : null }
+      <CustomInput
+        name="name"
+        placeholder="Nombre"
+        control={control}
+        secureTextEntry={undefined}
+      />
 
-      <Text>Torso</Text>
-      <Switch value={availabilityTorso} onValueChange={handleAvailabilityTorso} />
-      {availabilityTorso ? 
-      <View style={{ flexDirection: 'row' }}>
-        <StyledButton onPress={handleAnteriorTorso}>Anterior</StyledButton>
-        <Image style={{ width:width/2, height: width/2 }} source={{ uri: `${photosTorso[currentIndexTorso]}` }} />
-        <StyledButton onPress={handlePosteriorTorso}>Posterior</StyledButton>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+        <View style={{marginRight:10}}>
+          <StyledText>Cabeza</StyledText>
+          <Switch value={availabilityCabeza} onValueChange={handleAvailabilityCabeza} />
+        </View>
+        {availabilityCabeza ?  <>
+          <StyledButton onPress={handleAnteriorCabeza} children='<' ></StyledButton>
+          <Image style={styles.image} source={{ uri: `${photosCabeza[currentIndexCabeza]}` }} />
+          <StyledButton onPress={handlePosteriorCabeza}children='>' ></StyledButton>
+        </> : null }
       </View>
-      : null }
 
-      <Text>Piernas</Text>
-      <Switch value={availabilityPiernas} onValueChange={handleAvailabilityPiernas} />
-      {availabilityPiernas ?
-      <View style={{ flexDirection: 'row' }}>
-        <StyledButton onPress={handleAnteriorPiernas}>Anterior</StyledButton>
-        <Image style={{ width:width/2, height: width/2 }} source={{ uri: `${photosPiernas[currentIndexPiernas]}` }} />
-        <StyledButton onPress={handlePosteriorPiernas}>Posterior</StyledButton>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+        <View style={{marginRight:10}}>
+          <StyledText>Torso</StyledText>
+          <Switch value={availabilityTorso} onValueChange={handleAvailabilityTorso} />
+        </View>
+        {availabilityTorso ?  <>
+          <StyledButton onPress={handleAnteriorTorso} children='<' ></StyledButton>
+          <Image style={styles.image} source={{ uri: `${photosTorso[currentIndexTorso]}` }} />
+          <StyledButton onPress={handlePosteriorTorso}children='>' ></StyledButton>
+        </> : null }
       </View>
-      : null }
 
-      <Text>Pies</Text>
-      <Switch value={availabilityPies} onValueChange={handleAvailabilityPies} />
-      {availabilityPies ?
-      <View style={{ flexDirection: 'row' }}>
-        <StyledButton onPress={handleAnteriorPies}>Anterior</StyledButton>
-        <Image style={{ width:width/2, height: width/2 }} source={{ uri: `${photosPies[currentIndexPies]}` }} />
-        <StyledButton onPress={handlePosteriorPies}>Posterior</StyledButton>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+        <View style={{marginRight:10}}>
+          <StyledText>Piernas</StyledText>
+          <Switch value={availabilityPiernas} onValueChange={handleAvailabilityPiernas} />
+        </View>
+        {availabilityPiernas ?  <>
+          <StyledButton onPress={handleAnteriorPiernas}children='<' ></StyledButton>
+          <Image style={styles.image} source={{ uri: `${photosPiernas[currentIndexPiernas]}` }} />
+          <StyledButton onPress={handlePosteriorPiernas}children='>' ></StyledButton>
+        </> : null }
       </View>
-      : null }
 
-      <StyledButton onPress={() => handleSubmit(currentIndexCabeza, availabilityCabeza, currentIndexTorso, availabilityTorso, currentIndexPiernas, availabilityPiernas, currentIndexPies, availabilityPies)}>Crear Outfit</StyledButton>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+        <View style={{marginRight:10}}>
+          <StyledText style={{margin:-10}}>Pies</StyledText>
+          <Switch value={availabilityPies} onValueChange={handleAvailabilityPies} />
+        </View>
+        {availabilityPies ?  <>
+          <StyledButton onPress={handleAnteriorPies}children='<' ></StyledButton>
+          <Image style={styles.image} source={{ uri: `${photosPies[currentIndexPies]}` }} />
+          <StyledButton onPress={handlePosteriorPies}children='>' ></StyledButton>
+        </> : null }
+      </View>
+
+
+      <CustomInput
+        name="description"
+        placeholder="Descripción"
+        control={control}
+        secureTextEntry={undefined}
+      />
+
+      <StyledButton onPress={handleSubmit(onSubmit)}>Crear Outfit</StyledButton>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: { padding: 20, alignItems: 'center', gap: 10 },
+  image: { width:width/3, height: width/3, borderRadius: 5 },
+});
 
 export default NewOutfitForm;
 

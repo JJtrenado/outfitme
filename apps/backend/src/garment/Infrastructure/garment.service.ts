@@ -48,4 +48,8 @@ export class GarmentService {
     }
     return null;
   }
+
+  async findByBarCode(barCode: string): Promise<Garment | null> {
+    return await this.garmentModel.findOne({ barCode }).exec();
+  }
 }

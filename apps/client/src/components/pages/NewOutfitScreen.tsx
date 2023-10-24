@@ -36,7 +36,7 @@ const NewOutfitScreen = () => {
     <>
       <Header picture={user.picture} />
       <ScrollView>
-        <StyledText align="center" fontWeight="bold" style={{ marginTop: 20 }}>Nuevo Outfit</StyledText>
+        <StyledText align="center" fontWeight="bold" fontSize='title' style={{ marginTop: 20 }}>Nuevo Outfit</StyledText>
         <NewOutfitForm jwt={user.jwt.jwt} userId={user.email} />
       </ScrollView>
     </>

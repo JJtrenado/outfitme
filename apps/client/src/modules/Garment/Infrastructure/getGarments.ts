@@ -21,3 +21,19 @@ export const getGarmentByUser = async ( jwt: string, userId: string ) :Promise<G
 export const getGarmentsByType = ( garments: Garment[], type:string ) :Garment[] => {
   return garments.filter(garments => garments.type === type);
 };
+
+export const getGarmentByBarcode = async ( jwt: string, barcode: string ) :Promise<Garment> => {
+  try {
+    const response = await fetch(
+      `${BACKEND_URL}/garments/byBarCode/${barcode}`,
+      {
+      headers: { Authorization: `Bearer ${jwt}` },
+      }
+    );
+
+    const jsonData = await response.json();
+    return jsonData;
+  } catch (error) {
+    console.error('Error fetching garments:', error);
+  }
+};

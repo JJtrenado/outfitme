@@ -103,4 +103,20 @@ export class GarmentController {
     console.log('no jwt');
     return null;
   }
+
+  @Get('byBarCode/:barCode')
+  async findByBarCode(
+    @Param('barCode') barCode: string,
+    @Req() request: Request,
+  ): Promise<Garment> {
+    const jwt = request.headers.authorization?.split(' ')[1];
+    if (jwt) {
+      const decoded = await this.verifyJwtService.verifyJwt(jwt);
+      if (decoded) {
+        return this.garmentService.findByBarCode(barCode);
+      }
+    }
+    console.log('no jwt');
+    return null;
+  }
 }

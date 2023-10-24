@@ -11,6 +11,12 @@ export class Outfit {
   @Prop({ required: true, unique: true })
   validation: string;
 
+  @Prop({ equired: true })
+  name: string;
+
+  @Prop()
+  description: string;
+
   @Prop()
   cabezaBarCode: string;
 
