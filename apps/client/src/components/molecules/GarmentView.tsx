@@ -1,7 +1,7 @@
 // @ts-ignore
 import { BACKEND_URL }from '@env';
 import React, { useState } from 'react';
-import { View, Text, ActivityIndicator, FlatList, Image, Modal, TouchableOpacity, Dimensions, Platform, Switch } from 'react-native';
+import { View, ActivityIndicator, FlatList, Image, Modal, TouchableOpacity, Dimensions, Platform, Switch } from 'react-native';
 import { getGarmentByUser } from '../../modules/Garment/Infrastructure/getGarments';
 import { Garment } from '../../modules/Garment/Domain/garment';
 import { StyleSheet } from 'react-native';
@@ -21,8 +21,7 @@ const GarmentListSimple = ({ jwt, userId }) => {
 
   const loadGarments = async () => {
     try {
-      const garments = await getGarmentByUser(jwt, userId);
-      setGarmentsData(garments);
+      setGarmentsData(await getGarmentByUser(jwt, userId));
       setLoading(false);
     } catch (error) {
       console.error('Error fetching garments:', error);
@@ -36,13 +35,10 @@ const GarmentListSimple = ({ jwt, userId }) => {
     }, [])
   );
   
-  console.log('garmentsData', garmentsData);
-
   if (loading) {
     return (
       <View>
         <ActivityIndicator size="large" />
-        <Text>Loading...</Text>
       </View>
     );
   }

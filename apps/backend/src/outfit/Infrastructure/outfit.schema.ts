@@ -11,7 +11,7 @@ export class Outfit {
   @Prop({ required: true, unique: true })
   validation: string;
 
-  @Prop({ equired: true })
+  @Prop()
   name: string;
 
   @Prop()

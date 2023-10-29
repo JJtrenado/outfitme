@@ -6,6 +6,7 @@ import Header from "../molecules/Header";
 import OptionsButtons from "../molecules/OptionsButtons";
 import GarmentListSimple from "../molecules/GarmentView";
 import OutfitView from "../molecules/OutfitView";
+import { ScrollView } from "react-native";
 
 
 const HomeScreen = () => {
@@ -36,8 +37,11 @@ const HomeScreen = () => {
     <>
       <Header picture={user.picture} />
       <OptionsButtons />
-      <GarmentListSimple jwt={user.jwt.jwt} userId={user.email}/>
-      <OutfitView jwt={user.jwt.jwt} userId={user.email}/>
+      <ScrollView>
+        <GarmentListSimple jwt={user.jwt.jwt} userId={user.email}/>
+        <OutfitView jwt={user.jwt.jwt} userId={user.email}/>
+      </ScrollView>
+      
     </>
   );
 }

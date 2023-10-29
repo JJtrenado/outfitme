@@ -38,7 +38,6 @@ export class GarmentController {
       const decoded = await this.verifyJwtService.verifyJwt(jwt);
       if (decoded && file) {
         createGarmentDto.imagePath = file.path;
-        console.log(createGarmentDto);
         return this.garmentService.create(createGarmentDto);
       }
     }

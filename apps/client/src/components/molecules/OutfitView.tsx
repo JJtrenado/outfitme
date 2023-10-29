@@ -1,122 +1,102 @@
 // @ts-ignore
 import { BACKEND_URL }from '@env';
-import React, { useEffect, useState } from 'react';
-import { View, ScrollView, Image, Text, StyleSheet, TouchableOpacity, Dimensions, Animated, ImageSourcePropType, Switch, ActivityIndicator, Modal, Platform, FlatList } from 'react-native';
-import { set, useForm } from 'react-hook-form';
+import React, { useState } from 'react';
+import { View, Image, StyleSheet, Dimensions, ActivityIndicator} from 'react-native';
 import StyledButton from '../atoms/StyledButton';
-import PickerInput from '../atoms/listPickerInput';
-import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
-import { getGarmentByBarcode, getGarmentByUser, getGarmentsByType } from '../../modules/Garment/Infrastructure/getGarments';
 import { Garment } from '../../modules/Garment/Domain/garment';
-import { newOutfit } from '../../modules/Outfit/Infrastructure/newOutfit';
 import StyledText from '../atoms/StyledText';
-import CustomInput from '../atoms/textInput';
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import { updateGarmentAvailabilityByBarCode } from '../../modules/Garment/Infrastructure/updateGarment';
-import { deleteGarmentByBarCode } from '../../modules/Garment/Infrastructure/deleteGarment';
-import { getOutfitsByUser } from '../../modules/Outfit/Infrastructure/getOutfit';
-import { Outfit } from '../../modules/Outfit/Domain/outfits';
+import { useFocusEffect } from '@react-navigation/native';
+import { getOutfit} from '../../modules/Outfit/Infrastructure/getOutfit';
 
 const { width } = Dimensions.get('window');
 
-
-
 const OutfitView = ({ jwt, userId }) => {
-  const [outfitsData, setOutfitsData] = useState<Outfit[]>([]);
   const [loading, setLoading] = useState(true);
-  const [garmentsData, setGarmentsData] = useState<Garment[]>([]);
-
-  const loadOutfits = async () => {
+  const [garments, setGarments] = useState<Garment[]>([]);
+  const [currentOutfit, setCurrentOutfit] = useState(0);
+  const [length, setLength] = useState(0);
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  
+  const loadGarments = async (index: number) => {
     try {
-      const outfits = await getOutfitsByUser(jwt, userId);
-      setOutfitsData(outfits);
+      const {name, description, garments, length} = await getOutfit(jwt, userId, index);
+      setName(name);
+      setDescription(description);
+      setGarments(garments);
+      setLength(length);
       setLoading(false);
     } catch (error) {
-      console.error('Error fetching garments:', error);
+      console.error('Error fetching outfits:', error);
       setLoading(false);
     }
-  };
+  }
+  const handleNextOutfit = async () => {
+    if (currentOutfit < length - 1) {
+      setLoading(true);
+      setCurrentOutfit(currentOutfit + 1);
+      loadGarments(currentOutfit + 1);
+    }
+  }
+
+  const handlePreviousOutfit = async () => {
+    if (currentOutfit > 0) {
+      setLoading(true);
+      setCurrentOutfit(currentOutfit - 1);
+      loadGarments(currentOutfit - 1);
+    }
+  }
 
   useFocusEffect(
     React.useCallback(() => {
-      loadOutfits();
+      loadGarments(0);
+      setCurrentOutfit(0);
     }, [])
   );
-
-  console.log('outfitsData', outfitsData);
-
-
 
   if (loading) {
     return (
       <View>
         <ActivityIndicator size="large" />
-        <Text>Loading...</Text>
       </View>
     );
   }
 
-  const windowWidth = Dimensions.get('window').width;
-  const imageWidth = windowWidth / 3;
 
+  
   return (
-    <View>
-      <FlatList
-        data={outfitsData}
-        numColumns={3}
-        renderItem={({ item }) => (
-          <StyledText>{item.name}</StyledText>
-        )}
-        keyExtractor={(item) => item.validation}
-      />
+    <View style={styles.container}>
+      <StyledText fontSize='title' fontWeight='bold' >{name}</StyledText>
+      <View style={styles.imageContainer}>
+        {garments[0] ?  <>
+          <Image style={styles.image} source={{ uri: `${BACKEND_URL}/garments/${garments[0].imagePath}` }} />
+        </> : null }
+        {garments[1] ?  <>
+          <Image style={styles.image} source={{ uri: `${BACKEND_URL}/garments/${garments[1].imagePath}` }} />
+        </> : null }
+        {garments[2] ?  <>
+          <Image style={styles.image} source={{ uri: `${BACKEND_URL}/garments/${garments[2].imagePath}` }} />
+        </> : null }
+        {garments[3] ?  <>
+          <Image style={styles.image} source={{ uri: `${BACKEND_URL}/garments/${garments[3].imagePath}` }} />
+        </> : null }
+      </View>
+
+      <StyledText>{description}</StyledText>
+      
+      <View style={styles.buttonsContainer}>
+        <StyledButton onPress={handlePreviousOutfit} children=' < ' />
+        <StyledButton onPress={handleNextOutfit} children=' > ' />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  itemImage: {
-    aspectRatio: 1,
-    resizeMode: 'cover',
-    borderColor: 'white',
-    borderWidth: 5,
-  },
-  modalContainer: {
-    marginTop: '30%',
-    justifySelf: 'center',
-    alignSelf: 'center',
-    padding: 5,
-    borderRadius: 5,
-    backgroundColor: 'white',
-  },
-  androidShadow: {
-    elevation: 5,
-  },
-  iosShadow: {
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  buttonsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  flatListContent: {
-    flexGrow: 1,
-    justifyContent: 'space-between',
-  },
-  detailImage: { 
-    width: 300,
-    height: 300,
-    resizeMode: 'cover',
-    marginBottom: 5,
-    borderRadius: 5,
-  },
+  container: { flex: 1, marginBottom: 20, alignItems: 'center', gap: 10, justifyContent: 'space-between'},
+  imageContainer: { gap: 10 },
+  image: { width:width/3, height: width/3, borderRadius: 5 },
+  buttonsContainer: { flexDirection: 'row', width: '100%', justifyContent: 'space-around' },
 });
 
 export default OutfitView;

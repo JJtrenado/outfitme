@@ -17,7 +17,6 @@ export class OutfitController {
     @Body() createOutfitDto: CreateOutfitDto,
     @Req() request: Request,
   ): Promise<Outfit> {
-    console.log('createOutfitDto', createOutfitDto);
     const jwt = request.headers.authorization?.split(' ')[1];
     if (jwt) {
       const decoded = await this.verifyJwtService.verifyJwt(jwt);

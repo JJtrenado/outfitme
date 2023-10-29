@@ -1,10 +1,9 @@
 // @ts-ignore
 import { BACKEND_URL }from '@env';
 import React, { useEffect, useState } from 'react';
-import { View, ScrollView, Image, Text, StyleSheet, TouchableOpacity, Dimensions, Animated, ImageSourcePropType, Switch } from 'react-native';
-import { set, useForm } from 'react-hook-form';
+import { View, Image, StyleSheet, Dimensions, Switch } from 'react-native';
+import { useForm } from 'react-hook-form';
 import StyledButton from '../atoms/StyledButton';
-import PickerInput from '../atoms/listPickerInput';
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import { getGarmentByUser, getGarmentsByType } from '../../modules/Garment/Infrastructure/getGarments';
 import { Garment } from '../../modules/Garment/Domain/garment';
