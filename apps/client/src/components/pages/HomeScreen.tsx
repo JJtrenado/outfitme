@@ -37,10 +37,7 @@ const HomeScreen = () => {
     <>
       <Header picture={user.picture} />
       <OptionsButtons />
-      <ScrollView>
-        <OutfitView jwt={user.jwt.jwt} userId={user.email}/>
-      </ScrollView>
-      
+      <OutfitView jwt={user.jwt.jwt} userId={user.email}/>
     </>
   );
 }

@@ -66,62 +66,44 @@ const OutfitView = ({ jwt, userId }) => {
       </View>
     );
   }
-  
+  const garmentTypeImages = {
+    Cabeza: require('../../../assets/cap.png'),
+    Torso: require('../../../assets/tshirtIcon.png'),
+    Piernas: require('../../../assets/pants.png'),
+    Pies: require('../../../assets/shoes.png'),
+  };
+
   return (
     <View style={styles.container}>
-      <StyledText fontSize='title' fontWeight='bold' >{name}</StyledText>
-      <View style={styles.imageContainer}>
-        {garments[0] ?  <>
-          <TouchableOpacity onPress={() => {
-            setSelectedGarment(garments[0]);
-            setIsModalVisible(true);
-          }}>
-            <Image 
-              source={{ uri: `${BACKEND_URL}/garments/${garments[0].imagePath}` }}
-              style={[styles.image, garments[0].available === false ? { borderColor: '#EA0C5F' } : null]}
-            />
-          </TouchableOpacity>
-        </> : null }
-        {garments[1] ?  <>
-          <TouchableOpacity onPress={() => {
-            setSelectedGarment(garments[1]);
-            setIsModalVisible(true);
-          }}>
-            <Image 
-              source={{ uri: `${BACKEND_URL}/garments/${garments[1].imagePath}` }}
-              style={[styles.image, garments[1].available === false ? { borderColor: '#EA0C5F' } : null]}
-            />
-          </TouchableOpacity>
-        </> : null }
-        {garments[2] ?  <>
-          <TouchableOpacity onPress={() => {
-            setSelectedGarment(garments[2]);
-            setIsModalVisible(true);
-          }}>
-            <Image 
-              source={{ uri: `${BACKEND_URL}/garments/${garments[2].imagePath}` }}
-              style={[styles.image, garments[2].available === false ? { borderColor: '#EA0C5F' } : null]}
-            />
-          </TouchableOpacity>
-        </> : null }
-        {garments[3] ?  <>
-          <TouchableOpacity onPress={() => {
-            setSelectedGarment(garments[3]);
-            setIsModalVisible(true);
-          }}>
-            <Image 
-              source={{ uri: `${BACKEND_URL}/garments/${garments[3].imagePath}` }}
-              style={[styles.image, garments[3].available === false ? { borderColor: '#EA0C5F' } : null]}
-            />
-          </TouchableOpacity>
-        </> : null }
-      </View>
+      <View style={styles.columnas}>
+        <View style={styles.columnaIzquierda}>
+          <StyledText fontSize='title' fontWeight='bold'>{name}</StyledText>
+          <StyledText>{description}</StyledText>
+        </View>
+        
+        <View style={styles.columnaDerecha}>
+          {garments.map((garment, index) => (
+            garment ? (
+              <View key={index} style={styles.imageContainer}>
 
-      <StyledText>{description}</StyledText>
-      
+                <TouchableOpacity onPress={() => {
+                  setSelectedGarment(garment);
+                  setIsModalVisible(true);
+                }}>
+                  <Image source={{ uri: `${BACKEND_URL}/garments/${garment.imagePath}` }} style={[styles.image, garment.available === false ? { borderColor: '#EA0C5F' } : null]} />
+                  
+                </TouchableOpacity>
+                <Image style={{ width: 30, height: 30, resizeMode: 'contain' }} source={garmentTypeImages[garment.type]} />
+              </View>
+            ) : null
+          ))}
+        </View>
+
+      </View>
       <View style={styles.buttonsContainer}>
-        <StyledButton style={styles.button} onPress={handlePreviousOutfit} children=' < ' />
-        <StyledButton style={styles.button} onPress={handleNextOutfit} children=' > ' />
+        <StyledButton style={styles.button} onPress={handlePreviousOutfit} children='Anterior' />
+        <StyledButton style={styles.button} color='red' onPress={async () => {}}>Eliminar</StyledButton>
+        <StyledButton style={styles.button} onPress={handleNextOutfit} children='Siguiente' />
       </View>
 
       <Modal
@@ -134,34 +116,33 @@ const OutfitView = ({ jwt, userId }) => {
           {selectedGarment && (
             <View>
               <Image
-              source={{ uri: `${BACKEND_URL}/garments/${selectedGarment.imagePath}` }}
-              style={styles.detailImage}
-              />
+                source={{ uri: `${BACKEND_URL}/garments/${selectedGarment.imagePath}` }}
+                style={styles.detailImage} />
               <StyledText>Código: {selectedGarment.barCode}</StyledText>
               <StyledText>Parte del cuerpo: {selectedGarment.type}</StyledText>
               <StyledText>Marca: {selectedGarment.brand}</StyledText>
               <StyledText>Modelo: {selectedGarment.model}</StyledText>
               <StyledText>Descripción: {selectedGarment.description}</StyledText>
               <View style={styles.modalButtonsContainer}>
-              <StyledButton color='red' onPress={async () => {
-                await deleteGarmentByBarCode(jwt, selectedGarment.barCode);
-                setIsModalVisible(false);
-                loadGarments(0);
-              }}>
-                Eliminar
-              </StyledButton>
-              <View>
-                <StyledText fontWeight='bold'>Estado:</StyledText>
-                <Switch value={selectedGarment.available} onValueChange={async () => {
+                <StyledButton color='red' onPress={async () => {
+                  await deleteGarmentByBarCode(jwt, selectedGarment.barCode);
                   setIsModalVisible(false);
-                  await updateGarmentAvailabilityByBarCode(jwt, selectedGarment.barCode, selectedGarment.available);
                   loadGarments(0);
-                }}/>
+                } }>
+                  Eliminar
+                </StyledButton>
+                <View>
+                  <StyledText fontWeight='bold'>Estado:</StyledText>
+                  <Switch value={selectedGarment.available} onValueChange={async () => {
+                    setIsModalVisible(false);
+                    await updateGarmentAvailabilityByBarCode(jwt, selectedGarment.barCode, selectedGarment.available);
+                    loadGarments(0);
+                  } } />
+                </View>
+                <StyledButton onPress={() => setIsModalVisible(false)}>Cerrar</StyledButton>
               </View>
-              <StyledButton onPress={() => setIsModalVisible(false)} >Cerrar</StyledButton>
-              </View>
-           </View>
-           
+            </View>
+
           )}
         </View>
       </Modal>
@@ -171,23 +152,17 @@ const OutfitView = ({ jwt, userId }) => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, marginBottom: 20, alignItems: 'center', gap: 10, justifyContent: 'space-between'},
-  imageContainer: { gap: 10 },
-  image: { width:width/3, height: width/3, borderColor: 'white', borderWidth: 5, borderRadius: 5 },
-  buttonsContainer: { flexDirection: 'row', width: '100%', justifyContent: 'space-around' },
+  container: { padding: 10, flex: 1, justifyContent: 'space-between' },
+  columnas: { flexDirection: 'row', justifyContent: 'space-around', width: '100%'},
+  columnaIzquierda: { width: '55%' },
+  columnaDerecha: { width: '45%', alignItems: 'center', gap: 3 },
 
+  imageContainer: { flexDirection: 'row', alignItems: 'center', gap: 3 },
+  image: { width:width/3, height: width/3, borderColor: 'white', borderWidth: 5, borderRadius: 5, },
+  
+  buttonsContainer: { flexDirection: 'row', width: '100%', justifyContent: 'space-between'},
   button: {
-    width: 50,
-    height: 50,
-    justifyContent: 'center',
-  },
-
-  itemImage: {
-    aspectRatio: 1,
-    resizeMode: 'cover',
-    borderColor: 'white',
-    borderWidth: 5,
-    borderRadius: 5,
+    padding: 15,
   },
   modalContainer: {
     marginTop: '30%',

@@ -39,7 +39,7 @@ const GarmentScreen = () => {
         <StyledText align="center" fontWeight="bold" fontSize='title' style={{ marginTop: 20 }}>Tus Prendas</StyledText>
         <GarmentListSimple jwt={user.jwt.jwt} userId={user.email}/>
       </ScrollView>
-      <StyledButton color="blue" style={styles.floatingButton} onPress={() => {navigation.navigate('NewGarment' as never);}}>+</StyledButton>
+      <StyledButton style={styles.floatingButton} onPress={() => {navigation.navigate('NewGarment' as never);}}>+</StyledButton>
     </>
   );
 }
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 50,
     justifyContent: 'center',
+    elevation: 5,
   },
 });
 
