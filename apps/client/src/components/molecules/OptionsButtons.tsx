@@ -11,7 +11,7 @@ export default function OptionsButtons() {
   return (
     <View style={[styles.buttons]}>
       <BarCodeButton onPress={() => {navigation.navigate('Scann' as never);}} size={40}/>
-      <StyledImageButton onPress={() => { navigation.navigate('NewGarment' as never); }} imageSource={require("../../../assets/tshirtIcon.png")} size={45}/>
+      <StyledImageButton onPress={() => { navigation.navigate('Garment' as never); }} imageSource={require("../../../assets/tshirtIcon.png")} size={45}/>
       <OutfitButton onPress={() => {navigation.navigate('NewOutfit' as never);}} size={40}/>
     </View>
   )

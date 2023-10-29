@@ -44,10 +44,10 @@ const GarmentListSimple = ({ jwt, userId }) => {
   }
 
   const windowWidth = Dimensions.get('window').width;
-  const imageWidth = windowWidth / 3;
+  const imageWidth = windowWidth / 3 - 10;
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={garmentsData}
         numColumns={3}
@@ -111,11 +111,16 @@ const GarmentListSimple = ({ jwt, userId }) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 10, 
+  },
   itemImage: {
+    margin: 2,
     aspectRatio: 1,
     resizeMode: 'cover',
     borderColor: 'white',
     borderWidth: 5,
+    borderRadius: 5,
   },
   modalContainer: {
     marginTop: '30%',

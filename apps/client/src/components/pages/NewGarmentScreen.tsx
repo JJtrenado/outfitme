@@ -46,6 +46,9 @@ const NewGarmentScreen = () => {
   return (
     <>
       <Header picture={user.picture} />
+
+      
+
       {barCode == null ? (
         <>
           <StyledText align='center' fontSize="title" fontWeight='bold' style={{marginTop: 20, paddingBottom:30}}>Escanea el código de la prenda</StyledText>
