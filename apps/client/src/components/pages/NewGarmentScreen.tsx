@@ -58,7 +58,7 @@ const NewGarmentScreen = () => {
         <>
           <StyledText align='center' fontSize="title" fontWeight='bold' style={{marginTop: 20, paddingBottom:30}}>Haz una foto a la prenda</StyledText>
           <CameraComponent onImgSuccess={handlePhotoTaken} />
-          <ImagePickerExample onPickerSuccess={handlePhotoTaken}/>
+          {/* <ImagePickerExample onPickerSuccess={handlePhotoTaken}/> */}
         </>
       ) : (
         <ScrollView>

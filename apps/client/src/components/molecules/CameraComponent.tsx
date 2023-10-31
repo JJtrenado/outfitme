@@ -3,6 +3,8 @@ import { Text, View, StyleSheet, Image } from 'react-native';
 import { Camera, CameraType } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
 import StyledImageTextButton from '../atoms/StyledImageTextButton';
+import * as ImageManipulator from 'expo-image-manipulator';
+
 
 export default function CameraComponent({ onImgSuccess }) {
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
@@ -23,7 +25,13 @@ export default function CameraComponent({ onImgSuccess }) {
       try {
         const data = await cameraRef.current.takePictureAsync();
         console.log(data);
-        setImage(data.uri);
+        const compressedImage = await ImageManipulator.manipulateAsync(
+          data.uri,
+          [{ resize: { width: 800 } }],
+          { compress: 0.7 }
+        );
+  
+        setImage(compressedImage.uri);
       } catch (error) {
         console.log(error);
       }
@@ -83,7 +91,7 @@ export default function CameraComponent({ onImgSuccess }) {
           <Image source={{ uri: image }} style={styles.camera} />
           <View style={styles.controls}>
             <StyledImageTextButton
-              title="Re-take"
+              title="Repetir"
               onPress={() => setImage(null)}
               icon="retweet" color={undefined}
             />

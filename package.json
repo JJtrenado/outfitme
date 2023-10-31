@@ -40,6 +40,7 @@
     "@nestjs/mongoose": "^10.0.0",
     "@react-native-picker/picker": "2.4.8",
     "expo-camera": "~13.2.1",
+    "expo-image-manipulator": "^11.5.0",
     "expo-image-picker": "~14.1.1",
     "expo-media-library": "~15.2.3",
     "express": "^4.18.2",
