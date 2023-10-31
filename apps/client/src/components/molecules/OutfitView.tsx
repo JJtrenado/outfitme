@@ -55,6 +55,16 @@ const OutfitView = ({ jwt, userId }) => {
     }
   }
 
+  const handleDeleteOutfit = async () => {
+    await deleteOutfitByValidationCode(jwt, validation);
+    if (currentOutfit > 0) {
+      setLoading(true);
+      loadGarments(currentOutfit - 1);
+    }else{
+    loadGarments(0);
+    }
+  }
+
   useFocusEffect(
     React.useCallback(() => {
       loadGarments(0);
@@ -105,7 +115,7 @@ const OutfitView = ({ jwt, userId }) => {
       </View>
       <View style={styles.buttonsContainer}>
         <StyledButton style={styles.button} onPress={handlePreviousOutfit} children='Anterior' />
-        <StyledButton style={styles.button} color='red' onPress={async () => {await deleteOutfitByValidationCode(jwt, validation)}}>Eliminar</StyledButton>
+        <StyledButton style={styles.button} color='red' onPress={handleDeleteOutfit}>Eliminar</StyledButton>
         <StyledButton style={styles.button} onPress={handleNextOutfit} children='Siguiente' />
       </View>
 
