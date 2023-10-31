@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post, Req } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Req,
+} from '@nestjs/common';
 import { Request } from 'express';
 import { Outfit } from './outfit.schema';
 import { CreateOutfitDto } from '../Application/create-outfit.dto';
@@ -40,5 +48,21 @@ export class OutfitController {
     }
     console.log('no jwt');
     return null;
+  }
+
+  @Delete(':validation')
+  async delete(
+    @Param('validation') validation: string,
+    @Req() request: Request,
+  ): Promise<boolean> {
+    const jwt = request.headers.authorization?.split(' ')[1];
+    if (jwt) {
+      const decoded = await this.verifyJwtService.verifyJwt(jwt);
+      if (decoded) {
+        return this.outfitService.deleteByValidationCode(validation);
+      }
+    }
+    console.log('no jwt');
+    return false;
   }
 }

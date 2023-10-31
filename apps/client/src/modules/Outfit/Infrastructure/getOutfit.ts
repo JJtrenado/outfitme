@@ -20,7 +20,7 @@ export const getOutfitsByUser = async ( jwt: string, userId: string ) :Promise<O
   }
 };
 
-export const getOutfit = async (jwt: string, userId: string, index: number): Promise<{name: string, description: string, garments: Garment[], length: number}> =>{
+export const getOutfit = async (jwt: string, userId: string, index: number): Promise<{validation: string, name: string, description: string, garments: Garment[], length: number}> =>{
   let outfits: Outfit[] = [];
   let cabeza: Garment = null;
   let torso: Garment = null;
@@ -37,10 +37,11 @@ export const getOutfit = async (jwt: string, userId: string, index: number): Pro
   }
   
   const garments: Garment[] = [cabeza, torso, piernas, pies];
+  const validation = outfits[index].validation;
   const length = outfits.length;
   const name = outfits[index].name;
   console.log(outfits[index]);
   const description = outfits[index].description;
 
-  return {name: name, description: description, garments: garments, length: length};
+  return {validation, name, description, garments, length};
 }

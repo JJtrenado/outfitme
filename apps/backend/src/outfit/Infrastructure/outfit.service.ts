@@ -20,4 +20,14 @@ export class OutfitService {
   async findByUser(userId: string): Promise<Outfit[]> {
     return this.outfitModel.find({ user: userId }).exec();
   }
+
+  async deleteByValidationCode(validation: string): Promise<boolean> {
+    const deletedOutfit = await this.outfitModel
+      .findOneAndDelete({ validation: validation })
+      .exec();
+    if (deletedOutfit) {
+      return true;
+    }
+    return false;
+  }
 }

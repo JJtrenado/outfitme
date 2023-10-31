@@ -9,6 +9,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import { getOutfit} from '../../modules/Outfit/Infrastructure/getOutfit';
 import { deleteGarmentByBarCode } from '../../modules/Garment/Infrastructure/deleteGarment';
 import { updateGarmentAvailabilityByBarCode } from '../../modules/Garment/Infrastructure/updateGarment';
+import { deleteOutfitByValidationCode } from '../../modules/Outfit/Infrastructure/deleteOutfit';
 
 const { width } = Dimensions.get('window');
 
@@ -19,13 +20,15 @@ const OutfitView = ({ jwt, userId }) => {
   const [length, setLength] = useState(0);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const [validation, setValidation] = useState('');
 
   const [selectedGarment, setSelectedGarment] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   
   const loadGarments = async (index: number) => {
     try {
-      const {name, description, garments, length} = await getOutfit(jwt, userId, index);
+      const {validation, name, description, garments, length} = await getOutfit(jwt, userId, index);
+      setValidation(validation);
       setName(name);
       setDescription(description);
       setGarments(garments);
@@ -102,7 +105,7 @@ const OutfitView = ({ jwt, userId }) => {
       </View>
       <View style={styles.buttonsContainer}>
         <StyledButton style={styles.button} onPress={handlePreviousOutfit} children='Anterior' />
-        <StyledButton style={styles.button} color='red' onPress={async () => {}}>Eliminar</StyledButton>
+        <StyledButton style={styles.button} color='red' onPress={async () => {await deleteOutfitByValidationCode(jwt, validation)}}>Eliminar</StyledButton>
         <StyledButton style={styles.button} onPress={handleNextOutfit} children='Siguiente' />
       </View>
 
