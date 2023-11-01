@@ -10,8 +10,7 @@ import StyledButton from '../atoms/StyledButton';
 import { deleteGarmentByBarCode } from '../../modules/Garment/Infrastructure/deleteGarment';
 import { updateGarmentAvailabilityByBarCode } from '../../modules/Garment/Infrastructure/updateGarment';
 import { useFocusEffect } from '@react-navigation/native';
-import { AlertDeleteGarment } from './AlertDeleteGarment';
-
+import GarmentDetailsModal from '../organisms/DetailGarmentModal';
 
 const GarmentListSimple = ({ jwt, userId }) => {
   const [garmentsData, setGarmentsData] = useState<Garment[]>([]);
@@ -67,59 +66,13 @@ const GarmentListSimple = ({ jwt, userId }) => {
         keyExtractor={(item) => item.barCode}
       />
 
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={isModalVisible}
-        onRequestClose={() => setIsModalVisible(false)}
-      >
-        <View style={[styles.modalContainer, Platform.OS === 'android' ? styles.androidShadow : styles.iosShadow]}>
-          {selectedGarment && (
-            <View>
-              <Image
-              source={{ uri: `${BACKEND_URL}/garments/${selectedGarment.imagePath}` }}
-              style={styles.detailImage}
-              />
-              <StyledText>Código: {selectedGarment.barCode}</StyledText>
-              <StyledText>Parte del cuerpo: {selectedGarment.type}</StyledText>
-              <StyledText>Marca: {selectedGarment.brand}</StyledText>
-              <StyledText>Modelo: {selectedGarment.model}</StyledText>
-              <StyledText>Descripción: {selectedGarment.description}</StyledText>
-              <View style={styles.buttonsContainer}>
-              <StyledButton color='red' onPress={async () => {
-                Alert.alert(
-                  "Eliminar prenda",
-                  "Si eliminas esta prenda se eliminarán los outfits asociados a ella. ¿Estás seguro que deseas eliminar esta prenda?",
-                  [{
-                    text: "Cancelar",
-                    onPress: () => console.log("Cancel Pressed"),
-                    style: "cancel"
-                  },{
-                    text: "Eliminar",
-                    onPress: async () => {
-                      await deleteGarmentByBarCode(jwt, selectedGarment.barCode);
-                      loadGarments();
-                    }
-                  }]
-                )
-                setIsModalVisible(false);
-              }}>
-                Eliminar
-              </StyledButton>
-              <View>
-                <StyledText fontWeight='bold'>Estado:</StyledText>
-                <Switch value={selectedGarment.available} onValueChange={async () => {
-                  setIsModalVisible(false);
-                  await updateGarmentAvailabilityByBarCode(jwt, selectedGarment.barCode, selectedGarment.available);
-                  loadGarments();
-                }}/>
-              </View>
-              <StyledButton onPress={() => setIsModalVisible(false)} >Cerrar</StyledButton>
-              </View>
-           </View>
-          )}
-        </View>
-      </Modal>
+      <GarmentDetailsModal
+        garment={selectedGarment}
+        jwt={jwt}
+        isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+        loadGarments={loadGarments}
+      />
     </View>
   );
 };
