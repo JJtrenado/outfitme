@@ -18,6 +18,8 @@ import { GarmentService } from './garment.service';
 import { VerifyJwtService } from 'src/common/user/Infrastructure/verifyJwt.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { resolve } from 'path';
+import * as path from 'path';
+import * as fs from 'fs';
 
 @Controller('garments')
 export class GarmentController {
@@ -76,7 +78,15 @@ export class GarmentController {
     if (jwt) {
       const decoded = await this.verifyJwtService.verifyJwt(jwt);
       if (decoded) {
-        return this.garmentService.deleteByBarCode(barCode);
+        const garment = await this.garmentService.findByBarCode(barCode);
+        if (garment) {
+          const imagePath = garment.imagePath;
+          const imageAbsolutePath = path.join(__dirname, '../../..', imagePath);
+          if (fs.existsSync(imageAbsolutePath)) {
+            fs.unlinkSync(imageAbsolutePath);
+          }
+          return this.garmentService.deleteByBarCode(barCode);
+        }
       }
     }
     console.log('no jwt');
