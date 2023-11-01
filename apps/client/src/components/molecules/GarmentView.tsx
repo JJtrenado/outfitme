@@ -1,7 +1,7 @@
 // @ts-ignore
 import { BACKEND_URL }from '@env';
 import React, { useState } from 'react';
-import { View, ActivityIndicator, FlatList, Image, Modal, TouchableOpacity, Dimensions, Platform, Switch } from 'react-native';
+import { View, ActivityIndicator, FlatList, Image, Modal, TouchableOpacity, Dimensions, Platform, Switch, Alert } from 'react-native';
 import { getGarmentByUser } from '../../modules/Garment/Infrastructure/getGarments';
 import { Garment } from '../../modules/Garment/Domain/garment';
 import { StyleSheet } from 'react-native';
@@ -10,6 +10,7 @@ import StyledButton from '../atoms/StyledButton';
 import { deleteGarmentByBarCode } from '../../modules/Garment/Infrastructure/deleteGarment';
 import { updateGarmentAvailabilityByBarCode } from '../../modules/Garment/Infrastructure/updateGarment';
 import { useFocusEffect } from '@react-navigation/native';
+import { AlertDeleteGarment } from './AlertDeleteGarment';
 
 
 const GarmentListSimple = ({ jwt, userId }) => {
@@ -86,9 +87,22 @@ const GarmentListSimple = ({ jwt, userId }) => {
               <StyledText>Descripción: {selectedGarment.description}</StyledText>
               <View style={styles.buttonsContainer}>
               <StyledButton color='red' onPress={async () => {
-                await deleteGarmentByBarCode(jwt, selectedGarment.barCode);
+                Alert.alert(
+                  "Eliminar prenda",
+                  "Si eliminas esta prenda se eliminarán los outfits asociados a ella. ¿Estás seguro que deseas eliminar esta prenda?",
+                  [{
+                    text: "Cancelar",
+                    onPress: () => console.log("Cancel Pressed"),
+                    style: "cancel"
+                  },{
+                    text: "Eliminar",
+                    onPress: async () => {
+                      await deleteGarmentByBarCode(jwt, selectedGarment.barCode);
+                      loadGarments();
+                    }
+                  }]
+                )
                 setIsModalVisible(false);
-                loadGarments();
               }}>
                 Eliminar
               </StyledButton>
