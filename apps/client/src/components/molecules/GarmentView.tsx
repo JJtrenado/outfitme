@@ -1,14 +1,10 @@
 // @ts-ignore
 import { BACKEND_URL }from '@env';
 import React, { useState } from 'react';
-import { View, ActivityIndicator, FlatList, Image, Modal, TouchableOpacity, Dimensions, Platform, Switch, Alert } from 'react-native';
+import { View, ActivityIndicator, FlatList, Image, TouchableOpacity, Dimensions } from 'react-native';
 import { getGarmentByUser } from '../../modules/Garment/Infrastructure/getGarments';
 import { Garment } from '../../modules/Garment/Domain/garment';
 import { StyleSheet } from 'react-native';
-import StyledText from '../atoms/StyledText';
-import StyledButton from '../atoms/StyledButton';
-import { deleteGarmentByBarCode } from '../../modules/Garment/Infrastructure/deleteGarment';
-import { updateGarmentAvailabilityByBarCode } from '../../modules/Garment/Infrastructure/updateGarment';
 import { useFocusEffect } from '@react-navigation/native';
 import GarmentDetailsModal from '../organisms/DetailGarmentModal';
 
@@ -71,7 +67,8 @@ const GarmentListSimple = ({ jwt, userId }) => {
         jwt={jwt}
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
-        loadGarments={loadGarments}
+        goToPage='Garment'
+        reload={loadGarments}
       />
     </View>
   );

@@ -21,27 +21,33 @@ export const getOutfitsByUser = async ( jwt: string, userId: string ) :Promise<O
 };
 
 export const getOutfit = async (jwt: string, userId: string, index: number): Promise<{validation: string, name: string, description: string, garments: Garment[], length: number}> =>{
-  let outfits: Outfit[] = [];
-  let cabeza: Garment = null;
-  let torso: Garment = null;
-  let piernas: Garment = null;
-  let pies: Garment = null;
   try {
-    outfits = await getOutfitsByUser(jwt, userId);
-    cabeza = await getGarmentByBarcode(jwt, outfits[index].cabezaBarCode);
-    torso = await getGarmentByBarcode(jwt, outfits[index].torsoBarCode);
-    piernas = await getGarmentByBarcode(jwt, outfits[index].piernasBarCode);
-    pies = await getGarmentByBarcode(jwt, outfits[index].piesBarCode);
+    const outfits: Outfit[] = await getOutfitsByUser(jwt, userId);
+    const length = outfits.length;
+    const validation = outfits[index].validation;
+    const name = outfits[index].name;
+    const description = outfits[index].description;
+        
+    const cabeza: Garment | null = outfits[index].cabezaBarCode !== 'undefined'
+    ? await getGarmentByBarcode(jwt, outfits[index].cabezaBarCode)
+    : null;
+
+    const torso: Garment | null = outfits[index].torsoBarCode !== 'undefined'
+    ? await getGarmentByBarcode(jwt, outfits[index].torsoBarCode)
+    : null;
+
+    const piernas: Garment | null = outfits[index].piernasBarCode !== 'undefined'
+    ? await getGarmentByBarcode(jwt, outfits[index].piernasBarCode)
+    : null;
+
+    const pies: Garment | null = outfits[index].piesBarCode !== 'undefined'
+    ? await getGarmentByBarcode(jwt, outfits[index].piesBarCode)
+    : null;
+
+    const garments: Garment[] = [cabeza, torso, piernas, pies];
+    return {validation, name, description, garments, length};
+    
   } catch (error) {
     console.error('Error loading outfit garments:', error);
   }
-  
-  const garments: Garment[] = [cabeza, torso, piernas, pies];
-  const validation = outfits[index].validation;
-  const length = outfits.length;
-  const name = outfits[index].name;
-  console.log(outfits[index]);
-  const description = outfits[index].description;
-
-  return {validation, name, description, garments, length};
 }

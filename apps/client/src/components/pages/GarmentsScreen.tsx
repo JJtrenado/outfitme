@@ -34,7 +34,6 @@ const GarmentScreen = () => {
   return (
     <>
       <Header picture={user.picture} />
-      
       <ScrollView>
         <StyledText align="center" fontWeight="bold" fontSize='title' style={{ marginTop: 20 }}>Tus Prendas</StyledText>
         <GarmentListSimple jwt={user.jwt.jwt} userId={user.email}/>

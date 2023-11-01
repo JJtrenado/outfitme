@@ -4,9 +4,7 @@ import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUs
 import { useState } from "react";
 import Header from "../molecules/Header";
 import OptionsButtons from "../molecules/OptionsButtons";
-import GarmentListSimple from "../molecules/GarmentView";
 import OutfitView from "../molecules/OutfitView";
-import { ScrollView } from "react-native";
 
 
 const HomeScreen = () => {

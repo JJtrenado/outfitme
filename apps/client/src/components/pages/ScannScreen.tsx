@@ -13,6 +13,7 @@ import StyledButton from '../atoms/StyledButton';
 import { deleteGarmentByBarCode } from '../../modules/Garment/Infrastructure/deleteGarment';
 import { updateGarmentAvailabilityByBarCode } from '../../modules/Garment/Infrastructure/updateGarment';
 import { Garment } from '../../modules/Garment/Domain/garment';
+import GarmentDetailsModal from '../organisms/DetailGarmentModal';
 
 
 const ScannScreen = () => {
@@ -57,43 +58,13 @@ const ScannScreen = () => {
       <MyBarCodeScanner onScanSuccess={handleScanSuccess} />
       </>
     ) : (
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={isModalVisible}
-      >
-        <View style={[styles.modalContainer, Platform.OS === 'android' ? styles.androidShadow : styles.iosShadow]}>
-          {garment && (
-            <View>
-              <Image
-                source={{ uri: `${BACKEND_URL}/garments/${garment.imagePath}` }}
-                style={styles.detailImage}
-              />
-              <StyledText>Código: {garment.barCode}</StyledText>
-              <StyledText>Parte del cuerpo: {garment.type}</StyledText>
-              <StyledText>Marca: {garment.brand}</StyledText>
-              <StyledText>Modelo: {garment.model}</StyledText>
-              <StyledText>Descripción: {garment.description}</StyledText>
-              <View style={styles.buttonsContainer}>
-              <StyledButton color='red' onPress={async () => {
-                await deleteGarmentByBarCode(user.jwt.jwt.jwt, garment.barCode);
-                setIsModalVisible(false);
-                navigation.navigate('Home' as never);
-              }}>Eliminar</StyledButton>
-              <View>
-                <StyledText fontWeight='bold'>Estado:</StyledText>
-                <Switch value={garment.available} onValueChange={async () => {
-                  await updateGarmentAvailabilityByBarCode(user.jwt.jwt, garment.barCode, garment.available);
-                  setIsModalVisible(false);
-                  navigation.navigate('Home' as never);
-                }}/>
-              </View>
-              <StyledButton onPress={() => {setIsModalVisible(false); navigation.navigate('Home' as never)}} >Cerrar</StyledButton>
-              </View>
-           </View>
-          )}
-        </View>
-      </Modal>
+      <GarmentDetailsModal
+        garment={garment}
+        jwt={user.jwt.jwt}
+        isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+        goToPage={'Home'}
+      />
     )}
 
       

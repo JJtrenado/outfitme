@@ -1,15 +1,33 @@
 // @ts-ignore
 import { BACKEND_URL }from '@env';
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal, Image, Switch, Alert, View, Platform, StyleSheet } from 'react-native';
 import StyledText from '../atoms/StyledText';
 import StyledButton from '../atoms/StyledButton';
 import { deleteGarmentByBarCode } from '../../modules/Garment/Infrastructure/deleteGarment';
 import { updateGarmentAvailabilityByBarCode } from '../../modules/Garment/Infrastructure/updateGarment';
+import { useNavigation } from '@react-navigation/native';
+import { Garment } from '../../modules/Garment/Domain/garment';
 
 
 
-const GarmentDetailsModal = ({ garment, jwt, isModalVisible, setIsModalVisible, loadGarments }) => {
+interface GarmentDetailsModalProps {
+  garment: Garment;
+  jwt: string;
+  isModalVisible: boolean;
+  setIsModalVisible: (isVisible: boolean) => void;
+  goToPage?: string;
+  reload?: Function;
+}
+
+const GarmentDetailsModal = ({ garment, jwt, isModalVisible, setIsModalVisible, goToPage, reload }: GarmentDetailsModalProps) => {
+  const navigation = useNavigation();
+
+  function handleClose(): void {
+    setIsModalVisible(false);
+    if (goToPage) navigation.navigate(goToPage as never);
+  }
+
   return (
     <Modal
         animationType="fade"
@@ -42,7 +60,8 @@ const GarmentDetailsModal = ({ garment, jwt, isModalVisible, setIsModalVisible, 
                     text: "Eliminar",
                     onPress: async () => {
                       await deleteGarmentByBarCode(jwt, garment.barCode);
-                      loadGarments();
+                      if (goToPage) navigation.navigate(goToPage as never);
+                      if (reload) reload();
                     }
                   }]
                 )
@@ -55,10 +74,11 @@ const GarmentDetailsModal = ({ garment, jwt, isModalVisible, setIsModalVisible, 
                 <Switch value={garment.available} onValueChange={async () => {
                   setIsModalVisible(false);
                   await updateGarmentAvailabilityByBarCode(jwt, garment.barCode, garment.available);
-                  loadGarments();
+                  if (goToPage) navigation.navigate(goToPage as never);
+                  if (reload) reload();
                 }}/>
               </View>
-              <StyledButton onPress={() => setIsModalVisible(false)} >Cerrar</StyledButton>
+              <StyledButton onPress={() => handleClose()} >Cerrar</StyledButton>
               </View>
            </View>
           )}
