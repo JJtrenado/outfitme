@@ -65,4 +65,20 @@ export class OutfitController {
     console.log('no jwt');
     return false;
   }
+
+  @Delete('byGarment/:barCode')
+  async deleteOutfitByGarment(
+    @Param('barCode') barCode: string,
+    @Req() request: Request,
+  ): Promise<boolean> {
+    const jwt = request.headers.authorization?.split(' ')[1];
+    if (jwt) {
+      const decoded = await this.verifyJwtService.verifyJwt(jwt);
+      if (decoded) {
+        return this.outfitService.deleteOutfitByGarment(barCode);
+      }
+    }
+    console.log('no jwt');
+    return false;
+  }
 }

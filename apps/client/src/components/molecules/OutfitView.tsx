@@ -127,6 +127,7 @@ const OutfitView = ({ jwt, userId }) => {
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
         reload={() => loadGarments(currentOutfit)}
+        reloadOnDelete={() => loadGarments(currentOutfit - 1)}
       />
 
     </View>

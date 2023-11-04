@@ -80,12 +80,18 @@ export class GarmentController {
       if (decoded) {
         const garment = await this.garmentService.findByBarCode(barCode);
         if (garment) {
-          const imagePath = garment.imagePath;
-          const imageAbsolutePath = path.join(__dirname, '../../..', imagePath);
-          if (fs.existsSync(imageAbsolutePath)) {
-            fs.unlinkSync(imageAbsolutePath);
+          if (this.garmentService.deleteByBarCode(barCode)) {
+            const imagePath = garment.imagePath;
+            const imageAbsolutePath = path.join(
+              __dirname,
+              '../../..',
+              imagePath,
+            );
+            if (fs.existsSync(imageAbsolutePath)) {
+              fs.unlinkSync(imageAbsolutePath);
+            }
+            return true;
           }
-          return this.garmentService.deleteByBarCode(barCode);
         }
       }
     }

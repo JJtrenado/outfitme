@@ -18,9 +18,10 @@ interface GarmentDetailsModalProps {
   setIsModalVisible: (isVisible: boolean) => void;
   goToPage?: string;
   reload?: Function;
+  reloadOnDelete?: Function;
 }
 
-const GarmentDetailsModal = ({ garment, jwt, isModalVisible, setIsModalVisible, goToPage, reload }: GarmentDetailsModalProps) => {
+const GarmentDetailsModal = ({ garment, jwt, isModalVisible, setIsModalVisible, goToPage, reload, reloadOnDelete }: GarmentDetailsModalProps) => {
   const navigation = useNavigation();
 
   function handleClose(): void {
@@ -61,7 +62,8 @@ const GarmentDetailsModal = ({ garment, jwt, isModalVisible, setIsModalVisible, 
                     onPress: async () => {
                       await deleteGarmentByBarCode(jwt, garment.barCode);
                       if (goToPage) navigation.navigate(goToPage as never);
-                      if (reload) reload();
+                      if (reloadOnDelete) reloadOnDelete();
+                      else if (reload) reload();
                     }
                   }]
                 )

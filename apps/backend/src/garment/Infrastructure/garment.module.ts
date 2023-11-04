@@ -7,6 +7,8 @@ import { VerifyJwtService } from 'src/common/user/Infrastructure/verifyJwt.servi
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 import { MulterModule } from '@nestjs/platform-express';
+import { Outfit } from 'src/outfit/Infrastructure/outfit.schema';
+import { OutfitService } from 'src/outfit/Infrastructure/outfit.service';
 
 @Module({
   imports: [
