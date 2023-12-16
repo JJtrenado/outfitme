@@ -1,0 +1,95 @@
+{
+  "src": [
+    "app.module.ts",
+    {
+      "auth": [
+        {
+          "Application": [
+            "externalUserService.interface.ts",
+            "getUser.service.ts"
+          ]
+        },
+        {
+          "Infrastructure": [
+            "auth.controller.ts",
+            "auth.module.ts",
+            "generateJwt.service.ts",
+            "google.service.ts"
+          ]
+        }
+      ]
+    },
+    {
+      "barCode": [
+        {
+          "Infrastructure": [
+            "barCode.controller.ts",
+            "barCode.module.ts"
+          ]
+        }
+      ]
+    },
+    {
+      "common": [
+        {
+          "fileUpload": [
+            {
+              "Infrastructure": [
+                "fileUpload.service.ts"
+              ]
+            }
+          ]
+        },
+        {
+          "user": [
+            {
+              "Domain": [
+                "User.ts"
+              ]
+            },
+            {
+              "Infrastructure": [
+                "verifyJwt.service.ts"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "garment": [
+        {
+          "Application": [
+            "create-garment.dto.ts"
+          ]
+        },
+        {
+          "Infrastructure": [
+            "garment.controller.ts",
+            "garment.module.ts",
+            "garment.schema.ts",
+            "garment.service.ts"
+          ]
+        }
+      ]
+    },
+"main.ts",
+    {
+      "outfit": [
+        {
+          "Application": [
+            "create-outfit.dto.ts"
+          ]
+        },
+        {
+          "Infrastructure": [
+            "outfit.controller.ts",
+            "outfit.module.ts",
+            "outfit.schema.ts",
+            "outfit.service.ts"
+          ]
+        }
+      ]
+    }
+  ]
+}

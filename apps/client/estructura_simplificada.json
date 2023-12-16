@@ -1,0 +1,94 @@
+{
+  "src": {
+    "components": [
+      {"atoms": [
+        "BarCodeButton.tsx",
+        "buttonPickerInput.tsx",
+        "listPickerInput.tsx",
+        "OutfitButton.tsx",
+        "StyledButton.tsx",
+        "StyledImageButton.tsx",
+        "StyledImageTextButton.tsx",
+        "StyledText.tsx",
+        "switchInput.tsx",
+        "textInput.tsx"
+      ]},
+      {"molecules": [
+        "BarCodeScanner.tsx",
+        "CameraComponent.tsx",
+        "GarmentView.tsx",
+        "Header.tsx",
+        "ImagePicker.tsx",
+        "NewGarmentForm.tsx",
+        "NewOutfitForm.tsx",
+        "OptionsButtons.tsx",
+        "OutfitView.tsx",
+        "ProfileMenu.tsx"
+      ]},
+      {"organisms": [
+        "DetailGarmentModal.tsx"
+      ]},
+      {"pages": [
+        "GarmentsScreen.tsx",
+        "HomeScreen.tsx",
+        "LoginScreen.tsx",
+        "NewGarmentScreen.tsx",
+        "NewOutfitScreen.tsx",
+        "ScannScreen.tsx",
+        "SettingsScreen.tsx"
+      ]},
+      "theme.ts"
+    ],
+    "modules": {
+      "BarCodeScanner": {
+        "Infrastructure": [
+          "SendBarCode.ts"
+        ]
+      },
+      "common": {
+        "Application": [
+          "ReloadApp.ts"
+        ],
+        "Domain": [
+          "User.ts"
+        ],
+        "Infrastructure": [
+          "LocalStorageUser.ts"
+        ]
+      },
+      "Garment": {
+        "Domain": [
+          "garment.ts"
+        ],
+        "Infrastructure": [
+          "deleteGarment.ts",
+          "getGarments.ts",
+          "newGarment.ts",
+          "updateGarment.ts"
+        ]
+      },
+      "Login": {
+        "Application": [
+          "UserAdapter.ts"
+        ],
+        "Infrastructure": [
+          "FetchUserFromGoogle.ts",
+          "getJwt.ts",
+          "getUser.ts",
+          "logOut.ts"
+        ]
+      },
+      "Outfit": {
+        "Application": {},
+        "Domain": [
+          "outfits.ts"
+        ],
+        "Infrastructure": [
+          "deleteOutfit.ts",
+          "getOutfit.ts",
+          "newOutfit.ts"
+        ]
+      }
+    }
+  }
+}

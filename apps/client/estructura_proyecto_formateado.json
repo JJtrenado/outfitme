@@ -1,0 +1,431 @@
+[
+  {
+    "type": "directory",
+    "name": ".",
+    "contents": [
+      {
+        "type": "file",
+        "name": "App.js"
+      },
+      {
+        "type": "file",
+        "name": "app.json"
+      },
+      {
+        "type": "directory",
+        "name": "assets",
+        "contents": [
+          {
+            "type": "file",
+            "name": "adaptive-icon.png"
+          },
+          {
+            "type": "file",
+            "name": "background-image.png"
+          },
+          {
+            "type": "file",
+            "name": "cap.png"
+          },
+          {
+            "type": "file",
+            "name": "ceroGapLogo.png"
+          },
+          {
+            "type": "file",
+            "name": "favicon.png"
+          },
+          {
+            "type": "file",
+            "name": "icon.png"
+          },
+          {
+            "type": "file",
+            "name": "pants.png"
+          },
+          {
+            "type": "file",
+            "name": "shoes.png"
+          },
+          {
+            "type": "file",
+            "name": "splash.png"
+          },
+          {
+            "type": "file",
+            "name": "text.png"
+          },
+          {
+            "type": "file",
+            "name": "tshirtIcon.png"
+          },
+          {
+            "type": "file",
+            "name": "tshirt.png"
+          }
+        ]
+      },
+      {
+        "type": "file",
+        "name": "babel.config.js"
+      },
+      {
+        "type": "file",
+        "name": "build-1690738775548.apk"
+      },
+      {
+        "type": "file",
+        "name": "eas.json"
+      },
+      {
+        "type": "file",
+        "name": "estructura_proyecto.json"
+      },
+      {
+        "type": "file",
+        "name": "index.js"
+      },
+      {
+        "type": "file",
+        "name": "metro.config.js"
+      },
+      {
+        "type": "file",
+        "name": "package.json"
+      },
+      {
+        "type": "directory",
+        "name": "src",
+        "contents": [
+          {
+            "type": "directory",
+            "name": "components",
+            "contents": [
+              {
+                "type": "directory",
+                "name": "atoms",
+                "contents": [
+                  {
+                    "type": "file",
+                    "name": "BarCodeButton.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "buttonPickerInput.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "listPickerInput.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "OutfitButton.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "StyledButton.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "StyledImageButton.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "StyledImageTextButton.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "StyledText.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "switchInput.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "textInput.tsx"
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "molecules",
+                "contents": [
+                  {
+                    "type": "file",
+                    "name": "BarCodeScanner.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "CameraComponent.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "GarmentView.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "Header.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "ImagePicker.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "NewGarmentForm.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "NewOutfitForm.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "OptionsButtons.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "OutfitView.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "ProfileMenu.tsx"
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "organisms",
+                "contents": [
+                  {
+                    "type": "file",
+                    "name": "DetailGarmentModal.tsx"
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "pages",
+                "contents": [
+                  {
+                    "type": "file",
+                    "name": "GarmentsScreen.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "HomeScreen.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "LoginScreen.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "NewGarmentScreen.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "NewOutfitScreen.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "ScannScreen.tsx"
+                  },
+                  {
+                    "type": "file",
+                    "name": "SettingsScreen.tsx"
+                  }
+                ]
+              },
+              {
+                "type": "file",
+                "name": "theme.ts"
+              }
+            ]
+          },
+          {
+            "type": "directory",
+            "name": "modules",
+            "contents": [
+              {
+                "type": "directory",
+                "name": "BarCodeScanner",
+                "contents": [
+                  {
+                    "type": "directory",
+                    "name": "Infrastructure",
+                    "contents": [
+                      {
+                        "type": "file",
+                        "name": "SendBarCode.ts"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "common",
+                "contents": [
+                  {
+                    "type": "directory",
+                    "name": "Application",
+                    "contents": [
+                      {
+                        "type": "file",
+                        "name": "ReloadApp.ts"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "directory",
+                    "name": "Domain",
+                    "contents": [
+                      {
+                        "type": "file",
+                        "name": "User.ts"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "directory",
+                    "name": "Infrastructure",
+                    "contents": [
+                      {
+                        "type": "file",
+                        "name": "LocalStorageUser.ts"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "Garment",
+                "contents": [
+                  {
+                    "type": "directory",
+                    "name": "Domain",
+                    "contents": [
+                      {
+                        "type": "file",
+                        "name": "garment.ts"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "directory",
+                    "name": "Infrastructure",
+                    "contents": [
+                      {
+                        "type": "file",
+                        "name": "deleteGarment.ts"
+                      },
+                      {
+                        "type": "file",
+                        "name": "getGarments.ts"
+                      },
+                      {
+                        "type": "file",
+                        "name": "newGarment.ts"
+                      },
+                      {
+                        "type": "file",
+                        "name": "updateGarment.ts"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "Login",
+                "contents": [
+                  {
+                    "type": "directory",
+                    "name": "Application",
+                    "contents": [
+                      {
+                        "type": "file",
+                        "name": "UserAdapter.ts"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "directory",
+                    "name": "Infrastructure",
+                    "contents": [
+                      {
+                        "type": "file",
+                        "name": "FetchUserFromGoogle.ts"
+                      },
+                      {
+                        "type": "file",
+                        "name": "getJwt.ts"
+                      },
+                      {
+                        "type": "file",
+                        "name": "getUser.ts"
+                      },
+                      {
+                        "type": "file",
+                        "name": "logOut.ts"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "Outfit",
+                "contents": [
+                  {
+                    "type": "directory",
+                    "name": "Application"
+                  },
+                  {
+                    "type": "directory",
+                    "name": "Domain",
+                    "contents": [
+                      {
+                        "type": "file",
+                        "name": "outfits.ts"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "directory",
+                    "name": "Infrastructure",
+                    "contents": [
+                      {
+                        "type": "file",
+                        "name": "deleteOutfit.ts"
+                      },
+                      {
+                        "type": "file",
+                        "name": "getOutfit.ts"
+                      },
+                      {
+                        "type": "file",
+                        "name": "newOutfit.ts"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "file",
+        "name": "tsconfig.json"
+      }
+    ]
+  },
+  {
+    "type": "report",
+    "directories": 25,
+    "files": 69
+  }
+]

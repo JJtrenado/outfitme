@@ -15,9 +15,11 @@ export const uploadData = async (jwt: string, formData: FormData): Promise<boole
       headers: headers,
     });
 
-    if (uploadResponse.ok) return true;
-    console.error("Error:", uploadResponse.statusText);
+    if (uploadResponse.status >= 200 && uploadResponse.status < 300) {
+      return true;
+    }
     return false;
+
   } catch (error) {
     console.error("Error:", error);
     return false;

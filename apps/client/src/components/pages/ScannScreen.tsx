@@ -38,7 +38,12 @@ const ScannScreen = () => {
   const handleScanSuccess = async (data) => {
     try{
       setBarCode(data);
-      setGarment(await getGarmentByBarcode(user.jwt.jwt, data));
+      const result = await getGarmentByBarcode(user.jwt.jwt, data);
+      if (result) setGarment(result);
+      else {
+        navigation.navigate('Home' as never);
+        alert("Error al obtener la prenda");
+      }
     }catch(error){
       console.error(garment);
     }
