@@ -6,6 +6,7 @@ import Header from "../molecules/Header";
 import GarmentListSimple from "../molecules/GarmentView";
 import StyledButton from "../atoms/StyledButton";
 import StyledText from "../atoms/StyledText";
+import StyledImageButton from "../atoms/StyledImageButton";
 
 const GarmentScreen = () => {
   const navigation = useNavigation();
@@ -38,7 +39,7 @@ const GarmentScreen = () => {
         <StyledText align="center" fontWeight="bold" fontSize='title' style={{ marginTop: 20 }}>Tus Prendas</StyledText>
         <GarmentListSimple jwt={user.jwt.jwt} userId={user.email}/>
       </ScrollView>
-      <StyledButton style={styles.floatingButton} onPress={() => {navigation.navigate('NewGarment' as never);}}>+</StyledButton>
+      <StyledImageButton style={styles.floatingButton} onPress={() => {navigation.navigate('NewGarment' as never);}} imageSource={require("../../../assets/addGarmentIcon.png")} size={45}/>
     </>
   );
 }
@@ -46,12 +47,14 @@ const GarmentScreen = () => {
 const styles = StyleSheet.create({
   floatingButton: {
     position: 'absolute',
+    backgroundColor: '#24292e',
     bottom: 20,
     right: 20,
     width: 60,
     height: 60,
     borderRadius: 50,
     justifyContent: 'center',
+    alignItems: 'center',
     elevation: 5,
   },
 });

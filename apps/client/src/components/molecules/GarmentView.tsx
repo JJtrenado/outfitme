@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     resizeMode: 'cover',
     borderColor: 'white',
-    borderWidth: 5,
+    borderWidth: 3,
     borderRadius: 5,
   },
   modalContainer: {

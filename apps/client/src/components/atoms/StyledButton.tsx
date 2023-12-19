@@ -47,6 +47,7 @@ export default function StyledButton({
   const textStyles = [
     styles.buttonText,
     fontSize === 'subheading' && { fontSize: theme.fontSizes.subheading },
+    fontSize === 'title' && { fontSize: theme.fontSizes.title },
   ];
 
   return (
