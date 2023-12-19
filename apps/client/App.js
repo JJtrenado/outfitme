@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
+import { LogBox } from 'react-native';
 
 import HomeScreen from "./src/components/pages/HomeScreen";
 import LoginScreen from "./src/components/pages/LoginScreen";
@@ -13,6 +14,7 @@ import NewGarmentScreen from './src/components/pages/NewGarmentScreen';
 const Stack = createStackNavigator();
 
 export default function App() { 
+  LogBox.ignoreAllLogs();
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>

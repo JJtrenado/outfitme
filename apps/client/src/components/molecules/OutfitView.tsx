@@ -1,6 +1,6 @@
 // @ts-ignore
 import { BACKEND_URL }from '@env';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Image, StyleSheet, Dimensions, ActivityIndicator, TouchableOpacity, Modal, Platform, Switch} from 'react-native';
 import StyledButton from '../atoms/StyledButton';
 import { Garment } from '../../modules/Garment/Domain/garment';
@@ -14,6 +14,7 @@ import GarmentDetailsModal from '../organisms/DetailGarmentModal';
 import DeleteButton from '../atoms/DeleteButton';
 import PreviousButton from '../atoms/PreviousButton';
 import NextButton from '../atoms/NextButton';
+import theme from '../theme';
 
 const { width } = Dimensions.get('window');
 
@@ -28,6 +29,8 @@ const OutfitView = ({ jwt, userId }) => {
 
   const [selectedGarment, setSelectedGarment] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const [rotationAngle, setRotationAngle] = useState(0);
   
   const loadGarments = async (index: number) => {
     try {
@@ -70,6 +73,14 @@ const OutfitView = ({ jwt, userId }) => {
     }
   }
 
+  useEffect(() => {
+    const rotationInterval = setInterval(() => {
+      setRotationAngle(rotationAngle + 1); // Puedes ajustar la velocidad de rotación aquí
+    }, 8); // 16 milisegundos para aproximadamente 60 FPS, ajusta según tus necesidades
+
+    return () => clearInterval(rotationInterval); // Limpieza al desmontar el componente
+  }, [rotationAngle]);
+
   useFocusEffect(
     React.useCallback(() => {
       loadGarments(0);
@@ -84,17 +95,12 @@ const OutfitView = ({ jwt, userId }) => {
       </View>
     );
   }
-  const garmentTypeImages = {
-    Cabeza: require('../../../assets/cap.png'),
-    Torso: require('../../../assets/tshirtIcon.png'),
-    Piernas: require('../../../assets/pants.png'),
-    Pies: require('../../../assets/shoes.png'),
-  };
+
   const garmentTypeImagesNumber = {
-    0: require('../../../assets/cap.png'),
-    1: require('../../../assets/tshirtIcon.png'),
-    2: require('../../../assets/pants.png'),
-    3: require('../../../assets/shoes.png'),
+    0: require('../../../assets/noHead.png'),
+    1: require('../../../assets/noTorso.png'),
+    2: require('../../../assets/noPants.png'),
+    3: require('../../../assets/noShoes.png'),
   };
 
   return (
@@ -102,6 +108,10 @@ const OutfitView = ({ jwt, userId }) => {
       <StyledText style={styles.title}fontSize='title' fontWeight='bold' color='white'>{name}</StyledText>
       <View style={styles.columns}>
           <View style={styles.circle}></View>
+          <Image style={{
+              transform: [{ rotate: `${rotationAngle}deg` }],
+              ...styles.circle
+            }} source={require('../../../assets/background-image.png')} />
         <View style={styles.leftColumn}>
           {garments.map((garment, index) => (
             garment ? (
@@ -110,7 +120,7 @@ const OutfitView = ({ jwt, userId }) => {
                   setSelectedGarment(garment);
                   setIsModalVisible(true);
                 }}>
-                  <Image source={{ uri: `${BACKEND_URL}/garments/${garment.imagePath}` }} style={[styles.image, garment.available === false ? { borderColor: '#EA0C5F' } : null]} />
+                  <Image source={{ uri: `${BACKEND_URL}/garments/${garment.imagePath}` }} style={[styles.image, garment.available === false ? { borderColor: theme.colors.accent } : null]} />
                 </TouchableOpacity>
               </View>
             ) : 
@@ -146,9 +156,9 @@ const styles = StyleSheet.create({
     width: 1000,
     height: 1000,
     bottom: -700,
-    right: -700,
+    right: -650,
     borderRadius: 500,
-    backgroundColor: 'aquamarine',
+    backgroundColor: theme.colors.accent,
   },
   container: { 
     flex: 1,
@@ -175,8 +185,14 @@ const styles = StyleSheet.create({
   rightColumn: { flex:1, padding: 3},
   leftColumn: { gap: 2 },
   imageContainer: { flexDirection: 'row', alignItems: 'center', gap: 5 },
-  image: { width:width/3, height: width/3, borderColor: 'white', borderWidth: 3, borderRadius: 5 },
-  noGarmentImage: {margin: 50, width: 30, height: 30, resizeMode: 'contain' },
+  image: {
+    width:width/3,
+    height: width/3,
+    borderColor: 'white',
+    borderWidth: 3,
+    borderRadius: 5,
+  },
+  noGarmentImage: {margin: 35, width: 60, height: 60, resizeMode: 'contain' },
   
   buttonsContainer: {
     flexDirection: 'row',

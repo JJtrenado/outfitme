@@ -1,7 +1,7 @@
 // @ts-ignore
 import { BACKEND_URL }from '@env';
 import React from 'react';
-import { Modal, Image, Switch, Alert, View, Platform, StyleSheet } from 'react-native';
+import { Modal, Image, Switch, Alert, View, Platform, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import StyledText from '../atoms/StyledText';
 import StyledButton from '../atoms/StyledButton';
 import { deleteGarmentByBarCode } from '../../modules/Garment/Infrastructure/deleteGarment';
@@ -12,6 +12,7 @@ import BarCodeButton from '../atoms/BarCodeButton';
 import OutfitButton from '../atoms/OutfitButton';
 import StyledImageButton from '../atoms/StyledImageButton';
 import DeleteButton from '../atoms/DeleteButton';
+import theme from '../theme';
 
 
 
@@ -40,11 +41,12 @@ const GarmentDetailsModal = ({ garment, jwt, isModalVisible, setIsModalVisible, 
         visible={isModalVisible}
         onRequestClose={() => setIsModalVisible(false)}
       >
+        <TouchableWithoutFeedback style={{flex: 1}} onPressOut={() => setIsModalVisible(false)}>
         <View style={[styles.modalContainer, Platform.OS === 'android' ? styles.androidShadow : styles.iosShadow]}>
           {garment && (
             <View>
               <View style={styles.title}>
-                <StyledText fontSize='title' fontWeight='bold'>{garment.model}</StyledText>
+                <StyledText fontSize='title' fontWeight='bold' style={{width: 213}}>{garment.model}</StyledText>
                 <View style={styles.row}>
                   <DeleteButton onPress={async () => {
                     Alert.alert("Eliminar prenda","Si eliminas esta prenda se eliminarán los outfits asociados a ella. ¿Estás seguro que deseas eliminar esta prenda?",
@@ -64,12 +66,17 @@ const GarmentDetailsModal = ({ garment, jwt, isModalVisible, setIsModalVisible, 
                     )
                     setIsModalVisible(false);
                   }}/>
-                  <Switch value={garment.available} onValueChange={async () => {
-                    setIsModalVisible(false);
-                    await updateGarmentAvailabilityByBarCode(jwt, garment.barCode, garment.available);
-                    if (goToPage) navigation.navigate(goToPage as never);
-                    if (reload) reload();
-                  }}/>
+                  <Switch
+                    trackColor={{false: '#767577', true: '#5b20bd'}}
+                    thumbColor={theme.colors.accent}
+                    value={garment.available}
+                    onValueChange={async () => {
+                      setIsModalVisible(false);
+                      await updateGarmentAvailabilityByBarCode(jwt, garment.barCode, garment.available);
+                      if (goToPage) navigation.navigate(goToPage as never);
+                      if (reload) reload();
+                    }}
+                  />
                 </View>
               </View>
               <View style={styles.topInfo}>
@@ -96,10 +103,11 @@ const GarmentDetailsModal = ({ garment, jwt, isModalVisible, setIsModalVisible, 
               
               
               </View>
-              <StyledButton style={styles.closeButton} onPress={() => handleClose()} >X</StyledButton>
+              <StyledButton fontSize='title' style={styles.closeButton} onPress={() => handleClose()} >X</StyledButton>
            </View>
           )}
         </View>
+        </TouchableWithoutFeedback>
       </Modal>
   );
 };
@@ -115,10 +123,10 @@ const styles = StyleSheet.create({
   },
   title: {
     flexDirection: 'row',
+    width: 300,
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 8,
-    paddingRight: 15,
     backgroundColor: '#f0f0f0',
     borderRadius: 5,
   },
@@ -147,6 +155,7 @@ const styles = StyleSheet.create({
   },
   description: {
     marginTop: 10,
+    width: 300,
     padding: 8,
     backgroundColor: '#f0f0f0',
     borderRadius: 5,
@@ -171,13 +180,14 @@ const styles = StyleSheet.create({
   },
   closeButton: {
     position: 'absolute',
-    top: -35,
-    right: -30,
-    width: 45,
-    height: 45,
+    alignSelf: 'center',
+    bottom: -50,
+    width: 60,
+    height: 60,
     borderRadius: 50,
     justifyContent: 'center',
     elevation: 5,
+    backgroundColor: theme.colors.primary,
   },
 });
 

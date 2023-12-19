@@ -7,6 +7,7 @@ import { Garment } from '../../modules/Garment/Domain/garment';
 import { StyleSheet } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import GarmentDetailsModal from '../organisms/DetailGarmentModal';
+import theme from '../theme';
 
 const GarmentListSimple = ({ jwt, userId }) => {
   const [garmentsData, setGarmentsData] = useState<Garment[]>([]);
@@ -55,7 +56,7 @@ const GarmentListSimple = ({ jwt, userId }) => {
           }}>
             <Image
               source={{ uri: `${BACKEND_URL}/garments/${item.imagePath}` }}
-              style={[styles.itemImage, { width: imageWidth }, item.available === false ? { borderColor: '#EA0C5F' } : null]}
+              style={[styles.itemImage, { width: imageWidth }, item.available === false ? { borderColor: theme.colors.accent } : null]}
             />
           </TouchableOpacity>
         )}
@@ -86,42 +87,9 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 5,
   },
-  modalContainer: {
-    marginTop: '30%',
-    justifySelf: 'center',
-    alignSelf: 'center',
-    padding: 5,
-    borderRadius: 5,
-    backgroundColor: 'white',
-  },
-  androidShadow: {
-    elevation: 5,
-  },
-  iosShadow: {
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  buttonsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
   flatListContent: {
     flexGrow: 1,
     justifyContent: 'space-between',
-  },
-  detailImage: { 
-    width: 300,
-    height: 300,
-    resizeMode: 'cover',
-    marginBottom: 5,
-    borderRadius: 5,
   },
 });
 

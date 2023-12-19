@@ -15,6 +15,7 @@ const theme = {
     textError: 'red',
     buttonPrimary: '#24292e',
     buttonSecondary: '#fefefe',
+    accent: '#ff2a71',
   },
   fontSizes: {
     body: 14,
