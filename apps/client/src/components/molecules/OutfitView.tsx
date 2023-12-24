@@ -127,7 +127,7 @@ const OutfitView = ({ jwt, userId }) => {
         </View>
         <View style={styles.rightColumn}>
           <StyledText>{description}</StyledText>
-          <View style={{position: 'absolute', bottom: -5, right: -10, flexDirection: 'row', backgroundColor: theme.colors.primary, borderRadius: 50, padding: 15, paddingRight: 11, elevation: 1}}>
+          <View style={styles.outfitCounter}>
             <StyledText fontSize='subheading' fontWeight='bold' align='right' color='secondary'>{currentOutfit +1}/{length} </StyledText>
             <Entypo name="man" style={{color: theme.colors.textSecondary, fontSize: 20}} />
           </View>
@@ -153,15 +153,6 @@ const OutfitView = ({ jwt, userId }) => {
 };
 
 const styles = StyleSheet.create({
-  circle: {
-    position: 'absolute',
-    width: 1000,
-    height: 1000,
-    bottom: -700,
-    right: -650,
-    borderRadius: 500,
-    backgroundColor: theme.colors.accent,
-  },
   container: { 
     flex: 1,
     justifyContent: 'space-between',
@@ -206,6 +197,26 @@ const styles = StyleSheet.create({
     padding: 15,
     elevation: 5,
   },
+  circle: {
+    position: 'absolute',
+    width: 1000,
+    height: 1000,
+    bottom: -700,
+    right: -650,
+    borderRadius: 500,
+    backgroundColor: theme.colors.accent,
+  },
+  outfitCounter: {
+    position: 'absolute',
+    bottom: -5,
+    right: -10,
+    flexDirection: 'row',
+    backgroundColor: theme.colors.primary,
+    borderRadius: 50,
+    padding: 15,
+    paddingRight: 11,
+    elevation: 1
+  }
 });
 
 export default OutfitView;
