@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   buttons: {
     justifyContent: "space-around",
     flexDirection: "row",
-    marginVertical: 20,
+    marginVertical: 10,
     alignItems: "center",
   },
 });
