@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
   colorError: {
     color: theme.colors.textError
   },
+  colorWhite: {
+    color: theme.colors.white
+  },
   bold: {
     fontWeight: theme.fontWeights.bold
   },
@@ -47,6 +50,7 @@ export default function StyledText({ align, color, fontSize, fontWeight, style, 
     color === 'primary' && styles.colorPrimary,
     color === 'secondary' && styles.colorSecondary,
     color === 'error' && styles.colorError,
+    color === 'white' && styles.colorWhite,
     fontSize === 'subheading' && styles.subheading,
     fontSize === 'title' && styles.title,
     fontWeight === 'bold' && styles.bold,

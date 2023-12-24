@@ -1,8 +1,8 @@
 import { Model } from 'mongoose';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Garment } from '../Domain/garment.schema';
-import { CreateGarmentDto } from './create-garment.dto';
+import { Garment } from './garment.schema';
+import { CreateGarmentDto } from '../Application/create-garment.dto';
 
 @Injectable()
 export class GarmentService {
@@ -47,5 +47,9 @@ export class GarmentService {
       return garment.save();
     }
     return null;
+  }
+
+  async findByBarCode(barCode: string): Promise<Garment | null> {
+    return await this.garmentModel.findOne({ barCode }).exec();
   }
 }

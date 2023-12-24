@@ -1,16 +1,13 @@
 // @ts-ignore
 import { BACKEND_URL }from '@env';
 import React, { useState } from 'react';
-import { View, Text, ActivityIndicator, FlatList, Image, Modal, TouchableOpacity, Dimensions, Platform, Switch } from 'react-native';
+import { View, ActivityIndicator, FlatList, Image, TouchableOpacity, Dimensions } from 'react-native';
 import { getGarmentByUser } from '../../modules/Garment/Infrastructure/getGarments';
 import { Garment } from '../../modules/Garment/Domain/garment';
 import { StyleSheet } from 'react-native';
-import StyledText from '../atoms/StyledText';
-import StyledButton from '../atoms/StyledButton';
-import { deleteGarmentByBarCode } from '../../modules/Garment/Infrastructure/deleteGarment';
-import { updateGarmentAvailabilityByBarCode } from '../../modules/Garment/Infrastructure/updateGarment';
 import { useFocusEffect } from '@react-navigation/native';
-
+import GarmentDetailsModal from '../organisms/DetailGarmentModal';
+import theme from '../theme';
 
 const GarmentListSimple = ({ jwt, userId }) => {
   const [garmentsData, setGarmentsData] = useState<Garment[]>([]);
@@ -21,8 +18,7 @@ const GarmentListSimple = ({ jwt, userId }) => {
 
   const loadGarments = async () => {
     try {
-      const garments = await getGarmentByUser(jwt, userId);
-      setGarmentsData(garments);
+      setGarmentsData(await getGarmentByUser(jwt, userId));
       setLoading(false);
     } catch (error) {
       console.error('Error fetching garments:', error);
@@ -36,22 +32,19 @@ const GarmentListSimple = ({ jwt, userId }) => {
     }, [])
   );
   
-  console.log('garmentsData', garmentsData);
-
   if (loading) {
     return (
       <View>
         <ActivityIndicator size="large" />
-        <Text>Loading...</Text>
       </View>
     );
   }
 
   const windowWidth = Dimensions.get('window').width;
-  const imageWidth = windowWidth / 3;
+  const imageWidth = windowWidth / 3 - 10;
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={garmentsData}
         numColumns={3}
@@ -63,100 +56,40 @@ const GarmentListSimple = ({ jwt, userId }) => {
           }}>
             <Image
               source={{ uri: `${BACKEND_URL}/garments/${item.imagePath}` }}
-              style={[styles.itemImage, { width: imageWidth }, item.available === false ? { borderColor: '#EA0C5F' } : null]}
+              style={[styles.itemImage, { width: imageWidth }, item.available === false ? { borderColor: theme.colors.accent } : null]}
             />
           </TouchableOpacity>
         )}
         keyExtractor={(item) => item.barCode}
       />
 
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={isModalVisible}
-        onRequestClose={() => setIsModalVisible(false)}
-      >
-        <View style={[styles.modalContainer, Platform.OS === 'android' ? styles.androidShadow : styles.iosShadow]}>
-          {selectedGarment && (
-            <View>
-              <Image
-              source={{ uri: `${BACKEND_URL}/garments/${selectedGarment.imagePath}` }}
-              style={styles.detailImage}
-              />
-              <StyledText>Código: {selectedGarment.barCode}</StyledText>
-              <StyledText>Parte del cuerpo: {selectedGarment.type}</StyledText>
-              <StyledText>Marca: {selectedGarment.brand}</StyledText>
-              <StyledText>Modelo: {selectedGarment.model}</StyledText>
-              <StyledText>Descripción: {selectedGarment.description}</StyledText>
-              <View style={styles.buttonsContainer}>
-              <StyledButton color='red' onPress={async () => {
-                await deleteGarmentByBarCode(jwt, selectedGarment.barCode);
-                setIsModalVisible(false);
-                loadGarments();
-              }}>
-                Eliminar
-              </StyledButton>
-              <View>
-                <StyledText fontWeight='bold'>Estado:</StyledText>
-                <Switch value={selectedGarment.available} onValueChange={async () => {
-                  setIsModalVisible(false);
-                  await updateGarmentAvailabilityByBarCode(jwt, selectedGarment.barCode, selectedGarment.available);
-                  loadGarments();
-                }}/>
-              </View>
-              <StyledButton onPress={() => setIsModalVisible(false)} >Cerrar</StyledButton>
-              </View>
-           </View>
-          )}
-        </View>
-      </Modal>
+      <GarmentDetailsModal
+        garment={selectedGarment}
+        jwt={jwt}
+        isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+        goToPage='Garment'
+        reload={loadGarments}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 10, 
+  },
   itemImage: {
+    margin: 2,
     aspectRatio: 1,
     resizeMode: 'cover',
     borderColor: 'white',
-    borderWidth: 5,
-  },
-  modalContainer: {
-    marginTop: '30%',
-    justifySelf: 'center',
-    alignSelf: 'center',
-    padding: 5,
+    borderWidth: 3,
     borderRadius: 5,
-    backgroundColor: 'white',
-  },
-  androidShadow: {
-    elevation: 5,
-  },
-  iosShadow: {
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  buttonsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
   },
   flatListContent: {
     flexGrow: 1,
     justifyContent: 'space-between',
-  },
-  detailImage: { 
-    width: 300,
-    height: 300,
-    resizeMode: 'cover',
-    marginBottom: 5,
-    borderRadius: 5,
   },
 });
 

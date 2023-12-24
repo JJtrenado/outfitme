@@ -12,18 +12,20 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { Garment } from '../Domain/garment.schema';
+import { Garment } from './garment.schema';
 import { CreateGarmentDto } from '../Application/create-garment.dto';
-import { GarmentService } from '../Application/garment.service';
+import { GarmentService } from './garment.service';
 import { VerifyJwtService } from 'src/common/user/Infrastructure/verifyJwt.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { resolve } from 'path';
+import * as path from 'path';
+import * as fs from 'fs';
 
 @Controller('garments')
 export class GarmentController {
   constructor(
-    private readonly garmentService: GarmentService,
     private readonly verifyJwtService: VerifyJwtService,
+    private readonly garmentService: GarmentService,
   ) {}
 
   @Post()
@@ -38,7 +40,6 @@ export class GarmentController {
       const decoded = await this.verifyJwtService.verifyJwt(jwt);
       if (decoded && file) {
         createGarmentDto.imagePath = file.path;
-        console.log(createGarmentDto);
         return this.garmentService.create(createGarmentDto);
       }
     }
@@ -77,7 +78,21 @@ export class GarmentController {
     if (jwt) {
       const decoded = await this.verifyJwtService.verifyJwt(jwt);
       if (decoded) {
-        return this.garmentService.deleteByBarCode(barCode);
+        const garment = await this.garmentService.findByBarCode(barCode);
+        if (garment) {
+          if (this.garmentService.deleteByBarCode(barCode)) {
+            const imagePath = garment.imagePath;
+            const imageAbsolutePath = path.join(
+              __dirname,
+              '../../..',
+              imagePath,
+            );
+            if (fs.existsSync(imageAbsolutePath)) {
+              fs.unlinkSync(imageAbsolutePath);
+            }
+            return true;
+          }
+        }
       }
     }
     console.log('no jwt');
@@ -98,6 +113,22 @@ export class GarmentController {
           barCode,
           updateAvailabilityDto.available,
         );
+      }
+    }
+    console.log('no jwt');
+    return null;
+  }
+
+  @Get('byBarCode/:barCode')
+  async findByBarCode(
+    @Param('barCode') barCode: string,
+    @Req() request: Request,
+  ): Promise<Garment> {
+    const jwt = request.headers.authorization?.split(' ')[1];
+    if (jwt) {
+      const decoded = await this.verifyJwtService.verifyJwt(jwt);
+      if (decoded) {
+        return this.garmentService.findByBarCode(barCode);
       }
     }
     console.log('no jwt');

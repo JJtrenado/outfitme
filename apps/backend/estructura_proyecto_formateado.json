@@ -1,0 +1,305 @@
+[
+  {
+    "type": "directory",
+    "name": ".",
+    "contents": [
+      {
+        "type": "file",
+        "name": "estructura_proyecto.json"
+      },
+      {
+        "type": "file",
+        "name": "nest-cli.json"
+      },
+      {
+        "type": "file",
+        "name": "package.json"
+      },
+      {
+        "type": "file",
+        "name": "README.md"
+      },
+      {
+        "type": "directory",
+        "name": "src",
+        "contents": [
+          {
+            "type": "file",
+            "name": "app.module.ts"
+          },
+          {
+            "type": "directory",
+            "name": "auth",
+            "contents": [
+              {
+                "type": "directory",
+                "name": "Application",
+                "contents": [
+                  {
+                    "type": "file",
+                    "name": "externalUserService.interface.ts"
+                  },
+                  {
+                    "type": "file",
+                    "name": "getUser.service.ts"
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "Infrastructure",
+                "contents": [
+                  {
+                    "type": "file",
+                    "name": "auth.controller.ts"
+                  },
+                  {
+                    "type": "file",
+                    "name": "auth.module.ts"
+                  },
+                  {
+                    "type": "file",
+                    "name": "generateJwt.service.ts"
+                  },
+                  {
+                    "type": "file",
+                    "name": "google.service.ts"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "directory",
+            "name": "barCode",
+            "contents": [
+              {
+                "type": "directory",
+                "name": "Infrastructure",
+                "contents": [
+                  {
+                    "type": "file",
+                    "name": "barCode.controller.ts"
+                  },
+                  {
+                    "type": "file",
+                    "name": "barCode.module.ts"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "directory",
+            "name": "common",
+            "contents": [
+              {
+                "type": "directory",
+                "name": "fileUpload",
+                "contents": [
+                  {
+                    "type": "directory",
+                    "name": "Infrastructure",
+                    "contents": [
+                      {
+                        "type": "file",
+                        "name": "fileUpload.service.ts"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "user",
+                "contents": [
+                  {
+                    "type": "directory",
+                    "name": "Domain",
+                    "contents": [
+                      {
+                        "type": "file",
+                        "name": "User.ts"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "directory",
+                    "name": "Infrastructure",
+                    "contents": [
+                      {
+                        "type": "file",
+                        "name": "verifyJwt.service.ts"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "directory",
+            "name": "garment",
+            "contents": [
+              {
+                "type": "directory",
+                "name": "Application",
+                "contents": [
+                  {
+                    "type": "file",
+                    "name": "create-garment.dto.ts"
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "Infrastructure",
+                "contents": [
+                  {
+                    "type": "file",
+                    "name": "garment.controller.ts"
+                  },
+                  {
+                    "type": "file",
+                    "name": "garment.module.ts"
+                  },
+                  {
+                    "type": "file",
+                    "name": "garment.schema.ts"
+                  },
+                  {
+                    "type": "file",
+                    "name": "garment.service.ts"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "main.ts"
+          },
+          {
+            "type": "directory",
+            "name": "outfit",
+            "contents": [
+              {
+                "type": "directory",
+                "name": "Application",
+                "contents": [
+                  {
+                    "type": "file",
+                    "name": "create-outfit.dto.ts"
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "Infrastructure",
+                "contents": [
+                  {
+                    "type": "file",
+                    "name": "outfit.controller.ts"
+                  },
+                  {
+                    "type": "file",
+                    "name": "outfit.module.ts"
+                  },
+                  {
+                    "type": "file",
+                    "name": "outfit.schema.ts"
+                  },
+                  {
+                    "type": "file",
+                    "name": "outfit.service.ts"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "directory",
+        "name": "test",
+        "contents": [
+          {
+            "type": "file",
+            "name": "app.e2e-spec.ts"
+          },
+          {
+            "type": "file",
+            "name": "jest-e2e.json"
+          }
+        ]
+      },
+      {
+        "type": "file",
+        "name": "tsconfig.build.json"
+      },
+      {
+        "type": "file",
+        "name": "tsconfig.json"
+      },
+      {
+        "type": "directory",
+        "name": "uploads",
+        "contents": [
+          {
+            "type": "file",
+            "name": "01a3e1a7ebcbc6c5f236823c7d3210a6"
+          },
+          {
+            "type": "file",
+            "name": "04096c733d89ebfbda1ab8dae7879b86"
+          },
+          {
+            "type": "file",
+            "name": "0a34aec0b8885478fe1d8b57e23df183"
+          },
+          {
+            "type": "file",
+            "name": "22686f346a54a07ef6cc31ad2f88a172"
+          },
+          {
+            "type": "file",
+            "name": "2b42b40d40b811fa1a25118ad0801a86"
+          },
+          {
+            "type": "file",
+            "name": "6a8932e60ed4a55556b8de005a729c2e"
+          },
+          {
+            "type": "file",
+            "name": "7dddbc8829717463d1c2204db6bf01ad"
+          },
+          {
+            "type": "file",
+            "name": "a763b988ecf420e706d02019c1030579"
+          },
+          {
+            "type": "file",
+            "name": "b724b5afbc527e6a7e1e8f1d6557732d"
+          },
+          {
+            "type": "file",
+            "name": "d65f359a3dd2d03864c13bfb9e3f2fbe"
+          },
+          {
+            "type": "file",
+            "name": "dd618097c0f7e20066bf1751acc7ba3c"
+          },
+          {
+            "type": "file",
+            "name": "fa520ad7f225e7aaf2e3d9f6dfff6868"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "report",
+    "directories": 20,
+    "files": 43
+  }
+]

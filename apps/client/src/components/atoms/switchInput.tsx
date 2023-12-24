@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Switch } from 'react-native';
 import { Controller } from 'react-hook-form';
 import StyledText from './StyledText';
+import theme from '../theme';
 
 const SwitchInput = ({
   control,
@@ -16,7 +17,12 @@ const SwitchInput = ({
         name={name}
         control={control}
         render={({ field: { onChange, value } }) => (
-          <Switch value={value} onValueChange={onChange} />
+          <Switch
+            value={value}
+            onValueChange={onChange}
+            trackColor={{false: '#767577', true: theme.brandColors.logoPurple}}
+            thumbColor={theme.colors.accent}
+          />
         )}
         defaultValue={defaultValue}
       />

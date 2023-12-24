@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { getLocalUser } from '../../modules/common/Infrastructure/LocalStorageUser';
 import { useState } from "react";
@@ -33,11 +33,13 @@ const NewOutfitScreen = () => {
   }
 
   return (
-    <View>
+    <>
       <Header picture={user.picture} />
-      <StyledText align="center" fontWeight="bold" style={{marginTop: 20}}>Nuevo Outfit</StyledText>
-      <NewOutfitForm />
-    </View>
+      <ScrollView>
+        <StyledText align="center" fontWeight="bold" fontSize='title' style={{ marginTop: 20 }}>Nuevo Outfit</StyledText>
+        <NewOutfitForm jwt={user.jwt.jwt} userId={user.email} />
+      </ScrollView>
+    </>
   );
 }
 
