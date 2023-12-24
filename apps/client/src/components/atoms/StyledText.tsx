@@ -38,6 +38,9 @@ const styles = StyleSheet.create({
   },
   textAlignCenter: {
     textAlign: 'center'
+  },
+  textAlignRight: {
+    textAlign: 'right'
   }
 })
 
@@ -47,6 +50,7 @@ export default function StyledText({ align, color, fontSize, fontWeight, style, 
   const textStyles = [
     styles.text,
     align === 'center' && styles.textAlignCenter,
+    align === 'right' && styles.textAlignRight,
     color === 'primary' && styles.colorPrimary,
     color === 'secondary' && styles.colorSecondary,
     color === 'error' && styles.colorError,

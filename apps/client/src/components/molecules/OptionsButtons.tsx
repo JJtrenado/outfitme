@@ -4,15 +4,16 @@ import BarCodeButton from '../atoms/BarCodeButton';
 import StyledImageButton from '../atoms/StyledImageButton';
 import OutfitButton from '../atoms/OutfitButton';
 import { useNavigation } from '@react-navigation/native';
+import theme from '../theme';
 
 export default function OptionsButtons() {
   const navigation = useNavigation();
 
   return (
     <View style={[styles.buttons]}>
-      <BarCodeButton onPress={() => {navigation.navigate('Scann' as never);}} size={40}/>
+      <BarCodeButton onPress={() => {navigation.navigate('Scann' as never);}} size={40} color={theme.colors.primary}/>
       <StyledImageButton onPress={() => { navigation.navigate('Garment' as never); }} imageSource={require("../../../assets/tshirtIcon.png")} size={45}/>
-      <OutfitButton onPress={() => {navigation.navigate('NewOutfit' as never);}} size={40}/>
+      <OutfitButton onPress={() => {navigation.navigate('NewOutfit' as never);}} size={40} color={theme.colors.primary}/>
     </View>
   )
 }

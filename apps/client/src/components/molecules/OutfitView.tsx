@@ -1,14 +1,12 @@
 // @ts-ignore
 import { BACKEND_URL }from '@env';
 import React, { useEffect, useState } from 'react';
-import { View, Image, StyleSheet, Dimensions, ActivityIndicator, TouchableOpacity, Modal, Platform, Switch} from 'react-native';
-import StyledButton from '../atoms/StyledButton';
+import { View, Image, StyleSheet, Dimensions, ActivityIndicator, TouchableOpacity} from 'react-native';
 import { Garment } from '../../modules/Garment/Domain/garment';
 import StyledText from '../atoms/StyledText';
 import { useFocusEffect } from '@react-navigation/native';
 import { getOutfit} from '../../modules/Outfit/Infrastructure/getOutfit';
-import { deleteGarmentByBarCode } from '../../modules/Garment/Infrastructure/deleteGarment';
-import { updateGarmentAvailabilityByBarCode } from '../../modules/Garment/Infrastructure/updateGarment';
+import { Entypo } from '@expo/vector-icons'; 
 import { deleteOutfitByValidationCode } from '../../modules/Outfit/Infrastructure/deleteOutfit';
 import GarmentDetailsModal from '../organisms/DetailGarmentModal';
 import DeleteButton from '../atoms/DeleteButton';
@@ -129,6 +127,10 @@ const OutfitView = ({ jwt, userId }) => {
         </View>
         <View style={styles.rightColumn}>
           <StyledText>{description}</StyledText>
+          <View style={{position: 'absolute', bottom: -5, right: -10, flexDirection: 'row', backgroundColor: theme.colors.primary, borderRadius: 50, padding: 15, paddingRight: 11, elevation: 1}}>
+            <StyledText fontSize='subheading' fontWeight='bold' align='right' color='secondary'>{currentOutfit +1}/{length} </StyledText>
+            <Entypo name="man" style={{color: theme.colors.textSecondary, fontSize: 20}} />
+          </View>
         </View>
       </View>
       <View style={styles.buttonsContainer}>
@@ -182,7 +184,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     elevation: 5,
   },
-  rightColumn: { flex:1, padding: 3},
+  rightColumn: { flex:1, padding: 3, justifyContent: 'space-between'},
   leftColumn: { gap: 2 },
   imageContainer: { flexDirection: 'row', alignItems: 'center', gap: 5 },
   image: {
